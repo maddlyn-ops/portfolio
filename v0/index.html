@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maddlyn Fuzier — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Seatren:wght@400&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #080f06;
+  --card: #0d1209;
+  --fg: #f5f5f5;
+  --fg-dim: #a8a8a8;
+  --fg-faint: #616161;
+  --gold: #fed355;
+  --purple: #a893e7;
+  --lime: #a8ff60;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--fg);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 10% 50%,rgba(254,211,85,0.08) 0%,transparent 50%),radial-gradient(circle at 90% 80%,rgba(168,147,231,0.08) 0%,transparent 50%);pointer-events:none;z-index:0}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block;max-width:100%;height:auto}
+
+.container{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,80px);position:relative;z-index:1}
+section{padding:120px 0;position:relative;border-top:1px solid rgba(255,255,255,0.05)}
+section:first-of-type{border-top:0}
+
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;gap:16px;align-items:center;padding:12px 24px;background:rgba(8,15,6,0.8);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:999px;animation:slideDown 0.8s cubic-bezier(0.4,0,0.2,1)}
+@keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-brand{font-weight:600;font-size:14px;margin-right:12px;display:flex;align-items:center;gap:8px}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(254,211,85,0.4);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(2);opacity:0}}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 12px;color:var(--fg-dim);font-size:13px;border-radius:999px;transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
+.nav-link:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1.2fr 0.8fr;gap:80px;align-items:center;padding-top:180px;padding-bottom:120px}
+.hero-content h1{font-family:'Seatren',serif;font-size:clamp(40px,8vw,70px);line-height:1.1;margin-bottom:32px;font-weight:400;letter-spacing:-0.02em;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-content h1 .line{display:block}
+.hero-content h1 .accent{color:var(--gold);font-style:italic}
+.hero-subtitle{font-size:18px;color:var(--fg-dim);line-height:1.6;max-width:45ch;margin-bottom:48px;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.3s both}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.4s both}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:4px;font-size:16px;font-weight:500;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,rgba(254,211,85,0.5),rgba(168,147,231,0.5));border:1px solid var(--gold);backdrop-filter:blur(4px)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(254,211,85,0.2)}
+.btn-secondary{border:1px solid var(--fg);color:var(--fg)}
+.btn-secondary:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+.hero-side{position:relative;height:600px}
+.hero-image{aspect-ratio:1;background:rgba(13,18,9,0.8);border:1px solid rgba(254,211,85,0.2);border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;color:var(--fg-faint);font-size:14px;animation:fadeIn 1s cubic-bezier(0.4,0,0.2,1) 0.5s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero-label{position:absolute;top:20px;left:20px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-faint);font-family:'Courier New',monospace}
+
+.projects-intro{margin-bottom:64px}
+.projects-intro h2{font-family:'Seatren',serif;font-size:clamp(32px,6vw,48px);margin-bottom:16px;font-weight:400;letter-spacing:-0.02em}
+.projects-intro h2 .strike{text-decoration:line-through;color:var(--fg-faint);margin:0 8px}
+.projects-intro h2 .highlight{font-style:italic;color:var(--gold)}
+.projects-tabs{display:flex;flex-direction:column;gap:32px}
+.tabs-list{display:flex;gap:8px;flex-wrap:wrap;list-style:none}
+.tab-btn{padding:10px 16px;color:var(--fg);border:1px solid rgba(255,255,255,0.2);border-radius:999px;background:transparent;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.tab-btn:hover{border-color:var(--purple);color:var(--purple)}
+.tab-btn.active{background:var(--purple);border-color:var(--purple);color:var(--bg)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+.project-card{background:rgba(13,18,9,0.8);border:1px solid rgba(254,211,85,0.2);border-radius:16px;padding:32px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(254,211,85,0.1),rgba(168,147,231,0.1));opacity:0;transition:opacity 0.3s cubic-bezier(0.4,0,0.2,1)}
+.project-card:hover{border-color:var(--gold);transform:translateY(-8px)}
+.project-card:hover::before{opacity:1}
+.project-content{position:relative;z-index:1}
+.project-tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--purple);margin-bottom:12px;font-weight:600}
+.project-title{font-family:'Seatren',serif;font-size:28px;font-weight:400;margin-bottom:12px;letter-spacing:-0.02em}
+.project-desc{font-size:15px;color:var(--fg-dim);line-height:1.6;margin-bottom:20px}
+.project-metrics{display:flex;gap:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)}
+.metric{flex:1}
+.metric-value{font-size:20px;font-weight:600;color:var(--gold)}
+.metric-label{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--fg-faint);margin-top:4px}
+
+.approach-list{display:grid;gap:64px;max-width:800px}
+.approach-item{animation:fadeUp 0.8s cubic-bezier(0.4,0,0.2,1)}
+.approach-num{color:var(--purple);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;font-family:'Courier New',monospace}
+.approach-title{font-family:'Seatren',serif;font-size:32px;font-weight:400;margin-bottom:16px;letter-spacing:-0.02em}
+.approach-text{font-size:16px;line-height:1.7;color:var(--fg-dim)}
+
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.about-text{order:2}
+.about-text h2{font-family:'Seatren',serif;font-size:clamp(32px,4vw,48px);margin-bottom:32px;font-weight:400;letter-spacing:-0.02em}
+.about-text h2 .accent{color:var(--gold);font-style:italic}
+.about-text p{font-size:16px;line-height:1.7;color:var(--fg-dim);margin-bottom:20px}
+.about-text strong{color:var(--fg);font-weight:600}
+.timeline{margin-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+.timeline-item{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.1);align-items:center}
+.timeline-year{font-size:14px;color:var(--purple);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+.timeline-role{font-size:16px;color:var(--fg)}
+.timeline-company{color:var(--fg-dim)}
+.about-photo{order:1;position:relative}
+.about-photo img{width:100%;border:2px solid var(--gold);border-radius:16px;aspect-ratio:3/4;object-fit:cover}
+
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.stack-category h3{font-family:'Seatren',serif;font-size:32px;margin-bottom:20px;font-weight:400;letter-spacing:-0.02em}
+.stack-items{display:flex;flex-direction:column;gap:12px}
+.stack-item{font-size:16px;line-height:1.6;color:var(--fg-dim)}
+
+.contact-cta{text-align:center;padding:80px 0}
+.contact-cta h2{font-family:'Seatren',serif;font-size:clamp(40px,8vw,70px);margin-bottom:24px;font-weight:400;letter-spacing:-0.02em}
+.contact-text{font-size:18px;color:var(--fg-dim);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.contact-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--fg-dim)}
+
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:2000;overflow-y:auto;animation:fadeIn 0.3s cubic-bezier(0.4,0,0.2,1)}
+.modal.active{display:block}
+.modal-content{max-width:900px;margin:60px auto;background:rgba(13,18,9,0.95);border:1px solid rgba(254,211,85,0.2);border-radius:16px;padding:60px;animation:slideUp 0.4s cubic-bezier(0.4,0,0.2,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:30px;right:30px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);border-radius:50%;cursor:pointer;transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
+.modal-close:hover{background:rgba(255,255,255,0.2);transform:rotate(90deg)}
+.modal h2{font-family:'Seatren',serif;font-size:48px;margin-bottom:20px;font-weight:400;letter-spacing:-0.02em}
+.modal-meta{font-size:14px;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:40px}
+.modal-body{font-size:16px;line-height:1.8;color:var(--fg-dim)}
+.modal-body h3{font-family:'Seatren',serif;font-size:28px;color:var(--fg);margin:40px 0 20px;font-weight:400}
+.modal-body p{margin-bottom:16px}
+
+@media(max-width:768px){
+  nav{flex-direction:column;width:90%;gap:8px}
+  .hero{grid-template-columns:1fr;gap:60px;padding-top:140px}
+  .hero-side{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-text{order:1}
+  .about-photo{order:2}
+  .stack-grid{grid-template-columns:1fr;gap:40px}
+  .projects-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:20px;text-align:center}
+  .modal-content{padding:40px 24px;margin:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand"><span>Maddlyn</span><div class="nav-dot"></div></div>
+  <div class="nav-links">
+    <a href="#projects" class="nav-link">Projets</a>
+    <a href="#approach" class="nav-link">Approche</a>
+    <a href="#about" class="nav-link">À propos</a>
+    <a href="#stack" class="nav-link">Stack</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1><span class="line">Product Designer.</span><span class="line"><span class="accent">De l'écran au système</span> qui le produit.</span></h1>
+    <p class="hero-subtitle">6 ans en product design. Aujourd'hui chez <strong>CMA Média (RMC BFM)</strong>, je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="scrollTo('#projects')">Passage du craft au système <span>→</span></button>
+      <button class="btn btn-secondary" onclick="scrollTo('#contact')">Me contacter</button>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="hero-image">
+      <span class="hero-label">System · 02</span>
+      <img src="assets/portrait.png" alt="Maddlyn Fuzier" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="projects-intro">
+      <h2>Les projets <span class="strike">que j'ai</span> <span class="highlight">qui m'ont fait</span></h2>
+    </div>
+    <div class="projects-tabs">
+      <ul class="tabs-list">
+        <li><button class="tab-btn active" data-filter="all">Tous les projets</button></li>
+        <li><button class="tab-btn" data-filter="craft">Craft</button></li>
+        <li><button class="tab-btn" data-filter="system">Système</button></li>
+      </ul>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="container">
+    <h2 style="font-family:'Seatren',serif;font-size:48px;margin-bottom:60px;font-weight:400;letter-spacing:-0.02em;">Mon approche</h2>
+    <div class="approach-list">
+      <div class="approach-item">
+        <div class="approach-num">01 / 04</div>
+        <h3 class="approach-title">Entrer au bon moment change tout.</h3>
+        <p class="approach-text">Le designer qui arrive à l'étape maquette résout les mauvais problèmes. Le bon endroit, c'est le cadrage, pas le handoff.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">02 / 04</div>
+        <h3 class="approach-title">Un système se joue sur les tokens, pas les composants.</h3>
+        <p class="approach-text">L'architecture de tokens propre vaut plus qu'un beau composant. C'est elle qui fait scaler, c'est elle qui casse en prod si elle est faible.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">03 / 04</div>
+        <h3 class="approach-title">Un livrable, c'est tous les états.</h3>
+        <p class="approach-text">Edge cases, tablette, dark mode, variantes marque, animations, vides. Un mockup qui n'a que le happy path n'est pas un livrable, c'est un teaser.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">04 / 04</div>
+        <h3 class="approach-title">Un design ne vaut que par son écosystème.</h3>
+        <p class="approach-text">Pression publicitaire, contraintes techniques, implémentation. Le rôle d'un designer mature, c'est de penser le design dans son système de livraison.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo"><img src="assets/portrait.png" alt="Maddlyn Fuzier"></div>
+      <div class="about-text">
+        <h2>Le métier comme outil, pas comme <span class="accent">signature</span></h2>
+        <p>J'ai commencé par le graphisme, la publicité, le webdesign à l'époque où il existait encore comme métier propre, avant de glisser vers le product design. Pas par filiation logique : par lassitude d'un monde où la beauté d'un livrable suffisait à valider le travail, indépendamment de ce que ça produisait.</p>
+        <p>Mon obsession depuis cette bascule, c'est que le <strong>design soit utile</strong>. Qu'il réponde à un enjeu business identifié, à une frustration utilisateur réelle, à une contrainte technique respectée. Qu'il vive en prod plutôt que mourir en présentation.</p>
+        <h3 style="font-family:'Seatren',serif;font-size:28px;margin:40px 0 24px;font-weight:400;">Mon parcours</h3>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-year">Mars 2024 → Auj.</div><div><div class="timeline-role">Product Designer <span class="timeline-company">· CMA Média / RMC BFM</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">Déc. 2021 → Fév. 2024</div><div><div class="timeline-role">Product Designer <span class="timeline-company">· Reworld Media</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2019 → Auj.</div><div><div class="timeline-role">Freelance <span class="timeline-company">· Madd</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2019 → 2020</div><div><div class="timeline-role">Création & Design <span class="timeline-company">· Sup de Pub</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2017 → 2019</div><div><div class="timeline-role">MMI <span class="timeline-company">· IUT d'Angoulême</span></div></div></div>
+        </div>
+        <h3 style="font-family:'Seatren',serif;font-size:28px;margin:40px 0 16px;font-weight:400;">En parallèle</h3>
+        <p>Depuis 2019, je porte <strong>Madd</strong>, mon activité freelance. Elle me sert à adresser des marchés que je ne touche pas en entreprise (marques premium, restauration, retail, packaging). Site: <a href="https://maddlynfuzier.com" target="_blank" style="color:var(--gold);text-decoration:underline;">maddlynfuzier.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="container">
+    <h2 style="font-family:'Seatren',serif;font-size:48px;margin-bottom:60px;font-weight:400;letter-spacing:-0.02em;">Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-category">
+        <h3>Penser et structurer</h3>
+        <div class="stack-items">
+          <div class="stack-item">Claude</div>
+          <div class="stack-item">ChatGPT</div>
+          <div class="stack-item">Gemini</div>
+          <div class="stack-item">Notion</div>
+        </div>
+      </div>
+      <div class="stack-category">
+        <h3>Concevoir & prototyper</h3>
+        <div class="stack-items">
+          <div class="stack-item">Figma</div>
+          <div class="stack-item">FigJam</div>
+          <div class="stack-item">Figma Make</div>
+          <div class="stack-item">Framer</div>
+        </div>
+      </div>
+      <div class="stack-category">
+        <h3>Livrer & automatiser</h3>
+        <div class="stack-items">
+          <div class="stack-item">Jira</div>
+          <div class="stack-item">GitHub</div>
+          <div class="stack-item">Claude Code</div>
+          <div class="stack-item">n8n</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-cta">
+      <h2>Vous êtes toujours là ?</h2>
+      <p class="contact-text">Si vous êtes arrivés jusqu'ici, c'est que mon profil ou ce que je raconte vous parle. N'hésitez pas à me contacter, je serai ravie d'échanger avec vous.</p>
+      <div class="contact-buttons">
+        <a href="mailto:fuzier.maddlyn@gmail.com" class="btn btn-primary">Par mail <span>→</span></a>
+        <a href="https://www.linkedin.com/in/maddlynfuzier" target="_blank" class="btn btn-secondary">Sur LinkedIn <span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="container">
+  <span>© Maddlyn Fuzier 2026. Site réalisé entre Claude et moi</span>
+  <button class="btn btn-secondary" onclick="scrollTo('#contact')" style="padding:8px 16px;font-size:14px;">Me contacter</button>
+</footer>
+
+<div class="modal" id="caseModal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal-content"><div id="modalBody"></div></div>
+</div>
+
+<script>
+const projects = [
+  {id:'bfm-app',title:'Refonte App BFM',category:'craft',tag:'Refonte d\'app',company:'CMA Média',year:'2024–2025',role:'Lead designer',desc:'Refonte complète d\'une app 17M MAU, intégrant 3 marques, nouvelle DA.',metrics:[{value:'+5%',label:'Visites'},{value:'+42s',label:'Temps moyen'},{value:'+5pts',label:'Shorts'}],fullContent:'<h2>Refonte App BFM</h2><div class="modal-meta">CMA Média · 2024–2025 · Lead designer</div><h3>Le contexte</h3><p>En 2024, on m\'a confié la refonte de l\'app BFM. Quatre projets en un : refonte produit + bascule de marque + agrégation de 3 marques + enjeu politique. Pas le droit de se louper.</p><h3>Le problème</h3><p>Refondre une app 17M MAU en tenant trois exigences : densifier l\'offre, mettre en avant l\'actu chaude & vidéo, imposer une DA sans perdre les repères.</p><h3>Outcomes</h3><p>+5% visites (5x l\'objectif), +42s temps moyen, +5pts shorts. Bascule sans crise. Première vitrine CMA post-rachat.</p>'},
+  {id:'rmc-sport',title:'Réinternalisation App RMC',category:'craft',tag:'Réinternalisation',company:'CMA Média',year:'2024',role:'Lead designer',desc:'4 jours pour reprendre l\'app entière, aligner socle RMC BFM, livrer exploitable.',metrics:[{value:'4j',label:'Refonte'},{value:'100%',label:'Écrans'},{value:'95%',label:'Specs'}],fullContent:'<h2>Réinternalisation App RMC Sport</h2><div class="modal-meta">CMA Média · 2024 · Lead designer</div><h3>Le défi</h3><p>App développée par prestataire, à réinternaliser. Première version existait mais intégrait mal le socle technique. Délais courts, risque de partir cassé.</p><h3>Exécution</h3><p>Reprise intégrale en 4 jours : contraintes du socle + cohérence visuelle + responsivité + specs dev. Livrée et exploitable.</p><h3>Impact</h3><p>App en prod. Crédibilité établie auprès des leads tech pour la suite (refonte BFM 6 mois après).</p>'},
+  {id:'login-sso',title:'Login Multi-marques RMC+',category:'craft',tag:'SSO multi-marques',company:'CMA Média',year:'2024–en cours',role:'Lead designer',desc:'Compte unique pour 6 marques, 4 plateforme, cohérent, RGPD, live RMC+.',metrics:[{value:'6',label:'Marques'},{value:'4',label:'Plateformes'},{value:'✓',label:'RGPD'}],fullContent:'<h2>Login Multi-marques</h2><div class="modal-meta">CMA Média · 2024–en cours · Lead designer</div><h3>L\'approche</h3><p>Compte unique + gestion universelle + fonctionnalités contextuelles. Utilisateur perçoit cohérence, identités marque respectées.</p><h3>Stratégie</h3><p>Onboarding progressif (demander minimum à création, enrichir ensuite). Migration RMC BFM Play transparent. Consentement RGPD granulaire.</p><h3>État</h3><p>Live côté RMC+, déploiement publishing en préparation.</p>'},
+  {id:'design-system',title:'Design System Multi-marques',category:'system',tag:'Design System',company:'CMA Média',year:'2024–en cours',role:'Lead designer',desc:'4 marques média, web + app iOS/Android. Audit chiffré, tokens, gouvernance.',metrics:[{value:'109→14',label:'Couleurs'},{value:'3',label:'Niveaux'},{value:'4',label:'Marques'}],fullContent:'<h2>Design System Multi-marques</h2><div class="modal-meta">CMA Média · 2024–en cours · Lead designer</div><h3>Approche</h3><p>Audit chiffré avant architecture. RMC web : 109 couleurs → 14, 83 typos → 18, 18 espacements → 6.</p><h3>Architecture</h3><p>3 niveaux : tokens globaux (grammaire) + tokens marque (theming) + composants à variants.</p><h3>Philosophie</h3><p>Affirmer identités de marque, pas les uniformiser. Le DS rend les marques plus rigoureuses, pas les dilue.</p>'},
+  {id:'framework-produit',title:'Framework Produit',category:'system',tag:'Framework',company:'CMA Média',year:'2025–en cours',role:'Lead designer',desc:'Redéfinition frameworks produit. Focus : place du Design dans l\'organisation.',metrics:[{value:'2',label:'Rôles PD vs D'},{value:'6',label:'Étapes'},{value:'✓',label:'RACI'}],fullContent:'<h2>Framework Produit</h2><div class="modal-meta">CMA Média · 2025–en cours</div><h3>Défi</h3><p>Design entre trop tard, livrables incomplets, pas de distinction PD vs Designer, collaboration filtrée par PM.</p><h3>Phase 0 : Audit</h3><p>6 interviews. Insight : "avec le Product Designer on a tout, avec le Designer il manque des choses".</p><h3>Direction</h3><p>PD entre étape 2-3 (cadrage, parcours, specs), Designer étape 4 (graphique, déclinaisons). RACI clair par étape.</p>'},
+  {id:'reworld',title:'Reworld Media · 80+ marques',category:'system',tag:'80+ marques',company:'Reworld Media',year:'2021–2024',role:'Product Designer',desc:'2.5 ans. 80+ marques media + plateformes clients. Rigueur d\'org comme survie.',metrics:[{value:'80+',label:'Marques'},{value:'12+',label:'Clients'},{value:'✓',label:'Notion'}],fullContent:'<h2>Reworld Media · 80+ marques</h2><div class="modal-meta">Reworld Media · Dec 2021 – Feb 2024</div><h3>Contexte</h3><p>80+ marques propres (Grazia, Marmiton, Doctissimo, etc.) + plateformes clients. Flux tendu, pas de roadmap.</p><h3>Apprentissages</h3><p><strong>1. Rigueur d\'org comme survie :</strong> Refondu ticketing sur Notion pour absorber le volume.<br><strong>2. Réflexe système :</strong> Catalogue de templates pour livrer vite à budget serré.<br><strong>3. Responsabilité élargie :</strong> Seule sur large périmètre, accompagnement d\'alternantes.</p><h3>Projets clés</h3><p>Refonte BIBA, EnVols (Air France), Grazia. Leçon dure : un design ne vaut que par l\'écosystème qui le porte jusqu\'à la prod.</p>'}
+];
+
+function renderProjects(filter='all'){
+  const grid=document.getElementById('projects-grid');
+  const filtered=filter==='all'?projects:projects.filter(p=>p.category===filter);
+  grid.innerHTML=filtered.map(p=>`<div class="project-card" onclick="openCase('${p.id}')"><div class="project-content"><div class="project-tag">${p.tag}</div><h3 class="project-title">${p.title}</h3><p class="project-desc">${p.desc}</p><div class="project-metrics">${p.metrics.map(m=>`<div class="metric"><div class="metric-value">${m.value}</div><div class="metric-label">${m.label}</div></div>`).join('')}</div></div></div>`).join('');
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProjects(btn.dataset.filter);
+  });
+});
+
+function openCase(projectId){
+  const project=projects.find(p=>p.id===projectId);
+  if(!project)return;
+  document.getElementById('modalBody').innerHTML=project.fullContent;
+  document.getElementById('caseModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('caseModal').classList.remove('active');
+  document.body.style.overflow='auto';
+}
+
+document.getElementById('caseModal').addEventListener('click',(e)=>{
+  if(e.target.id==='caseModal')closeModal();
+});
+
+function scrollTo(selector){
+  const el=document.querySelector(selector);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  renderProjects('all');
+});
+</script>
+
+</body>
+</html>

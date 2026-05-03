@@ -6,1147 +6,341 @@
 <title>Maddlyn Fuzier — Product Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Seatren:wght@400&display=swap" rel="stylesheet" />
 <style>
-/* --- tokens --- */
 :root {
-  --bg: #0a0a0b;
-  --bg-elev: #111113;
-  --bg-elev-2: #17171a;
-  --line: #1f1f23;
-  --line-2: #2a2a30;
-  --ink: #f4f4f2;
-  --ink-dim: #a5a5a0;
-  --ink-faint: #6b6b68;
-  --accent: #a8ff60;      /* electric lime — fintech-precise */
-  --accent-ink: #0a0a0b;
-  --danger: #ff6b5c;
-  --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
-  --serif: 'Instrument Serif', 'Times New Roman', serif;
-  --maxw: 1360px;
-  --pad: clamp(24px, 4vw, 56px);
-  --radius: 10px;
+  --bg: #080f06;
+  --card: #0d1209;
+  --fg: #f5f5f5;
+  --fg-dim: #a8a8a8;
+  --fg-faint: #616161;
+  --gold: #fed355;
+  --purple: #a893e7;
+  --lime: #a8ff60;
 }
 
-/* --- base --- */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.005em;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
-button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
-img { max-width: 100%; display: block; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--fg);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(circle at 10% 50%,rgba(254,211,85,0.08) 0%,transparent 50%),radial-gradient(circle at 90% 80%,rgba(168,147,231,0.08) 0%,transparent 50%);pointer-events:none;z-index:0}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block;max-width:100%;height:auto}
 
-.mono { font-family: var(--mono); letter-spacing: 0; }
-.serif-it { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
-.en { color: var(--ink-faint); font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.02em; text-transform: uppercase; }
+.container{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,80px);position:relative;z-index:1}
+section{padding:120px 0;position:relative;border-top:1px solid rgba(255,255,255,0.05)}
+section:first-of-type{border-top:0}
 
-/* --- container --- */
-.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:1000;display:flex;gap:16px;align-items:center;padding:12px 24px;background:rgba(8,15,6,0.8);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:999px;animation:slideDown 0.8s cubic-bezier(0.4,0,0.2,1)}
+@keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.nav-brand{font-weight:600;font-size:14px;margin-right:12px;display:flex;align-items:center;gap:8px}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px rgba(254,211,85,0.4);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:1}100%{transform:scale(2);opacity:0}}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-link{padding:8px 12px;color:var(--fg-dim);font-size:13px;border-radius:999px;transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
+.nav-link:hover{color:var(--fg);background:rgba(255,255,255,0.05)}
 
-/* --- nav --- */
-.nav {
-  position: fixed; top: 16px; left: 0; right: 0; z-index: 40;
-  display: flex; justify-content: center;
-  pointer-events: none;
-}
-.nav-inner {
-  pointer-events: auto;
-  display: flex; align-items: center; gap: 4px;
-  background: color-mix(in oklab, var(--bg-elev) 82%, transparent);
-  backdrop-filter: blur(18px) saturate(120%);
-  -webkit-backdrop-filter: blur(18px) saturate(120%);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 6px 6px 18px;
-  font-size: 14px;
-}
-.nav .brand { font-weight: 600; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; margin-right: 6px; }
-.nav .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 60%, transparent); }
-.nav a.link {
-  padding: 8px 14px; border-radius: 999px; color: var(--ink-dim);
-  transition: color .2s, background .2s;
-}
-.nav a.link:hover { color: var(--ink); background: var(--bg-elev-2); }
-.nav .cta {
-  padding: 8px 16px; border-radius: 999px;
-  background: var(--accent); color: var(--accent-ink);
-  font-weight: 500;
-  display: inline-flex; align-items: center; gap: 6px;
-  transition: transform .2s, filter .2s;
-}
-.nav .cta:hover { filter: brightness(1.08); }
-.nav .cta svg { width: 12px; height: 12px; }
+.hero{min-height:100vh;display:grid;grid-template-columns:1.2fr 0.8fr;gap:80px;align-items:center;padding-top:180px;padding-bottom:120px}
+.hero-content h1{font-family:'Seatren',serif;font-size:clamp(40px,8vw,70px);line-height:1.1;margin-bottom:32px;font-weight:400;letter-spacing:-0.02em;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.2s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-content h1 .line{display:block}
+.hero-content h1 .accent{color:var(--gold);font-style:italic}
+.hero-subtitle{font-size:18px;color:var(--fg-dim);line-height:1.6;max-width:45ch;margin-bottom:48px;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.3s both}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 1s cubic-bezier(0.4,0,0.2,1) 0.4s both}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:4px;font-size:16px;font-weight:500;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,rgba(254,211,85,0.5),rgba(168,147,231,0.5));border:1px solid var(--gold);backdrop-filter:blur(4px)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(254,211,85,0.2)}
+.btn-secondary{border:1px solid var(--fg);color:var(--fg)}
+.btn-secondary:hover{background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+.hero-side{position:relative;height:600px}
+.hero-image{aspect-ratio:1;background:rgba(13,18,9,0.8);border:1px solid rgba(254,211,85,0.2);border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;color:var(--fg-faint);font-size:14px;animation:fadeIn 1s cubic-bezier(0.4,0,0.2,1) 0.5s both}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero-label{position:absolute;top:20px;left:20px;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--fg-faint);font-family:'Courier New',monospace}
 
-/* --- section helpers --- */
-section { padding: 120px 0; position: relative; border-top: 1px solid var(--line); }
-section:first-of-type { border-top: 0; }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  color: var(--ink-faint); font-family: var(--mono); font-size: 12px;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  margin-bottom: 32px;
-}
-.eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--line-2); }
-.section-title {
-  font-size: clamp(36px, 4.2vw, 56px);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.02;
-  margin: 0 0 24px 0;
-  max-width: 22ch;
-}
-.section-title em { font-family: var(--serif); font-style: italic; font-weight: 400; }
-.section-sub { color: var(--ink-dim); font-size: 18px; max-width: 60ch; margin: 0; }
+.projects-intro{margin-bottom:64px}
+.projects-intro h2{font-family:'Seatren',serif;font-size:clamp(32px,6vw,48px);margin-bottom:16px;font-weight:400;letter-spacing:-0.02em}
+.projects-intro h2 .strike{text-decoration:line-through;color:var(--fg-faint);margin:0 8px}
+.projects-intro h2 .highlight{font-style:italic;color:var(--gold)}
+.projects-tabs{display:flex;flex-direction:column;gap:32px}
+.tabs-list{display:flex;gap:8px;flex-wrap:wrap;list-style:none}
+.tab-btn{padding:10px 16px;color:var(--fg);border:1px solid rgba(255,255,255,0.2);border-radius:999px;background:transparent;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.tab-btn:hover{border-color:var(--purple);color:var(--purple)}
+.tab-btn.active{background:var(--purple);border-color:var(--purple);color:var(--bg)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+.project-card{background:rgba(13,18,9,0.8);border:1px solid rgba(254,211,85,0.2);border-radius:16px;padding:32px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(254,211,85,0.1),rgba(168,147,231,0.1));opacity:0;transition:opacity 0.3s cubic-bezier(0.4,0,0.2,1)}
+.project-card:hover{border-color:var(--gold);transform:translateY(-8px)}
+.project-card:hover::before{opacity:1}
+.project-content{position:relative;z-index:1}
+.project-tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--purple);margin-bottom:12px;font-weight:600}
+.project-title{font-family:'Seatren',serif;font-size:28px;font-weight:400;margin-bottom:12px;letter-spacing:-0.02em}
+.project-desc{font-size:15px;color:var(--fg-dim);line-height:1.6;margin-bottom:20px}
+.project-metrics{display:flex;gap:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1)}
+.metric{flex:1}
+.metric-value{font-size:20px;font-weight:600;color:var(--gold)}
+.metric-label{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--fg-faint);margin-top:4px}
 
-/* ============================================================ */
-/* HERO                                                          */
-/* ============================================================ */
-.hero { padding-top: 180px; padding-bottom: 120px; border-top: 0; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 80px;
-  align-items: end;
-}
-.hero h1 {
-  font-size: clamp(48px, 7.2vw, 112px);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.96;
-  margin: 24px 0 40px 0;
-}
-.hero h1 .line { display: block; }
-.hero h1 em {
-  font-family: var(--serif); font-style: italic; font-weight: 400;
-  color: var(--accent);
-}
-.hero h1 .strike {
-  position: relative; display: inline-block;
-  color: var(--ink-faint);
-}
-.hero h1 .strike::after {
-  content: ''; position: absolute; left: -2%; right: -2%; top: 52%;
-  height: 4px; background: var(--ink-faint); transform: rotate(-2deg);
-}
-.hero-sub {
-  color: var(--ink-dim);
-  font-size: 19px;
-  line-height: 1.5;
-  max-width: 48ch;
-  margin: 0 0 48px 0;
-}
-.hero-sub strong { color: var(--ink); font-weight: 500; }
-.hero-cta {
-  display: flex; gap: 12px; flex-wrap: wrap;
-}
-.btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 22px; border-radius: 999px;
-  font-size: 15px; font-weight: 500;
-  transition: all .2s;
-}
-.btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
-.btn-ghost { color: var(--ink); border: 1px solid var(--line-2); }
-.btn-ghost:hover { border-color: var(--ink-dim); }
-.btn .arrow { transition: transform .2s; }
-.btn:hover .arrow { transform: translateX(3px); }
+.approach-list{display:grid;gap:64px;max-width:800px}
+.approach-item{animation:fadeUp 0.8s cubic-bezier(0.4,0,0.2,1)}
+.approach-num{color:var(--purple);font-size:12px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;font-family:'Courier New',monospace}
+.approach-title{font-family:'Seatren',serif;font-size:32px;font-weight:400;margin-bottom:16px;letter-spacing:-0.02em}
+.approach-text{font-size:16px;line-height:1.7;color:var(--fg-dim)}
 
-.hero-meta {
-  display: flex; flex-direction: column; gap: 28px;
-  padding-bottom: 10px;
-}
-.status {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 8px 14px 8px 12px;
-  background: var(--bg-elev); border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 13px; color: var(--ink-dim);
-  width: fit-content;
-}
-.status .pulse {
-  position: relative; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-}
-.status .pulse::after {
-  content: ''; position: absolute; inset: -4px; border-radius: 50%;
-  background: var(--accent); opacity: .35;
-  animation: pulse 2s ease-out infinite;
-}
-@keyframes pulse { 0%{transform:scale(.6);opacity:.5} 100%{transform:scale(2);opacity:0} }
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.about-text{order:2}
+.about-text h2{font-family:'Seatren',serif;font-size:clamp(32px,4vw,48px);margin-bottom:32px;font-weight:400;letter-spacing:-0.02em}
+.about-text h2 .accent{color:var(--gold);font-style:italic}
+.about-text p{font-size:16px;line-height:1.7;color:var(--fg-dim);margin-bottom:20px}
+.about-text strong{color:var(--fg);font-weight:600}
+.timeline{margin-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+.timeline-item{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.1);align-items:center}
+.timeline-year{font-size:14px;color:var(--purple);text-transform:uppercase;letter-spacing:0.06em;font-weight:600}
+.timeline-role{font-size:16px;color:var(--fg)}
+.timeline-company{color:var(--fg-dim)}
+.about-photo{order:1;position:relative}
+.about-photo img{width:100%;border:2px solid var(--gold);border-radius:16px;aspect-ratio:3/4;object-fit:cover}
 
-.hero-photo {
-  aspect-ratio: 4 / 5;
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  position: relative;
-  display: flex; align-items: flex-end; padding: 20px;
-}
-.hero-photo::before {
-  content: 'System · 02';
-  position: absolute; top: 20px; left: 20px;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--ink-faint); text-transform: uppercase;
-  z-index: 2;
-}
-.hero-photo-caption {
-  font-family: var(--mono); font-size: 11px;
-  color: var(--ink-faint); letter-spacing: 0.04em;
-  display: flex; justify-content: space-between; width: 100%;
-  position: relative; z-index: 2;
-}
-.hero-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.stack-category h3{font-family:'Seatren',serif;font-size:32px;margin-bottom:20px;font-weight:400;letter-spacing:-0.02em}
+.stack-items{display:flex;flex-direction:column;gap:12px}
+.stack-item{font-size:16px;line-height:1.6;color:var(--fg-dim)}
 
-.hero-marquee {
-  margin-top: 80px;
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-.hero-marquee .cell {
-  padding: 28px 24px;
-  border-right: 1px solid var(--line);
-}
-.hero-marquee .cell:last-child { border-right: 0; }
-.hero-marquee .k { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
-.hero-marquee .v { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.1; }
-.hero-marquee .v small { color: var(--ink-dim); font-size: 15px; font-weight: 400; margin-left: 4px; }
+.contact-cta{text-align:center;padding:80px 0}
+.contact-cta h2{font-family:'Seatren',serif;font-size:clamp(40px,8vw,70px);margin-bottom:24px;font-weight:400;letter-spacing:-0.02em}
+.contact-text{font-size:18px;color:var(--fg-dim);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+.contact-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-/* ============================================================ */
-/* SIGNATURE STATS                                               */
-/* ============================================================ */
-.stats-row {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
-}
-.stats-row .stat {
-  padding: 40px 36px;
-  border-right: 1px solid var(--line);
-  background: var(--bg-elev);
-}
-.stats-row .stat:last-child { border-right: 0; }
-.stats-row .stat .n {
-  font-size: 64px; font-weight: 400; letter-spacing: -0.035em; line-height: 1;
-  display: flex; align-items: baseline; gap: 6px;
-}
-.stats-row .stat .n em { font-family: var(--serif); font-style: italic; color: var(--accent); }
-.stats-row .stat .l { margin-top: 18px; color: var(--ink-dim); max-width: 28ch; }
+footer{padding:40px 0;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--fg-dim)}
 
-/* ============================================================ */
-/* PROJECTS                                                      */
-/* ============================================================ */
-.proj {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 64px;
-  align-items: stretch;
-  margin-top: 64px;
-}
-.proj + .proj { margin-top: 120px; }
-.proj.reverse { grid-template-columns: 1.2fr 1fr; }
-.proj.reverse .proj-meta { order: 2; }
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:2000;overflow-y:auto;animation:fadeIn 0.3s cubic-bezier(0.4,0,0.2,1)}
+.modal.active{display:block}
+.modal-content{max-width:900px;margin:60px auto;background:rgba(13,18,9,0.95);border:1px solid rgba(254,211,85,0.2);border-radius:16px;padding:60px;animation:slideUp 0.4s cubic-bezier(0.4,0,0.2,1)}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:30px;right:30px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);border-radius:50%;cursor:pointer;transition:all 0.2s cubic-bezier(0.4,0,0.2,1)}
+.modal-close:hover{background:rgba(255,255,255,0.2);transform:rotate(90deg)}
+.modal h2{font-family:'Seatren',serif;font-size:48px;margin-bottom:20px;font-weight:400;letter-spacing:-0.02em}
+.modal-meta{font-size:14px;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:40px}
+.modal-body{font-size:16px;line-height:1.8;color:var(--fg-dim)}
+.modal-body h3{font-family:'Seatren',serif;font-size:28px;color:var(--fg);margin:40px 0 20px;font-weight:400}
+.modal-body p{margin-bottom:16px}
 
-.proj-meta { display: flex; flex-direction: column; gap: 20px; padding: 16px 16px 0px; }
-.proj-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.tag {
-  font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 6px 10px; border: 1px solid var(--line-2); border-radius: 999px;
-  color: var(--ink-dim);
-}
-.tag.solid { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-.proj h3 {
-  font-size: 42px; font-weight: 400; letter-spacing: -0.025em; line-height: 1.05;
-  margin: 4px 0 0; max-width: 16ch;
-}
-.proj h3 em { font-family: var(--serif); font-style: italic; }
-.proj-desc { color: var(--ink-dim); font-size: 17px; max-width: 44ch; margin: 0; }
-
-.proj-kpis {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--line);
-  margin-top: auto;
-}
-.proj-kpis .k {
-  padding: 16px 0 0;
-  border-right: 1px solid var(--line);
-  padding-right: 16px;
-}
-.proj-kpis .k + .k { padding-left: 16px; }
-.proj-kpis .k:last-child { border-right: 0; }
-.proj-kpis .v { font-size: 28px; font-weight: 500; letter-spacing: -0.02em; color: var(--ink); }
-.proj-kpis .v.pos { color: var(--accent); }
-.proj-kpis .n { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
-
-/* Project visuals - each has a custom treatment */
-.proj-vis {
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  position: relative;
-  min-height: 440px;
-}
-
-/* BFM visual: phone mockups */
-.vis-bfm {
-  padding: 48px;
-  background: linear-gradient(180deg, #141418 0%, #0d0d10 100%);
-  display: flex; align-items: flex-end; justify-content: center; gap: 24px;
-}
-.phone {
-  width: 170px; aspect-ratio: 9 / 19;
-  background: #1a1a1d; border: 1px solid #2a2a30;
-  border-radius: 24px; padding: 8px;
-  flex-shrink: 0;
-  transform: translateY(20px);
-  box-shadow: 0 30px 60px -20px rgba(0,0,0,.6);
-}
-.phone:nth-child(1) { transform: translateY(60px) rotate(-3deg); }
-.phone:nth-child(2) { transform: translateY(0); }
-.phone:nth-child(3) { transform: translateY(60px) rotate(3deg); }
-.phone-screen {
-  width: 100%; height: 100%; border-radius: 16px;
-  background: #0a0a0b; overflow: hidden; position: relative;
-  display: flex; flex-direction: column;
-}
-.ph-hdr { padding: 18px 14px 10px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 9px; color: var(--ink-faint); }
-.ph-logo { color: #ff2d2d; font-weight: 700; letter-spacing: 0.08em; font-size: 11px; font-family: var(--sans); }
-.ph-img { aspect-ratio: 16 / 10; background: linear-gradient(135deg, #3a2a1a, #1a1a1d); margin: 0 10px; border-radius: 4px; position: relative; overflow: hidden; }
-.ph-img::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 8px, rgba(255,255,255,.03) 8px 9px); }
-.ph-title { padding: 10px 12px 6px; font-size: 9px; font-weight: 600; line-height: 1.2; color: var(--ink); }
-.ph-meta { padding: 0 12px 8px; font-size: 7px; color: var(--ink-faint); font-family: var(--mono); }
-.ph-row { padding: 6px 12px; border-top: 1px solid #1a1a1d; display: flex; gap: 6px; align-items: center; }
-.ph-row .d { width: 24px; height: 16px; background: #2a2a30; border-radius: 2px; flex-shrink: 0; }
-.ph-row .t { font-size: 7px; color: var(--ink-dim); line-height: 1.2; }
-.ph-tab { margin-top: auto; padding: 8px 14px; border-top: 1px solid #1a1a1d; display: flex; justify-content: space-around; }
-.ph-tab .i { width: 12px; height: 12px; border-radius: 3px; background: #2a2a30; }
-.ph-tab .i.on { background: #ff2d2d; }
-
-/* DS visual: grid of tokens */
-.vis-ds {
-  padding: 40px;
-  background:
-    radial-gradient(60% 80% at 20% 0%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 70%),
-    var(--bg-elev-2);
-}
-.ds-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(4, 1fr); gap: 12px; height: 100%; min-height: 360px; }
-.ds-cell {
-  background: var(--bg-elev); border: 1px solid var(--line);
-  border-radius: 6px; padding: 12px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
-}
-.ds-cell .sw { width: 100%; height: 24px; border-radius: 4px; background: var(--accent); }
-.ds-cell.b { grid-column: span 2; grid-row: span 2; }
-.ds-cell.w { grid-column: span 2; }
-.ds-cell.tall { grid-row: span 2; }
-.ds-cell .tkn { color: var(--ink); font-size: 12px; font-weight: 500; font-family: var(--sans); letter-spacing: -0.01em; }
-.ds-cell .tkn-v { font-family: var(--mono); font-size: 10px; color: var(--ink-dim); margin-top: 4px; }
-.ds-type-xl { font-size: 42px; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; font-family: var(--sans); line-height: 1; }
-.ds-btn { display: inline-flex; padding: 6px 10px; background: var(--accent); color: var(--accent-ink); border-radius: 999px; font-size: 10px; font-family: var(--sans); font-weight: 500; margin-top: 6px; align-self: flex-start; }
-
-/* AI visual: workflow diagram */
-.vis-ai {
-  padding: 48px 40px;
-  background:
-    linear-gradient(180deg, #0e0e12 0%, #101014 100%);
-  display: flex; flex-direction: column; justify-content: center;
-  font-family: var(--mono); font-size: 11px;
-}
-.wf-title { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; display: flex; justify-content: space-between; }
-.wf-title .ok { color: var(--accent); }
-.wf-row { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px dashed var(--line); }
-.wf-row:first-of-type { border-top: 1px solid var(--line-2); }
-.wf-row .num { width: 22px; height: 22px; border: 1px solid var(--line-2); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; color: var(--ink-dim); flex-shrink: 0; }
-.wf-row .lbl { flex: 1; color: var(--ink); font-family: var(--sans); font-size: 14px; letter-spacing: -0.01em; }
-.wf-row .tool { color: var(--ink-dim); font-size: 10px; }
-.wf-row .time { color: var(--accent); font-size: 10px; font-weight: 500; letter-spacing: 0.02em; }
-.wf-diff { margin-top: 20px; padding: 14px 16px; background: color-mix(in oklab, var(--accent) 8%, transparent); border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent); border-radius: 6px; color: var(--ink); font-family: var(--sans); font-size: 13px; display: flex; justify-content: space-between; }
-.wf-diff em { font-family: var(--serif); font-style: italic; color: var(--accent); font-weight: 400; font-size: 18px; }
-
-/* ============================================================ */
-/* APPROACH / METHOD                                             */
-/* ============================================================ */
-.approach-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1px; background: var(--line);
-  margin-top: 64px;
-  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
-}
-.ap {
-  background: var(--bg-elev);
-  padding: 36px 28px;
-  min-height: 280px;
-  display: flex; flex-direction: column;
-}
-.ap .num { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.08em; }
-.ap h4 {
-  font-size: 24px; font-weight: 500; letter-spacing: -0.02em;
-  margin: 40px 0 14px; line-height: 1.15;
-}
-.ap h4 em { font-family: var(--serif); font-style: italic; font-weight: 400; }
-.ap p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; margin: 0; }
-.ap .en { margin-top: auto; padding-top: 24px; }
-
-/* ============================================================ */
-/* LEADERSHIP                                                    */
-/* ============================================================ */
-.lead-wrap {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.lead-quote {
-  font-size: clamp(28px, 3vw, 40px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 0;
-}
-.lead-quote em { font-family: var(--serif); font-style: italic; color: var(--accent); }
-.lead-list { list-style: none; padding: 0; margin: 0; }
-.lead-list li {
-  display: grid; grid-template-columns: auto 1fr auto; gap: 24px;
-  padding: 24px 0; border-top: 1px solid var(--line); align-items: baseline;
-}
-.lead-list li:last-child { border-bottom: 1px solid var(--line); }
-.lead-list .ix { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.06em; }
-.lead-list .title { font-size: 18px; font-weight: 500; letter-spacing: -0.01em; }
-.lead-list .sub { color: var(--ink-dim); font-size: 14px; margin-top: 4px; }
-.lead-list .badge { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.04em; }
-
-/* ============================================================ */
-/* STACK                                                         */
-/* ============================================================ */
-.stack-grid {
-  margin-top: 56px;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
-}
-.tool {
-  background: var(--bg-elev);
-  padding: 22px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  min-height: 76px;
-  transition: background .2s;
-}
-.tool:hover { background: var(--bg-elev-2); }
-.tool .n { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; }
-.tool .u { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 0.06em; }
-.tool .ic {
-  width: 28px; height: 28px; border-radius: 6px; background: var(--bg-elev-2);
-  display: inline-flex; align-items: center; justify-content: center;
-  font-family: var(--mono); font-size: 11px; font-weight: 600;
-  color: var(--ink);
-  flex-shrink: 0;
-}
-
-/* ============================================================ */
-/* ABOUT                                                         */
-/* ============================================================ */
-.about-wrap {
-  display: grid; grid-template-columns: 0.8fr 1.2fr;
-  gap: 80px;
-  align-items: start;
-}
-.about-photo {
-  aspect-ratio: 3 / 4;
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  position: relative;
-}
-.about-photo img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.about-photo::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,.5));
-  pointer-events: none;
-}
-.about-photo .lbl, .about-photo .cap { color: rgba(255,255,255,.7); position: relative; z-index: 1; }
-.about-photo .lbl {
-  position: absolute; top: 20px; left: 20px;
-  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
-  color: var(--ink-faint); text-transform: uppercase;
-}
-.about-photo .cap {
-  position: absolute; bottom: 20px; left: 20px; right: 20px;
-  font-family: var(--mono); font-size: 10px; color: var(--ink-faint);
-  display: flex; justify-content: space-between;
-}
-.about-text p { font-size: 18px; line-height: 1.55; color: var(--ink-dim); margin: 0 0 20px; max-width: 58ch; }
-.about-text p strong { color: var(--ink); font-weight: 500; }
-
-.timeline {
-  margin-top: 48px;
-  border-top: 1px solid var(--line);
-}
-.tl-row {
-  display: grid; grid-template-columns: 120px 1fr auto;
-  gap: 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-  align-items: baseline;
-}
-.tl-row .yr { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
-.tl-row .role { font-size: 16px; font-weight: 500; }
-.tl-row .role .co { color: var(--ink-dim); font-weight: 400; }
-.tl-row .tag { background: none; }
-
-/* ============================================================ */
-/* CONTACT                                                       */
-/* ============================================================ */
-.contact { padding: 140px 0 120px; }
-.contact-inner {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 72px;
-  background: var(--bg-elev);
-  position: relative; overflow: hidden;
-}
-.contact-inner::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(40% 80% at 100% 100%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 60%);
-  pointer-events: none;
-}
-.contact-grid {
-  display: grid; grid-template-columns: 1.2fr 1fr;
-  gap: 64px; position: relative;
-}
-.contact h2 {
-  font-size: clamp(42px, 5vw, 72px);
-  font-weight: 400; letter-spacing: -0.03em; line-height: 1;
-  margin: 0 0 24px;
-}
-.contact h2 em { font-family: var(--serif); font-style: italic; color: var(--accent); }
-.contact-sub { color: var(--ink-dim); font-size: 18px; max-width: 48ch; margin: 0 0 32px; }
-.contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-.contact-list a {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 0;
-  border-top: 1px solid var(--line);
-  font-size: 18px; font-weight: 500;
-  transition: color .2s, padding .2s;
-}
-.contact-list li:last-child a { border-bottom: 1px solid var(--line); }
-.contact-list a:hover { color: var(--accent); padding-left: 12px; }
-.contact-list .hdl { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
-
-/* --- footer --- */
-footer {
-  padding: 32px 0 48px;
-  border-top: 1px solid var(--line);
-  font-family: var(--mono); font-size: 11px;
-  color: var(--ink-faint); letter-spacing: 0.04em;
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-}
-
-/* --- responsive --- */
-@media (max-width: 960px) {
-  section { padding: 80px 0; }
-  .hero { padding-top: 140px; padding-bottom: 80px; }
-  .hero-grid, .proj, .proj.reverse, .about-wrap, .lead-wrap, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .proj.reverse .proj-meta { order: 0; }
-  .stats-row { grid-template-columns: 1fr; }
-  .stats-row .stat { border-right: 0; border-bottom: 1px solid var(--line); }
-  .approach-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-marquee { grid-template-columns: repeat(2, 1fr); }
-  .hero-marquee .cell:nth-child(2) { border-right: 0; }
-  .nav-inner .link { display: none; }
-  .contact-inner { padding: 40px 24px; }
+@media(max-width:768px){
+  nav{flex-direction:column;width:90%;gap:8px}
+  .hero{grid-template-columns:1fr;gap:60px;padding-top:140px}
+  .hero-side{display:none}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-text{order:1}
+  .about-photo{order:2}
+  .stack-grid{grid-template-columns:1fr;gap:40px}
+  .projects-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:20px;text-align:center}
+  .modal-content{padding:40px 24px;margin:40px 20px}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <div class="nav-inner">
-    <span class="brand"><span class="dot"></span>Maddlyn Fuzier</span>
-    <a class="link" href="#work">Projets</a>
-    <a class="link" href="#approach">Approche</a>
-    <a class="link" href="#lead">Leadership</a>
-    <a class="link" href="#about">À propos</a>
-    <a class="cta" href="#contact">
-      Prendre contact
-      <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </a>
+<nav>
+  <div class="nav-brand"><span>Maddlyn</span><div class="nav-dot"></div></div>
+  <div class="nav-links">
+    <a href="#projects" class="nav-link">Projets</a>
+    <a href="#approach" class="nav-link">Approche</a>
+    <a href="#about" class="nav-link">À propos</a>
+    <a href="#stack" class="nav-link">Stack</a>
+    <a href="#contact" class="nav-link">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero wrap">
-  <div class="hero-grid">
-    <div>
-      <div class="eyebrow">Product Designer · Paris · FR/EN</div>
-      <h1>
-        <span class="line">Think <em>product</em>,</span>
-        <span class="line">not <span class="strike">pixels</span>.</span>
-      </h1>
-      <p class="hero-sub">
-        Je conçois des produits digitaux à <strong>grande échelle</strong>, de la vision à la mise en prod.
-        Design system, AI-native workflows, et une obsession pour l'impact business — au service de marques qui ne se contentent pas de faire joli.
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#work">
-          Voir mes projets
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="btn btn-ghost" href="#contact">
-          Planifier un échange
-          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </a>
-      </div>
-    </div>
-    <aside class="hero-meta">
-      <span class="status"><span class="pulse"></span> Ouverte aux opportunités</span>
-      <div class="hero-photo">
-        <svg class="hero-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <defs>
-            <linearGradient id="bg-g" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="var(--bg-elev-2)"/>
-              <stop offset="100%" stop-color="var(--bg-elev)"/>
-            </linearGradient>
-            <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
-              <circle cx="1" cy="1" r="1" fill="var(--line-2)" opacity="0.5"/>
-            </pattern>
-            <pattern id="grid12" width="33.33" height="33.33" patternUnits="userSpaceOnUse">
-              <path d="M0 0H33.33" stroke="var(--line)" stroke-width="0.5"/>
-              <path d="M0 0V33.33" stroke="var(--line)" stroke-width="0.5"/>
-            </pattern>
-          </defs>
-
-          <!-- background -->
-          <rect width="400" height="500" fill="url(#bg-g)"/>
-          <rect width="400" height="500" fill="url(#dots)"/>
-
-          <!-- 12-col grid hint at top -->
-          <g opacity="0.35" transform="translate(40 40)">
-            <rect width="320" height="4" fill="none"/>
-            <line x1="0" y1="2" x2="320" y2="2" stroke="var(--line-2)" stroke-width="0.5"/>
-            <g font-family="JetBrains Mono, monospace" font-size="7" fill="var(--ink-faint)" letter-spacing="0.5">
-              <text x="0" y="-4">01</text>
-              <text x="80" y="-4">04</text>
-              <text x="160" y="-4">07</text>
-              <text x="240" y="-4">10</text>
-              <text x="314" y="-4">12</text>
-            </g>
-          </g>
-
-          <!-- Card A: main "product thinking" card, upper left -->
-          <g transform="translate(40 80)">
-            <rect width="200" height="126" rx="6" fill="var(--bg-elev)" stroke="var(--line-2)" stroke-width="1"/>
-            <rect x="14" y="14" width="48" height="10" rx="2" fill="var(--accent)" opacity="0.9"/>
-            <rect x="14" y="34" width="172" height="6" rx="1" fill="var(--ink)" opacity="0.85"/>
-            <rect x="14" y="46" width="140" height="6" rx="1" fill="var(--ink)" opacity="0.55"/>
-            <rect x="14" y="58" width="100" height="6" rx="1" fill="var(--ink)" opacity="0.35"/>
-            <!-- mini chart -->
-            <g transform="translate(14 80)">
-              <rect width="172" height="32" rx="3" fill="var(--bg-elev-2)"/>
-              <polyline points="6,26 28,20 50,22 72,14 94,16 116,8 138,10 160,4" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="160" cy="4" r="2.5" fill="var(--accent)"/>
-            </g>
-          </g>
-
-          <!-- Card B: ratio / composition, upper right -->
-          <g transform="translate(260 80)">
-            <rect width="100" height="126" rx="6" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-            <text x="14" y="28" font-family="JetBrains Mono, monospace" font-size="8" fill="var(--ink-faint)" letter-spacing="1">KPI · 01</text>
-            <text x="14" y="66" font-family="Inter, sans-serif" font-size="28" font-weight="500" fill="var(--ink)" letter-spacing="-0.02em">17M</text>
-            <text x="14" y="82" font-family="Inter, sans-serif" font-size="9" fill="var(--ink-dim)">users / mo.</text>
-            <rect x="14" y="100" width="72" height="2" rx="1" fill="var(--line)"/>
-            <rect x="14" y="100" width="58" height="2" rx="1" fill="var(--accent)"/>
-            <text x="14" y="116" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--ink-faint)">+ 82 %</text>
-          </g>
-
-          <!-- Flow / system: connected nodes in the middle -->
-          <g transform="translate(40 226)">
-            <!-- connecting lines -->
-            <path d="M50 20 C 100 20, 110 60, 160 60" fill="none" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3"/>
-            <path d="M160 60 C 210 60, 220 20, 270 20" fill="none" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3"/>
-            <path d="M50 20 C 100 20, 110 100, 160 100" fill="none" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3"/>
-            <path d="M160 100 C 210 100, 220 60, 270 60" fill="none" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 3"/>
-            <!-- nodes -->
-            <g>
-              <rect x="14" y="10" width="72" height="22" rx="11" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-              <text x="50" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="var(--ink)">Insight</text>
-            </g>
-            <g>
-              <rect x="124" y="50" width="72" height="22" rx="11" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-              <text x="160" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="var(--ink)">System</text>
-            </g>
-            <g>
-              <rect x="124" y="90" width="72" height="22" rx="11" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-              <text x="160" y="105" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="var(--ink)">Ship</text>
-            </g>
-            <g>
-              <rect x="234" y="10" width="80" height="22" rx="11" fill="var(--accent)"/>
-              <text x="274" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="var(--accent-ink)">Impact</text>
-            </g>
-            <g>
-              <rect x="234" y="50" width="80" height="22" rx="11" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-              <text x="274" y="65" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" font-weight="500" fill="var(--ink)">Scale</text>
-            </g>
-          </g>
-
-          <!-- Component shelf at the bottom -->
-          <g transform="translate(40 374)">
-            <text x="0" y="-8" font-family="JetBrains Mono, monospace" font-size="7" fill="var(--ink-faint)" letter-spacing="1">COMPONENTS · DS v2.4</text>
-            <!-- color tokens -->
-            <rect x="0" y="0" width="32" height="32" rx="5" fill="var(--accent)"/>
-            <rect x="36" y="0" width="32" height="32" rx="5" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-            <rect x="72" y="0" width="32" height="32" rx="5" fill="var(--ink)" opacity="0.9"/>
-            <rect x="108" y="0" width="32" height="32" rx="5" fill="var(--bg-elev-2)" stroke="var(--line)"/>
-            <!-- pill button -->
-            <rect x="148" y="6" width="70" height="20" rx="10" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-            <circle cx="160" cy="16" r="3" fill="var(--accent)"/>
-            <text x="168" y="19" font-family="Inter, sans-serif" font-size="9" fill="var(--ink)">Button</text>
-            <!-- toggle -->
-            <rect x="228" y="8" width="32" height="16" rx="8" fill="var(--accent)"/>
-            <circle cx="252" cy="16" r="6" fill="var(--bg)"/>
-            <!-- input -->
-            <rect x="270" y="6" width="90" height="20" rx="4" fill="var(--bg-elev)" stroke="var(--line-2)"/>
-            <rect x="276" y="12" width="40" height="2" rx="1" fill="var(--ink-dim)"/>
-            <circle cx="354" cy="16" r="1.5" fill="var(--accent)"/>
-          </g>
-
-          <!-- diagonal crosshair mark -->
-          <g opacity="0.4">
-            <circle cx="340" cy="250" r="20" fill="none" stroke="var(--ink-faint)" stroke-width="0.5"/>
-            <line x1="340" y1="230" x2="340" y2="270" stroke="var(--ink-faint)" stroke-width="0.5"/>
-            <line x1="320" y1="250" x2="360" y2="250" stroke="var(--ink-faint)" stroke-width="0.5"/>
-            <circle cx="340" cy="250" r="2" fill="var(--accent)"/>
-          </g>
-        </svg>
-
-        <div class="hero-photo-caption">
-          <span>Product system · 01</span>
-          <span>MF / 2026</span>
-        </div>
-      </div>
-    </aside>
-  </div>
-
-  <div class="hero-marquee">
-    <div class="cell">
-      <div class="k">Experience</div>
-      <div class="v">6<small>+ years</small></div>
-    </div>
-    <div class="cell">
-      <div class="k">Users reached</div>
-      <div class="v">17M<small>monthly</small></div>
-    </div>
-    <div class="cell">
-      <div class="k">Products shipped</div>
-      <div class="v">24<small>in prod</small></div>
-    </div>
-    <div class="cell">
-      <div class="k">Design system</div>
-      <div class="v">1<small>built from scratch</small></div>
+<section class="hero">
+  <div class="hero-content">
+    <h1><span class="line">Product Designer.</span><span class="line"><span class="accent">De l'écran au système</span> qui le produit.</span></h1>
+    <p class="hero-subtitle">6 ans en product design. Aujourd'hui chez <strong>CMA Média (RMC BFM)</strong>, je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="scrollTo('#projects')">Passage du craft au système <span>→</span></button>
+      <button class="btn btn-secondary" onclick="scrollTo('#contact')">Me contacter</button>
     </div>
   </div>
-</header>
-
-<!-- SIGNATURE / stats + intent -->
-<section id="intent">
-  <div class="wrap">
-    <div class="eyebrow">001 — Intent</div>
-    <h2 class="section-title">Un rôle de <em>Lead Product Designer</em>, parce que le produit ne se résume plus à dessiner des écrans.</h2>
-    <p class="section-sub">J'ai passé ces dernières années à apprendre le métier par la main — livraison, itérations, data. Aujourd'hui, j'ai envie de multiplier mon impact : par l'équipe, par le système, et par une meilleure stratégie produit.</p>
-
-    <div class="stats-row" style="margin-top: 64px;">
-      <div class="stat">
-        <div class="n">17<em>M</em></div>
-        <div class="l">visiteurs uniques / mois sur les produits que j'ai designés chez BFM RMC.</div>
-      </div>
-      <div class="stat">
-        <div class="n">−42<em>%</em></div>
-        <div class="l">de temps de cycle sur le workflow produit, après refonte et automatisations.</div>
-      </div>
-      <div class="stat">
-        <div class="n">120<em>+</em></div>
-        <div class="l">composants structurés dans un design system utilisé par 4 équipes produit.</div>
-      </div>
+  <div class="hero-side">
+    <div class="hero-image">
+      <span class="hero-label">System · 02</span>
+      <img src="assets/portrait.png" alt="Maddlyn Fuzier" style="width:100%;height:100%;object-fit:cover;">
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="work">
-  <div class="wrap">
-    <div class="eyebrow">002 — Selected work</div>
-    <h2 class="section-title">Trois projets, trois échelles de <em>responsabilité</em>.</h2>
-    <p class="section-sub">Du pixel au process : refondre une app utilisée par des millions, structurer un langage commun, et réinventer la façon dont une équipe design travaille.</p>
-
-    <!-- Projet 1: BFM App -->
-    <article class="proj">
-      <div class="proj-meta">
-        <div class="proj-tags">
-          <span class="tag solid">Projet signature</span>
-          <span class="tag">BFM RMC · 2024–2026</span>
-        </div>
-        <h3>Refondre l'app BFM pour <em>17M</em> d'utilisateurs mensuels</h3>
-        <p class="proj-desc">
-          Repositionner l'expérience info autour du temps passé et de la vidéo courte, sans perdre la densité éditoriale qui fait l'ADN de la marque. Travail sur la hiérarchie, la navigation, les modules vidéo — et un design system naissant pour porter l'échelle.
-        </p>
-        <p class="en">Role · Lead designer on app — product strategy, UI, prototype, shipping</p>
-        <div class="proj-kpis">
-          <div class="k"><div class="v pos">+5%</div><div class="n">Visits MoM</div></div>
-          <div class="k"><div class="v pos">+42s</div><div class="n">Time on site</div></div>
-          <div class="k"><div class="v pos">+5pts</div><div class="n">Video shorts</div></div>
-        </div>
-      </div>
-      <div class="proj-vis vis-bfm">
-        <div class="phone"><div class="phone-screen">
-          <div class="ph-hdr"><span class="ph-logo">BFM</span><span>08:42</span></div>
-          <div class="ph-img"></div>
-          <div class="ph-title">Budget 2027 : ce que prévoit Bercy pour les entreprises</div>
-          <div class="ph-meta">IL Y A 2 MIN · ÉCO</div>
-          <div class="ph-tab"><span class="i on"></span><span class="i"></span><span class="i"></span><span class="i"></span></div>
-        </div></div>
-        <div class="phone"><div class="phone-screen">
-          <div class="ph-hdr"><span class="ph-logo">BFM</span><span>DIRECT ●</span></div>
-          <div class="ph-img" style="background:linear-gradient(135deg,#4a2a2a,#1a1a1d);aspect-ratio:9/12;"></div>
-          <div class="ph-title">Conférence de presse — Matignon</div>
-          <div class="ph-row"><span class="d"></span><span class="t">Débats : la réforme passe-t-elle ?</span></div>
-          <div class="ph-row"><span class="d"></span><span class="t">Interview : le ministre répond</span></div>
-          <div class="ph-tab"><span class="i"></span><span class="i on"></span><span class="i"></span><span class="i"></span></div>
-        </div></div>
-        <div class="phone"><div class="phone-screen">
-          <div class="ph-hdr"><span class="ph-logo">BFM</span><span>Shorts</span></div>
-          <div class="ph-img" style="aspect-ratio:9/14;background:linear-gradient(135deg,#2a3a4a,#1a1a1d);"></div>
-          <div class="ph-title">3 choses à retenir aujourd'hui</div>
-          <div class="ph-meta">14K VUES · 32 S</div>
-          <div class="ph-tab"><span class="i"></span><span class="i"></span><span class="i on"></span><span class="i"></span></div>
-        </div></div>
-      </div>
-    </article>
-
-    <!-- Projet 2: Design System -->
-    <article class="proj reverse">
-      <div class="proj-vis vis-ds">
-        <div class="ds-grid">
-          <div class="ds-cell b">
-            <div>
-              <div class="tkn">Display</div>
-              <div class="tkn-v">64 / -3%</div>
-            </div>
-            <div class="ds-type-xl">Aa</div>
-          </div>
-          <div class="ds-cell w">
-            <div class="sw" style="background:var(--accent)"></div>
-            <span>--accent / 500</span>
-          </div>
-          <div class="ds-cell w">
-            <div class="sw" style="background:#ff6b5c"></div>
-            <span>--danger / 500</span>
-          </div>
-          <div class="ds-cell">
-            <div class="sw" style="background:#1f1f23"></div>
-            <span>--line</span>
-          </div>
-          <div class="ds-cell">
-            <div class="sw" style="background:#6b6b68"></div>
-            <span>--faint</span>
-          </div>
-          <div class="ds-cell tall">
-            <div>
-              <div class="tkn">Button</div>
-            </div>
-            <span class="ds-btn">→ CTA</span>
-          </div>
-          <div class="ds-cell">
-            <span class="tkn" style="font-size:14px">Radius</span>
-            <div style="display:flex;gap:4px;align-items:flex-end"><div style="width:10px;height:10px;border:1px solid var(--ink-dim);border-radius:2px"></div><div style="width:14px;height:14px;border:1px solid var(--ink-dim);border-radius:4px"></div><div style="width:18px;height:18px;border:1px solid var(--ink-dim);border-radius:6px"></div></div>
-          </div>
-          <div class="ds-cell">
-            <span class="tkn" style="font-size:14px">Space</span>
-            <div class="tkn-v">4 · 8 · 12 · 16 · 24</div>
-          </div>
-          <div class="ds-cell w">
-            <span class="tkn" style="font-size:14px">Grid 12 col</span>
-            <div style="display:flex;gap:2px;margin-top:4px">
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-              <div style="flex:1;height:8px;background:var(--accent);opacity:.3;border-radius:2px"></div>
-            </div>
-          </div>
-          <div class="ds-cell">
-            <span class="tkn-v">v2.4.1</span>
-            <span style="color:var(--accent)">● stable</span>
-          </div>
-        </div>
-      </div>
-      <div class="proj-meta">
-        <div class="proj-tags">
-          <span class="tag">Design System · 2024–en cours</span>
-        </div>
-        <h3>Un langage commun pour <em>4 équipes</em> produit</h3>
-        <p class="proj-desc">
-          De zéro à v2, avec 120+ composants, 3 thèmes, et un guide d'adoption porté par des feedbacks continus. Formation Thiga Design System, rédaction des principes, review des PR front. Le but : que la qualité ne dépende plus de qui est dispo le mardi.
-        </p>
-        <p class="en">Role · Owner of the system — tokens, components, governance, adoption</p>
-        <div class="proj-kpis">
-          <div class="k"><div class="v">120+</div><div class="n">Components</div></div>
-          <div class="k"><div class="v">4</div><div class="n">Product teams</div></div>
-          <div class="k"><div class="v pos">−38%</div><div class="n">UI inconsistencies</div></div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Projet 3: AI workflows -->
-    <article class="proj">
-      <div class="proj-meta">
-        <div class="proj-tags">
-          <span class="tag">Ops design · 2025</span>
-          <span class="tag">AI-native</span>
-        </div>
-        <h3>Refondre le <em>workflow</em> de l'équipe produit avec l'IA</h3>
-        <p class="proj-desc">
-          Automatiser ce qui n'a pas d'intérêt à être fait à la main : handoff, QA, génération de variantes, synthèse de user research. Un set de workflows n8n + Claude + Figma, documentés comme un vrai produit interne.
-        </p>
-        <p class="en">Role · Initiated and built the automation stack — from spec to rollout</p>
-        <div class="proj-kpis">
-          <div class="k"><div class="v pos">−42%</div><div class="n">Cycle time</div></div>
-          <div class="k"><div class="v">8</div><div class="n">Workflows live</div></div>
-          <div class="k"><div class="v pos">+3h</div><div class="n">Saved per designer / week</div></div>
-        </div>
-      </div>
-      <div class="proj-vis vis-ai">
-        <div class="wf-title"><span>Design intake → Handoff</span><span class="ok">● automated</span></div>
-        <div class="wf-row">
-          <span class="num">01</span>
-          <span class="lbl">Jira ticket created</span>
-          <span class="tool">trigger · n8n</span>
-          <span class="time">0s</span>
-        </div>
-        <div class="wf-row">
-          <span class="num">02</span>
-          <span class="lbl">Brief parsed &amp; enriched</span>
-          <span class="tool">claude · sonnet</span>
-          <span class="time">4s</span>
-        </div>
-        <div class="wf-row">
-          <span class="num">03</span>
-          <span class="lbl">Figma variants generated</span>
-          <span class="tool">figma · api</span>
-          <span class="time">18s</span>
-        </div>
-        <div class="wf-row">
-          <span class="num">04</span>
-          <span class="lbl">QA checklist run on spec</span>
-          <span class="tool">claude · haiku</span>
-          <span class="time">6s</span>
-        </div>
-        <div class="wf-row">
-          <span class="num">05</span>
-          <span class="lbl">Handoff posted to Notion</span>
-          <span class="tool">notion · api</span>
-          <span class="time">2s</span>
-        </div>
-        <div class="wf-diff">
-          <span>Before: ~45 min · After: <em>32 sec</em></span>
-          <span style="color:var(--ink-faint)">per ticket</span>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- APPROACH -->
-<section id="approach">
-  <div class="wrap">
-    <div class="eyebrow">003 — Approach</div>
-    <h2 class="section-title">Quatre convictions qui guident mes <em>choix</em> de design.</h2>
-    <p class="section-sub">Ce ne sont pas des principes pour le plaisir du principe. Elles sont testées, abîmées, rafistolées par 6 ans de livraison.</p>
-
-    <div class="approach-grid">
-      <div class="ap">
-        <div class="num">01 / Product</div>
-        <h4>Partir du <em>pourquoi</em>, jamais de la maquette.</h4>
-        <p>Un bon design résout un problème d'utilisateur ET un problème business. Sans ça, c'est de la décoration — et la décoration, ça se refait au prochain rebrand.</p>
-        <span class="en">Think product, not pixels</span>
-      </div>
-      <div class="ap">
-        <div class="num">02 / Systems</div>
-        <h4>Scaler par le <em>système</em>, pas par la main.</h4>
-        <p>Ce qu'on fait une fois avec soin, on le reproduit mille fois avec un système. Tokens, patterns, governance : l'infra silencieuse qui rend les équipes rapides.</p>
-        <span class="en">Build the tools that build the product</span>
-      </div>
-      <div class="ap">
-        <div class="num">03 / AI-native</div>
-        <h4>L'IA comme <em>coéquipier</em>, pas comme gadget.</h4>
-        <p>Claude, Lovable, n8n — intégrés à mon workflow quotidien. L'IA ne remplace pas le jugement de designer ; elle libère le temps pour en faire plus.</p>
-        <span class="en">Automate the boring, focus on the craft</span>
-      </div>
-      <div class="ap">
-        <div class="num">04 / Builder</div>
-        <h4>Livrer, mesurer, <em>itérer</em>.</h4>
-        <p>Les maquettes qui ne partent pas en prod ne comptent pas. Je travaille en binôme serré avec le front, j'assume le ship, et je lis la data qui revient.</p>
-        <span class="en">Ship is the design</span>
-      </div>
+<section id="projects">
+  <div class="container">
+    <div class="projects-intro">
+      <h2>Les projets <span class="strike">que j'ai</span> <span class="highlight">qui m'ont fait</span></h2>
     </div>
-  </div>
-</section>
-
-<!-- LEADERSHIP -->
-<section id="lead">
-  <div class="wrap">
-    <div class="eyebrow">004 — Leadership</div>
-    <div class="lead-wrap">
-      <div>
-        <h2 class="section-title">Pourquoi <em>Lead</em>, et pourquoi maintenant.</h2>
-        <p class="lead-quote">
-          J'ai déjà un rôle de management <em>indirect</em> sur l'équipe Design — rituels, qualité, vision. Le prochain pas, c'est de l'assumer, avec le titre et la responsabilité qui vont avec.
-        </p>
-      </div>
-      <ul class="lead-list">
-        <li>
-          <span class="ix">I.</span>
-          <div>
-            <div class="title">Management indirect de l'équipe</div>
-            <div class="sub">Rituels, reviews, onboarding, QA design. Je tiens déjà la barre en l'absence du manager.</div>
-          </div>
-          <span class="badge">en cours</span>
-        </li>
-        <li>
-          <span class="ix">II.</span>
-          <div>
-            <div class="title">Impulsion du design system</div>
-            <div class="sub">Initié seule, adopté par 4 équipes. Le projet pivot de la maturité design chez BFM.</div>
-          </div>
-          <span class="badge">2024</span>
-        </li>
-        <li>
-          <span class="ix">III.</span>
-          <div>
-            <div class="title">Participation à la vision produit</div>
-            <div class="sub">Roadmap trimestrielle, arbitrages avec PM &amp; tech lead. Je défends le point de vue utilisateur au niveau où il se joue.</div>
-          </div>
-          <span class="badge">ongoing</span>
-        </li>
-        <li>
-          <span class="ix">IV.</span>
-          <div>
-            <div class="title">Mindset solution</div>
-            <div class="sub">Je ne ramène pas des problèmes : je ramène des options, des trade-offs et une reco. C'est la posture que j'attends de moi au niveau Lead.</div>
-          </div>
-          <span class="badge">always</span>
-        </li>
-        <li>
-          <span class="ix">V.</span>
-          <div>
-            <div class="title">Formation continue &amp; veille</div>
-            <div class="sub">Thiga Design System, pratique quotidienne de l'IA, lectures sur le product management.</div>
-          </div>
-          <span class="badge">2025</span>
-        </li>
+    <div class="projects-tabs">
+      <ul class="tabs-list">
+        <li><button class="tab-btn active" data-filter="all">Tous les projets</button></li>
+        <li><button class="tab-btn" data-filter="craft">Craft</button></li>
+        <li><button class="tab-btn" data-filter="system">Système</button></li>
       </ul>
+      <div class="projects-grid" id="projects-grid"></div>
     </div>
   </div>
 </section>
 
-<!-- STACK -->
-<section id="stack">
-  <div class="wrap">
-    <div class="eyebrow">005 — Stack</div>
-    <h2 class="section-title">Les outils que j'utilise au <em>quotidien</em>.</h2>
-    <p class="section-sub">Pas un name-drop — un vrai workflow, pensé pour livrer vite et bien.</p>
-
-    <div class="stack-grid">
-      <div class="tool"><div><div class="n">Figma</div><div class="u">Design · DS · prototype</div></div><div class="ic">Fi</div></div>
-      <div class="tool"><div><div class="n">Framer</div><div class="u">Landing · portfolio</div></div><div class="ic">Fr</div></div>
-      <div class="tool"><div><div class="n">Claude</div><div class="u">Thought partner · code</div></div><div class="ic">Cl</div></div>
-      <div class="tool"><div><div class="n">Lovable</div><div class="u">Rapid prototyping</div></div><div class="ic">Lo</div></div>
-      <div class="tool"><div><div class="n">n8n</div><div class="u">Automations</div></div><div class="ic">n8</div></div>
-      <div class="tool"><div><div class="n">Notion</div><div class="u">Specs · docs</div></div><div class="ic">No</div></div>
-      <div class="tool"><div><div class="n">Jira</div><div class="u">Delivery · tickets</div></div><div class="ic">Ji</div></div>
-      <div class="tool"><div><div class="n">Thiga DS</div><div class="u">Formation · méthode</div></div><div class="ic">Th</div></div>
+<section id="approach">
+  <div class="container">
+    <h2 style="font-family:'Seatren',serif;font-size:48px;margin-bottom:60px;font-weight:400;letter-spacing:-0.02em;">Mon approche</h2>
+    <div class="approach-list">
+      <div class="approach-item">
+        <div class="approach-num">01 / 04</div>
+        <h3 class="approach-title">Entrer au bon moment change tout.</h3>
+        <p class="approach-text">Le designer qui arrive à l'étape maquette résout les mauvais problèmes. Le bon endroit, c'est le cadrage, pas le handoff.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">02 / 04</div>
+        <h3 class="approach-title">Un système se joue sur les tokens, pas les composants.</h3>
+        <p class="approach-text">L'architecture de tokens propre vaut plus qu'un beau composant. C'est elle qui fait scaler, c'est elle qui casse en prod si elle est faible.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">03 / 04</div>
+        <h3 class="approach-title">Un livrable, c'est tous les états.</h3>
+        <p class="approach-text">Edge cases, tablette, dark mode, variantes marque, animations, vides. Un mockup qui n'a que le happy path n'est pas un livrable, c'est un teaser.</p>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">04 / 04</div>
+        <h3 class="approach-title">Un design ne vaut que par son écosystème.</h3>
+        <p class="approach-text">Pression publicitaire, contraintes techniques, implémentation. Le rôle d'un designer mature, c'est de penser le design dans son système de livraison.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <div class="wrap">
-    <div class="eyebrow">006 — About</div>
-    <div class="about-wrap">
-      <div class="about-photo">
-        <img src="assets/portrait.png" alt="Portrait de Maddlyn Fuzier" />
-        <div class="lbl">photo · maddlyn · 02</div>
-        <div class="cap"><span>Maddlyn Fuzier • Future Lead Product Designer</span><span>2026</span></div>
-      </div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo"><img src="assets/portrait.png" alt="Maddlyn Fuzier"></div>
       <div class="about-text">
-        <h2 class="section-title">Product designer, en route pour le <em>Lead</em>.</h2>
-        <p>J'ai commencé par le graphisme, la publicité, l'audiovisuel, le développement. Je suis arrivée au product design par l'évidence : <strong>je voulais que mon travail ait un impact mesurable</strong>, pas seulement une signature esthétique.</p>
-        <p>Aujourd'hui chez <strong>BFM RMC</strong>, je conçois pour 17M d'utilisateurs mensuels. J'ai initié un design system, refondu deux apps (BFM et RMC Sport), et mis en place des workflows IA qui ont changé la façon dont l'équipe livre. En parallèle, je tiens <strong>Madd</strong>, mon activité freelance, qui me permet de rester au contact de marques exigeantes — de la fintech au retail.</p>
-        <p>La suite ambitieuse, c'est Lead. Avec l'équipe, la vision, et la responsabilité de faire grandir d'autres designers.</p>
-
+        <h2>Le métier comme outil, pas comme <span class="accent">signature</span></h2>
+        <p>J'ai commencé par le graphisme, la publicité, le webdesign à l'époque où il existait encore comme métier propre, avant de glisser vers le product design. Pas par filiation logique : par lassitude d'un monde où la beauté d'un livrable suffisait à valider le travail, indépendamment de ce que ça produisait.</p>
+        <p>Mon obsession depuis cette bascule, c'est que le <strong>design soit utile</strong>. Qu'il réponde à un enjeu business identifié, à une frustration utilisateur réelle, à une contrainte technique respectée. Qu'il vive en prod plutôt que mourir en présentation.</p>
+        <h3 style="font-family:'Seatren',serif;font-size:28px;margin:40px 0 24px;font-weight:400;">Mon parcours</h3>
         <div class="timeline">
-          <div class="tl-row"><div class="yr">2024 — now</div><div class="role">Product Designer <span class="co">· BFM RMC</span></div><span class="tag">17M MAU</span></div>
-          <div class="tl-row"><div class="yr">2021 — 2024</div><div class="role">Product Designer <span class="co">· Reworld Media</span></div><span class="tag">80 marques média • +100 marques clients</span></div>
-          <div class="tl-row"><div class="yr">2019 — now</div><div class="role">Product Designer &amp; Développeuse No-Code <span class="co">· Madd</span></div><span class="tag">Freelance</span></div>
-          <div class="tl-row"><div class="yr">2019 — 2020</div><div class="role">Création &amp; Design <span class="co">· Sup de Pub</span></div><span class="tag">Bachelor</span></div>
-          <div class="tl-row"><div class="yr">2017 — 2019</div><div class="role">MMI <span class="co">· IUT d'Angoulême</span></div><span class="tag">DUT</span></div>
+          <div class="timeline-item"><div class="timeline-year">Mars 2024 → Auj.</div><div><div class="timeline-role">Product Designer <span class="timeline-company">· CMA Média / RMC BFM</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">Déc. 2021 → Fév. 2024</div><div><div class="timeline-role">Product Designer <span class="timeline-company">· Reworld Media</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2019 → Auj.</div><div><div class="timeline-role">Freelance <span class="timeline-company">· Madd</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2019 → 2020</div><div><div class="timeline-role">Création & Design <span class="timeline-company">· Sup de Pub</span></div></div></div>
+          <div class="timeline-item"><div class="timeline-year">2017 → 2019</div><div><div class="timeline-role">MMI <span class="timeline-company">· IUT d'Angoulême</span></div></div></div>
+        </div>
+        <h3 style="font-family:'Seatren',serif;font-size:28px;margin:40px 0 16px;font-weight:400;">En parallèle</h3>
+        <p>Depuis 2019, je porte <strong>Madd</strong>, mon activité freelance. Elle me sert à adresser des marchés que je ne touche pas en entreprise (marques premium, restauration, retail, packaging). Site: <a href="https://maddlynfuzier.com" target="_blank" style="color:var(--gold);text-decoration:underline;">maddlynfuzier.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="container">
+    <h2 style="font-family:'Seatren',serif;font-size:48px;margin-bottom:60px;font-weight:400;letter-spacing:-0.02em;">Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-category">
+        <h3>Penser et structurer</h3>
+        <div class="stack-items">
+          <div class="stack-item">Claude</div>
+          <div class="stack-item">ChatGPT</div>
+          <div class="stack-item">Gemini</div>
+          <div class="stack-item">Notion</div>
+        </div>
+      </div>
+      <div class="stack-category">
+        <h3>Concevoir & prototyper</h3>
+        <div class="stack-items">
+          <div class="stack-item">Figma</div>
+          <div class="stack-item">FigJam</div>
+          <div class="stack-item">Figma Make</div>
+          <div class="stack-item">Framer</div>
+        </div>
+      </div>
+      <div class="stack-category">
+        <h3>Livrer & automatiser</h3>
+        <div class="stack-items">
+          <div class="stack-item">Jira</div>
+          <div class="stack-item">GitHub</div>
+          <div class="stack-item">Claude Code</div>
+          <div class="stack-item">n8n</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="contact-inner">
-      <div class="contact-grid">
-        <div>
-          <h2>Un rôle de <em>Lead</em> à pourvoir ?</h2>
-          <p class="contact-sub">Je réponds sous 24h. Je préfère un premier échange court pour qu'on voie si le fit y est !</p>
-          <a class="btn btn-primary" href="mailto:fuzier.maddlyn@gmail.com">
-            Écrire un email
-            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-        <ul class="contact-list">
-          <li><a href="mailto:fuzier.maddlyn@gmail.com"><span>Email</span><span class="hdl">fuzier.maddlyn@gmail.com</span></a></li>
-          <li><a href="https://www.linkedin.com/in/maddlynfuzier" target="_blank" rel="noopener"><span>LinkedIn</span><span class="hdl">/in/maddlynfuzier</span></a></li>
-        </ul>
+<section id="contact">
+  <div class="container">
+    <div class="contact-cta">
+      <h2>Vous êtes toujours là ?</h2>
+      <p class="contact-text">Si vous êtes arrivés jusqu'ici, c'est que mon profil ou ce que je raconte vous parle. N'hésitez pas à me contacter, je serai ravie d'échanger avec vous.</p>
+      <div class="contact-buttons">
+        <a href="mailto:fuzier.maddlyn@gmail.com" class="btn btn-primary">Par mail <span>→</span></a>
+        <a href="https://www.linkedin.com/in/maddlynfuzier" target="_blank" class="btn btn-secondary">Sur LinkedIn <span>↗</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="wrap">
-  <span>© 2026 Maddlyn Fuzier — Product Designer</span>
-  <span>Conçu à Paris · Built with craft &amp; coffee</span>
+<footer class="container">
+  <span>© Maddlyn Fuzier 2026. Site réalisé entre Claude et moi</span>
+  <button class="btn btn-secondary" onclick="scrollTo('#contact')" style="padding:8px 16px;font-size:14px;">Me contacter</button>
 </footer>
+
+<div class="modal" id="caseModal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+  <div class="modal-content"><div id="modalBody"></div></div>
+</div>
+
+<script>
+const projects = [
+  {id:'bfm-app',title:'Refonte App BFM',category:'craft',tag:'Refonte d\'app',company:'CMA Média',year:'2024–2025',role:'Lead designer',desc:'Refonte complète d\'une app 17M MAU, intégrant 3 marques, nouvelle DA.',metrics:[{value:'+5%',label:'Visites'},{value:'+42s',label:'Temps moyen'},{value:'+5pts',label:'Shorts'}],fullContent:'<h2>Refonte App BFM</h2><div class="modal-meta">CMA Média · 2024–2025 · Lead designer</div><h3>Le contexte</h3><p>En 2024, on m\'a confié la refonte de l\'app BFM. Quatre projets en un : refonte produit + bascule de marque + agrégation de 3 marques + enjeu politique. Pas le droit de se louper.</p><h3>Le problème</h3><p>Refondre une app 17M MAU en tenant trois exigences : densifier l\'offre, mettre en avant l\'actu chaude & vidéo, imposer une DA sans perdre les repères.</p><h3>Outcomes</h3><p>+5% visites (5x l\'objectif), +42s temps moyen, +5pts shorts. Bascule sans crise. Première vitrine CMA post-rachat.</p>'},
+  {id:'rmc-sport',title:'Réinternalisation App RMC',category:'craft',tag:'Réinternalisation',company:'CMA Média',year:'2024',role:'Lead designer',desc:'4 jours pour reprendre l\'app entière, aligner socle RMC BFM, livrer exploitable.',metrics:[{value:'4j',label:'Refonte'},{value:'100%',label:'Écrans'},{value:'95%',label:'Specs'}],fullContent:'<h2>Réinternalisation App RMC Sport</h2><div class="modal-meta">CMA Média · 2024 · Lead designer</div><h3>Le défi</h3><p>App développée par prestataire, à réinternaliser. Première version existait mais intégrait mal le socle technique. Délais courts, risque de partir cassé.</p><h3>Exécution</h3><p>Reprise intégrale en 4 jours : contraintes du socle + cohérence visuelle + responsivité + specs dev. Livrée et exploitable.</p><h3>Impact</h3><p>App en prod. Crédibilité établie auprès des leads tech pour la suite (refonte BFM 6 mois après).</p>'},
+  {id:'login-sso',title:'Login Multi-marques RMC+',category:'craft',tag:'SSO multi-marques',company:'CMA Média',year:'2024–en cours',role:'Lead designer',desc:'Compte unique pour 6 marques, 4 plateforme, cohérent, RGPD, live RMC+.',metrics:[{value:'6',label:'Marques'},{value:'4',label:'Plateformes'},{value:'✓',label:'RGPD'}],fullContent:'<h2>Login Multi-marques</h2><div class="modal-meta">CMA Média · 2024–en cours · Lead designer</div><h3>L\'approche</h3><p>Compte unique + gestion universelle + fonctionnalités contextuelles. Utilisateur perçoit cohérence, identités marque respectées.</p><h3>Stratégie</h3><p>Onboarding progressif (demander minimum à création, enrichir ensuite). Migration RMC BFM Play transparent. Consentement RGPD granulaire.</p><h3>État</h3><p>Live côté RMC+, déploiement publishing en préparation.</p>'},
+  {id:'design-system',title:'Design System Multi-marques',category:'system',tag:'Design System',company:'CMA Média',year:'2024–en cours',role:'Lead designer',desc:'4 marques média, web + app iOS/Android. Audit chiffré, tokens, gouvernance.',metrics:[{value:'109→14',label:'Couleurs'},{value:'3',label:'Niveaux'},{value:'4',label:'Marques'}],fullContent:'<h2>Design System Multi-marques</h2><div class="modal-meta">CMA Média · 2024–en cours · Lead designer</div><h3>Approche</h3><p>Audit chiffré avant architecture. RMC web : 109 couleurs → 14, 83 typos → 18, 18 espacements → 6.</p><h3>Architecture</h3><p>3 niveaux : tokens globaux (grammaire) + tokens marque (theming) + composants à variants.</p><h3>Philosophie</h3><p>Affirmer identités de marque, pas les uniformiser. Le DS rend les marques plus rigoureuses, pas les dilue.</p>'},
+  {id:'framework-produit',title:'Framework Produit',category:'system',tag:'Framework',company:'CMA Média',year:'2025–en cours',role:'Lead designer',desc:'Redéfinition frameworks produit. Focus : place du Design dans l\'organisation.',metrics:[{value:'2',label:'Rôles PD vs D'},{value:'6',label:'Étapes'},{value:'✓',label:'RACI'}],fullContent:'<h2>Framework Produit</h2><div class="modal-meta">CMA Média · 2025–en cours</div><h3>Défi</h3><p>Design entre trop tard, livrables incomplets, pas de distinction PD vs Designer, collaboration filtrée par PM.</p><h3>Phase 0 : Audit</h3><p>6 interviews. Insight : "avec le Product Designer on a tout, avec le Designer il manque des choses".</p><h3>Direction</h3><p>PD entre étape 2-3 (cadrage, parcours, specs), Designer étape 4 (graphique, déclinaisons). RACI clair par étape.</p>'},
+  {id:'reworld',title:'Reworld Media · 80+ marques',category:'system',tag:'80+ marques',company:'Reworld Media',year:'2021–2024',role:'Product Designer',desc:'2.5 ans. 80+ marques media + plateformes clients. Rigueur d\'org comme survie.',metrics:[{value:'80+',label:'Marques'},{value:'12+',label:'Clients'},{value:'✓',label:'Notion'}],fullContent:'<h2>Reworld Media · 80+ marques</h2><div class="modal-meta">Reworld Media · Dec 2021 – Feb 2024</div><h3>Contexte</h3><p>80+ marques propres (Grazia, Marmiton, Doctissimo, etc.) + plateformes clients. Flux tendu, pas de roadmap.</p><h3>Apprentissages</h3><p><strong>1. Rigueur d\'org comme survie :</strong> Refondu ticketing sur Notion pour absorber le volume.<br><strong>2. Réflexe système :</strong> Catalogue de templates pour livrer vite à budget serré.<br><strong>3. Responsabilité élargie :</strong> Seule sur large périmètre, accompagnement d\'alternantes.</p><h3>Projets clés</h3><p>Refonte BIBA, EnVols (Air France), Grazia. Leçon dure : un design ne vaut que par l\'écosystème qui le porte jusqu\'à la prod.</p>'}
+];
+
+function renderProjects(filter='all'){
+  const grid=document.getElementById('projects-grid');
+  const filtered=filter==='all'?projects:projects.filter(p=>p.category===filter);
+  grid.innerHTML=filtered.map(p=>`<div class="project-card" onclick="openCase('${p.id}')"><div class="project-content"><div class="project-tag">${p.tag}</div><h3 class="project-title">${p.title}</h3><p class="project-desc">${p.desc}</p><div class="project-metrics">${p.metrics.map(m=>`<div class="metric"><div class="metric-value">${m.value}</div><div class="metric-label">${m.label}</div></div>`).join('')}</div></div></div>`).join('');
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProjects(btn.dataset.filter);
+  });
+});
+
+function openCase(projectId){
+  const project=projects.find(p=>p.id===projectId);
+  if(!project)return;
+  document.getElementById('modalBody').innerHTML=project.fullContent;
+  document.getElementById('caseModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){
+  document.getElementById('caseModal').classList.remove('active');
+  document.body.style.overflow='auto';
+}
+
+document.getElementById('caseModal').addEventListener('click',(e)=>{
+  if(e.target.id==='caseModal')closeModal();
+});
+
+function scrollTo(selector){
+  const el=document.querySelector(selector);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  renderProjects('all');
+});
+</script>
 
 </body>
 </html>

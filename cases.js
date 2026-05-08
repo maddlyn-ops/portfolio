@@ -42,6 +42,8 @@ window.CASES = [
       },
       {
         h: "Discovery",
+        image: "./assets/cases/discovery-bfm.png",
+        imageAlt: "Trois plans de discovery menés en parallèle sur le projet BFM",
         body: [
           "5 à 6 mois de structuration progressive de la pensée produit. Trois plans en parallèle :",
         ],
@@ -222,6 +224,8 @@ window.CASES = [
       },
       {
         h: "Trois décisions d'architecture",
+        image: "./assets/cases/achitecture-tokens-ds.png",
+        imageAlt: "Architecture à trois niveaux de tokens : globaux, marque, composants",
         sub: [
           { t: "1. Trois niveaux de tokens, en débat assumé", b: "Tokens globaux (valeurs brutes), tokens marque (theming par marque), composants à variants. Cette architecture absorbe en parallèle theming par marque, dark/light, plateformes web vs app, breakpoints, et distinction valeur brute vs sémantique." },
           { t: "2. La librairie Figma sert déjà les équipes tech", b: "Mon premier livrable concret n'est pas un DS abouti. C'est une librairie Figma à variantes qui couvre les axes ci-dessus. Pas une fin, un début. Et pourtant, les devs app l'ont remarquée et reproduisent la même logique dans leurs styles." },
@@ -230,6 +234,8 @@ window.CASES = [
       },
       {
         h: "État d'avancement",
+        image: "./assets/cases/ds-roadmap.png",
+        imageAlt: "Roadmap du Design System multi-marques",
         table: [
           { k: "Phase 1. Foundations (W1-2)", v: "En cours. Audit web fait, app à compléter." },
           { k: "Phase 2. Tokens (W3-5)", v: "À venir." },
@@ -272,7 +278,14 @@ window.CASES = [
         ],
       },
       {
+        h: "Phase 0 : instruire le réel",
+        image: "./assets/cases/interviews-framework.png",
+        imageAlt: "Tableau de synthèse cross-interviews du framework produit",
+      },
+      {
         h: "L'insight central : Product Designer vs Designer",
+        image: "./assets/cases/prd-vs-design.png",
+        imageAlt: "Comparaison Product Designer vs Designer",
         body: [
           "Une distinction est apparue spontanément dans 6 entretiens sur 6. La formulation revenait, mot pour mot ou à peu près : \"avec le Product Designer on a tout, avec le Designer il manque des choses\".",
           "Ce n'est pas une question de talent ou de qualité graphique. C'est une question de maturité produit. La pratique du Design est historiquement ancrée dans une logique DA/print/web vitrine, qui n'a pas pris le virage de la culture produit. Le Product Design, lui, est au cœur de cette culture.",
@@ -295,6 +308,11 @@ window.CASES = [
           "Au-delà de la rigueur structurelle, ce qui m'intéresse vraiment, c'est de rendre le travail des gens plus facile et plus agréable.",
           "Un framework, ce n'est pas un formulaire de plus à remplir. C'est des rituels qu'on attend avec plaisir, des ateliers qui débloquent des sujets en quelques heures plutôt qu'en plusieurs réunions, un cadre qui concentre l'énergie sur la valeur ajoutée de chacun.",
         ],
+      },
+      {
+        h: "État d'avancement",
+        image: "./assets/cases/framework-roadmap.png",
+        imageAlt: "Roadmap du framework produit",
       },
     ],
   },

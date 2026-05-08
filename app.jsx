@@ -282,7 +282,7 @@ function Hero({ onContact }) {
         </div>
         <h1 className="hero__title display">
           <span className="line"><span style={{ height: "89px" }}>Product Designer.</span></span>
-          <span className="line"><span><span className="hero__accent">De l'écran au système</span> qui le produit.</span></span>
+          <span className="line"><span>De <span className="hero__sticker">l'écran au système</span> qui le produit.</span></span>
         </h1>
         <p className="hero__sub">
           6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.

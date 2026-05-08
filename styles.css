@@ -929,8 +929,15 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
 }
 .hero__title .line:nth-child(2) > span { animation-delay: 120ms; }
 .hero__title .line:nth-child(3) > span { animation-delay: 240ms; }
-.hero__accent {
-  color: var(--ember-red);
+.hero__sticker {
+  display: inline-block;
+  padding: 0.04em 0.22em 0.08em;
+  border: 2px solid var(--ember-red);
+  border-radius: 8px;
+  transform: rotate(-2.2deg);
+  transform-origin: center;
+  background: rgba(255, 99, 99, 0.04);
+  box-shadow: 0 6px 18px rgba(255, 99, 99, 0.18);
 }
 
 @keyframes line-rise {

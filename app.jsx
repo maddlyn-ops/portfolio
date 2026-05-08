@@ -923,7 +923,7 @@ function NavCommandBar({ active, stuck, scrollPct, onOpenCase }) {
           <span></span><span></span><span></span>
         </button>
         <a href="#top" className="nav-cmd__brand">
-          <span className="nav-cmd__mark" aria-hidden="true">M</span>
+          <img className="nav-cmd__mark" src="./assets/fav-200.png" alt="" aria-hidden="true" />
           <span>Maddlyn Fuzier</span>
         </a>
         <button className="nav-cmd__trigger" onClick={() => setOpen(true)}>

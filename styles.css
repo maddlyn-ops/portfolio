@@ -242,11 +242,9 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
 }
 .nav-cmd__mark {
   width: 22px; height: 22px;
-  display: grid; place-items: center;
-  background: var(--ember-red); color: var(--void-black);
+  display: block;
   border-radius: 5px;
-  font-size: 12px; font-weight: 700;
-  letter-spacing: -0.03em;
+  object-fit: contain;
 }
 .nav-cmd__trigger {
   flex: 1;

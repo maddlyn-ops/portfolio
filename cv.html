@@ -10,48 +10,90 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
 <style>
-  body { background-image: linear-gradient(180deg, var(--void-black) 0%, #04132e 100%); }
+  body {
+    background:
+      radial-gradient(120% 100% at 100% 0%, rgba(86,194,255,0.10), rgba(0,0,0,0) 55%),
+      radial-gradient(80% 100% at 0% 100%, rgba(255,99,99,0.10), rgba(0,0,0,0) 60%),
+      linear-gradient(135deg, #07080a 0%, #04132e 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+  .cv__grid-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
   .cv {
+    position: relative; z-index: 1;
     max-width: 1080px;
     margin: 0 auto;
     padding: clamp(24px, 4vw, 64px) clamp(20px, 4vw, 56px) 96px;
   }
   .cv__top {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 18px 0 32px;
+    padding: 18px 0 28px;
+    margin-bottom: clamp(40px, 6vw, 72px);
+    border-bottom: 1px solid var(--graphite-500);
+    gap: 16px;
+  }
+  .cv__top-mark {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--snow);
     font-family: var(--font-mono);
     font-size: 12px;
-    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--slate-200);
-    border-bottom: 1px solid var(--graphite-500);
-    margin-bottom: clamp(36px, 6vw, 72px);
-  }
-  .cv__top a {
-    color: var(--slate-200);
+    letter-spacing: 0.12em;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: color 200ms ease, border-color 200ms ease;
   }
-  .cv__top a:hover { color: var(--snow); border-bottom-color: var(--ember-red); }
-  .cv__top-mark { display: inline-flex; align-items: center; gap: 10px; color: var(--snow); }
   .cv__top-mark img { width: 22px; height: 22px; border-radius: 5px; }
+  .cv__top-actions { display: flex; align-items: center; gap: 12px; }
+  .cv__btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    border-radius: var(--r-button);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+    border: 1px solid var(--graphite-500);
+    background: rgba(255,255,255,0.04);
+    color: var(--slate-100);
+  }
+  .cv__btn:hover { color: var(--snow); border-color: rgba(255,99,99,0.5); }
+  .cv__btn--primary { background: var(--ember-red); border-color: var(--ember-red); color: var(--void-black); }
+  .cv__btn--primary:hover { background: #ff7878; border-color: #ff7878; color: var(--void-black); }
 
   .cv__hero {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 56px;
     align-items: end;
-    margin-bottom: clamp(48px, 8vw, 96px);
+    margin-bottom: clamp(40px, 6vw, 72px);
   }
   .cv__name {
     font-size: clamp(44px, 6vw, 72px);
     line-height: 0.98;
     letter-spacing: -0.04em;
     font-weight: 600;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     color: var(--snow);
   }
+  .cv__meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--slate-200);
+    margin: 0 0 18px;
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .cv__meta .sep { color: var(--graphite-400); }
   .cv__role {
     font-size: clamp(18px, 1.6vw, 22px);
     color: var(--slate-200);
@@ -78,7 +120,7 @@
   .cv__contact a { color: var(--snow); text-decoration: none; border-bottom: 1px solid var(--graphite-500); }
   .cv__contact a:hover { border-bottom-color: var(--ember-red); }
   .cv__contact-row { display: flex; gap: 8px; }
-  .cv__contact-row .k { color: var(--slate-300); min-width: 78px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; padding-top: 1px; }
+  .cv__contact-row .k { color: var(--slate-300); min-width: 86px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; padding-top: 1px; }
 
   .cv__grid {
     display: grid;
@@ -96,20 +138,24 @@
     margin: 0 0 16px;
   }
   .cv__h::before { content: "— "; color: var(--ember-red); }
+  .cv__sub-h {
+    font-size: 20px; font-weight: 600; margin: 0 0 12px;
+    letter-spacing: -0.01em; color: var(--snow);
+  }
   .cv__lead {
-    font-size: 17px;
+    font-size: 16px;
     color: var(--ash-50);
-    line-height: 1.55;
+    line-height: 1.6;
     margin: 0 0 12px;
   }
-  .cv__lead + .cv__lead { margin-top: 12px; }
 
   .cv__exp {
     border-top: 1px solid var(--graphite-500);
-    padding: 18px 0;
+    padding: 14px 0;
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 220px 1fr;
     gap: 24px;
+    align-items: baseline;
   }
   .cv__exp:last-child { border-bottom: 1px solid var(--graphite-500); }
   .cv__exp-date {
@@ -118,32 +164,12 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--slate-200);
-    padding-top: 4px;
   }
-  .cv__exp h3 {
-    font-size: 18px; font-weight: 600; margin: 0 0 6px;
-    letter-spacing: -0.01em; color: var(--snow);
+  .cv__exp-role {
+    font-size: 15px;
+    color: var(--snow);
+    margin: 0;
   }
-  .cv__exp .role { font-size: 13px; color: var(--slate-200); margin: 0 0 10px; font-family: var(--font-mono); letter-spacing: 0.04em; }
-  .cv__exp p { margin: 0 0 6px; color: var(--slate-100); font-size: 14px; line-height: 1.55; }
-  .cv__exp ul { margin: 8px 0 0; padding: 0; list-style: none; }
-  .cv__exp ul li { position: relative; padding-left: 14px; font-size: 14px; color: var(--slate-100); margin-bottom: 4px; line-height: 1.5; }
-  .cv__exp ul li::before {
-    content: ""; position: absolute; left: 0; top: 9px;
-    width: 4px; height: 4px; background: var(--ember-red); border-radius: 50%;
-  }
-
-  .cv__projects { display: grid; gap: 14px; }
-  .cv__proj {
-    border: 1px solid var(--graphite-500);
-    border-radius: var(--r-card);
-    padding: 16px 18px;
-    background: rgba(17,18,20,0.5);
-  }
-  .cv__proj h4 { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--snow); }
-  .cv__proj .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); margin-bottom: 8px; }
-  .cv__proj p { margin: 0; font-size: 13px; color: var(--slate-100); line-height: 1.5; }
-  .cv__proj .metric { display: inline-block; margin-top: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ember-red); }
 
   .cv__pills { display: flex; flex-wrap: wrap; gap: 6px; }
   .cv__pill {
@@ -157,60 +183,85 @@
     color: var(--slate-100);
   }
   .cv__pill-group { margin-bottom: 14px; }
-  .cv__pill-group .label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--slate-300); margin-bottom: 6px; }
-
-  .cv__edu p { margin: 0; }
-  .cv__edu .row { padding: 12px 0; border-top: 1px solid var(--graphite-500); }
-  .cv__edu .row:last-child { border-bottom: 1px solid var(--graphite-500); }
-  .cv__edu strong { color: var(--snow); font-weight: 600; font-size: 14px; }
-  .cv__edu span.year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); display: block; margin-bottom: 2px; }
-  .cv__edu span.detail { color: var(--slate-200); font-size: 13px; }
-
-  .cv__foot {
-    margin-top: clamp(48px, 6vw, 96px);
-    padding-top: 24px;
-    border-top: 1px solid var(--graphite-500);
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  .cv__pill-group .label {
     font-family: var(--font-mono);
-    font-size: 12px; color: var(--slate-300);
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate-300);
+    margin-bottom: 6px;
+  }
+
+  .cv__method {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--graphite-500);
+    font-size: 13px;
+    color: var(--slate-100);
+    line-height: 1.55;
+  }
+  .cv__method .label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate-300);
+    margin-bottom: 6px;
   }
 
   @media (max-width: 880px) {
     .cv__hero, .cv__grid { grid-template-columns: 1fr; gap: 32px; }
-    .cv__exp { grid-template-columns: 1fr; gap: 6px; }
+    .cv__exp { grid-template-columns: 1fr; gap: 4px; }
   }
 
   @media print {
+    @page { margin: 14mm; }
     html, body { background: #fff !important; color: #111 !important; }
-    .cv { padding: 24px; }
-    .cv__top, .cv__foot { color: #555; border-color: #ddd; }
-    .cv__name, .cv__exp h3, .cv__proj h4, .cv__edu strong, .cv__contact a { color: #111 !important; }
-    .cv__lead, .cv__exp p, .cv__exp ul li, .cv__proj p, .cv__edu span.detail { color: #333 !important; }
-    .cv__role .sticker { color: #111 !important; box-shadow: none; }
-    .cv__h, .cv__proj .metric, .cv__exp ul li::before { color: var(--ember-red) !important; }
-    .cv__exp, .cv__edu .row, .cv__top { border-color: #ddd !important; }
-    .cv__pill { border-color: #ccc; color: #333; }
-    .cv__proj { border-color: #ddd; background: #fafafa; }
+    .cv__grid-bg { display: none; }
+    .cv { padding: 0; max-width: none; }
+    .cv__top { border-color: #ddd; }
+    .cv__top-actions { display: none; }
+    .cv__top-mark { color: #111; }
+    .cv__name, .cv__sub-h, .cv__exp-role, .cv__contact a { color: #111 !important; }
+    .cv__lead, .cv__meta, .cv__exp-date, .cv__method { color: #333 !important; }
+    .cv__role { color: #333; }
+    .cv__role .sticker { color: #111 !important; box-shadow: none; background: transparent; }
+    .cv__h, .cv__exp ul li::before { color: var(--ember-red) !important; }
+    .cv__exp { border-color: #ddd !important; }
+    .cv__pill { border-color: #ccc; color: #333; background: #fafafa; }
+    .cv__method { border-color: #ddd; }
+    .cv__contact a { border-color: #ccc; }
   }
 </style>
 </head>
 <body>
+  <div class="cv__grid-bg" aria-hidden="true"></div>
+
   <main class="cv">
     <header class="cv__top">
       <a class="cv__top-mark" href="./index.html">
         <img src="./assets/fav-200.png" alt="" />
         <span>Maddlyn Fuzier</span>
       </a>
-      <span>CV · 2026</span>
-      <a href="./index.html">← Portfolio</a>
+      <div class="cv__top-actions">
+        <button class="cv__btn cv__btn--primary" type="button" onclick="window.print()" aria-label="Télécharger au format PDF">
+          Télécharger au format PDF
+        </button>
+        <a class="cv__btn" href="./index.html">← Portfolio</a>
+      </div>
     </header>
 
     <section class="cv__hero">
       <div>
         <h1 class="cv__name">Maddlyn Fuzier</h1>
+        <p class="cv__meta">
+          <span>Paris</span><span class="sep">·</span>
+          <span>Île de France</span><span class="sep">·</span>
+          <span>International remote</span>
+        </p>
         <p class="cv__role">
-          Product Designer — 6 ans, du <span class="sticker">craft à grande échelle</span> au système qui le rend possible.
+          Product Designer. De <span class="sticker">l'écran au système</span> qui le produit.
         </p>
       </div>
       <div class="cv__contact">
@@ -218,7 +269,6 @@
         <div class="cv__contact-row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/maddlynfuzier" target="_blank" rel="noopener">/in/maddlynfuzier</a></div>
         <div class="cv__contact-row"><span class="k">Portfolio</span><a href="./index.html">maddlyn-ops.github.io/portfolio</a></div>
         <div class="cv__contact-row"><span class="k">Freelance</span><a href="https://maddlynfuzier.com" target="_blank" rel="noopener">maddlynfuzier.com</a></div>
-        <div class="cv__contact-row"><span class="k">Basée à</span><span style="color:var(--slate-100)">Paris · Île-de-France · International remote</span></div>
       </div>
     </section>
 
@@ -227,87 +277,62 @@
         <section class="cv__section">
           <h2 class="cv__h">Profil</h2>
           <p class="cv__lead">
-            Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
-          </p>
-          <p class="cv__lead">
-            Mon obsession : que le design soit utile. Qu'il vive en prod plutôt que mourir en présentation. Du craft à grande échelle au système qui le rend possible — les deux casquettes en parallèle.
+            6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
           </p>
         </section>
 
         <section class="cv__section">
-          <h2 class="cv__h">Expérience</h2>
+          <h2 class="cv__h">Le métier comme outil, pas comme signature</h2>
+          <p class="cv__lead">
+            J'ai commencé par le graphisme, la publicité, le webdesign à l'époque où il existait encore comme métier propre, avant de glisser vers le product design. Pas par filiation logique : par lassitude d'un monde où la beauté d'un livrable suffisait à valider le travail, indépendamment de ce que ça produisait.
+          </p>
+          <p class="cv__lead">
+            Mon obsession depuis cette bascule, c'est que le design soit utile. Qu'il réponde à un enjeu business identifié, à une frustration utilisateur réelle, à une contrainte technique respectée. Qu'il vive en prod plutôt que mourir en présentation. Une maquette qui ne tient pas debout dans son écosystème, c'est une maquette qui n'a rien produit.
+          </p>
+          <p class="cv__lead">
+            Cette logique m'a portée du craft pur (concevoir des écrans à grande échelle) vers le système qui les rend possibles (design system, framework, gouvernance). Pas en abandonnant l'un pour l'autre, mais en assumant les deux casquettes en parallèle, parce que c'est précisément à leur articulation que se joue la maturité d'un produit.
+          </p>
+        </section>
 
-          <div class="cv__exp">
-            <div class="cv__exp-date">Mars 2024 → aujourd'hui</div>
-            <div>
-              <h3>Product Designer · CMA Média (BFM RMC)</h3>
-              <p class="role">Lead designer — 4 marques, web · iOS · Android · TV</p>
-              <ul>
-                <li>Refonte de l'app BFM (17M visiteurs/mois) : +5% audiences (objectif +1%), +42s temps de visite, +5pts shorts vidéo.</li>
-                <li>Réinternalisation de l'app RMC Sport en 4 jours, alignée sur les contraintes du socle technique partagé.</li>
-                <li>Login multi-marques (SSO) — compte unique pour 5 marques média + 1 streaming, sur 4 plateformes.</li>
-                <li>Design System multi-marques : audit chiffré (109→14 couleurs, 83→18 éléments typographiques, 18→6 espacements), architecture à 3 niveaux de tokens.</li>
-                <li>Framework Product : redéfinition de la place du Product Design, instruite par 6 entretiens cross-équipes.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cv__exp">
-            <div class="cv__exp-date">Déc. 2021 → fév. 2024</div>
-            <div>
-              <h3>Product Designer · Reworld Media</h3>
-              <p class="role">80+ marques média + une vingtaine de plateformes clients</p>
-              <ul>
-                <li>Point d'entrée unique design : flux tendu permanent, qualité tenue sur le volume.</li>
-                <li>Refonte du système de ticketing sur Notion (premier projet d'ops design).</li>
-                <li>Catalogue de templates pour les commerciaux — produit packagé avant de connaître le terme.</li>
-                <li>Maintenance seule d'un DS hérité ; accompagnement de deux alternantes.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="cv__exp">
-            <div class="cv__exp-date">2019 → aujourd'hui</div>
-            <div>
-              <h3>Freelance · Madd</h3>
-              <p class="role">En parallèle continu — marques premium, restauration, retail, packaging</p>
-              <p>Activité distincte du poste salarié, propre identité, propres clients : Maison Albar, Chalet Boréal, TechSpark, Hysope.</p>
-            </div>
-          </div>
+        <section class="cv__section">
+          <h2 class="cv__h">Madd, en parallèle</h2>
+          <p class="cv__lead">
+            Depuis 2019, je porte Madd, mon activité freelance. Elle me sert à adresser des marchés que je ne touche pas en entreprise (marques premium, restauration, retail, packaging) et à diversifier mes terrains d'expérimentation.
+          </p>
+          <p class="cv__lead">
+            C'est un espace volontairement distinct de mon poste salarié, avec sa propre identité, ses propres clients (Maison Albar, Chalet Boréal, TechSpark, Hysope, entre autres), et son propre site : <a href="https://maddlynfuzier.com" target="_blank" rel="noopener" style="color:var(--snow);border-bottom:1px solid var(--ember-red);text-decoration:none">maddlynfuzier.com</a>.
+          </p>
         </section>
       </div>
 
       <div>
         <section class="cv__section">
-          <h2 class="cv__h">Projets phares</h2>
-          <div class="cv__projects">
-            <article class="cv__proj">
-              <div class="meta">CMA Média · 2024–2025</div>
-              <h4>Refonte App BFM</h4>
-              <p>17M visiteurs/mois. Quatre projets en un sous le regard du nouvel actionnaire CMA CGM.</p>
-              <span class="metric">+5% · +42s · +5pts shorts</span>
-            </article>
-            <article class="cv__proj">
-              <div class="meta">CMA Média · 2024–en cours</div>
-              <h4>Login multi-marques (SSO)</h4>
-              <p>Compte universel + fonctionnalités contextuelles. 4 plateformes, RGPD, migration des comptes existants.</p>
-            </article>
-            <article class="cv__proj">
-              <div class="meta">CMA Média · 2024–en cours</div>
-              <h4>Design System multi-marques</h4>
-              <p>Architecture à 3 niveaux de tokens. Identités de marque affirmées, pas uniformisées.</p>
-              <span class="metric">109 → 14 · 83 → 18 · 18 → 6</span>
-            </article>
-            <article class="cv__proj">
-              <div class="meta">CMA Média · 2025–en cours</div>
-              <h4>Framework Product</h4>
-              <p>Redéfinir la place du Product Design dans le framework de l'entreprise, en partant du réel.</p>
-            </article>
+          <h2 class="cv__h">Mon parcours</h2>
+
+          <div class="cv__exp">
+            <div class="cv__exp-date">Mars 2024 → aujourd'hui</div>
+            <p class="cv__exp-role">Product Designer · CMA Média / BFM RMC</p>
+          </div>
+          <div class="cv__exp">
+            <div class="cv__exp-date">Décembre 2021 → février 2024</div>
+            <p class="cv__exp-role">Product Designer · Reworld Media</p>
+          </div>
+          <div class="cv__exp">
+            <div class="cv__exp-date">2019 → aujourd'hui</div>
+            <p class="cv__exp-role">Freelance · Madd (en parallèle continu)</p>
+          </div>
+          <div class="cv__exp">
+            <div class="cv__exp-date">2019 → 2020</div>
+            <p class="cv__exp-role">Création & Design · Sup de Pub (Bachelor)</p>
+          </div>
+          <div class="cv__exp">
+            <div class="cv__exp-date">2017 → 2019</div>
+            <p class="cv__exp-role">MMI · IUT d'Angoulême (DUT)</p>
           </div>
         </section>
 
         <section class="cv__section">
-          <h2 class="cv__h">Stack & outils</h2>
+          <h2 class="cv__h">Stack</h2>
           <div class="cv__pill-group">
             <div class="label">Penser & structurer</div>
             <div class="cv__pills">
@@ -336,37 +361,14 @@
               <span class="cv__pill">n8n</span>
             </div>
           </div>
-          <div class="cv__pill-group">
-            <div class="label">Méthode</div>
-            <div class="cv__pills">
-              <span class="cv__pill">Thiga DS (formation)</span>
-              <span class="cv__pill">Discovery Discipline</span>
-              <span class="cv__pill">Kitted & Pip Decks</span>
-              <span class="cv__pill">F.O.C.U.S.E.D.</span>
-            </div>
-          </div>
-        </section>
 
-        <section class="cv__section cv__edu">
-          <h2 class="cv__h">Formation</h2>
-          <div class="row">
-            <span class="year">2019 → 2020</span>
-            <strong>Sup de Pub</strong>
-            <span class="detail"> · Bachelor Création & Design</span>
-          </div>
-          <div class="row">
-            <span class="year">2017 → 2019</span>
-            <strong>IUT d'Angoulême</strong>
-            <span class="detail"> · DUT MMI</span>
+          <div class="cv__method">
+            <span class="label">Méthode</span>
+            Thiga Design System (formation) • Discovery Discipline • Kitted &amp; Pip Decks (Workshops et Storytelling)
           </div>
         </section>
       </div>
     </div>
-
-    <footer class="cv__foot">
-      <span>© 2026 Maddlyn Fuzier · Product Designer</span>
-      <span>Paris, FR · fuzier.maddlyn@gmail.com</span>
-    </footer>
   </main>
 </body>
 </html>

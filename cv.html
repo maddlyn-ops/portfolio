@@ -218,9 +218,9 @@
     .cv__exp { grid-template-columns: 1fr; gap: 4px; }
   }
 
-  /* Keep the dark/atmospheric look when exporting to PDF */
+  /* Keep the dark/atmospheric look when exporting to PDF — single landscape page */
   @media print {
-    @page { size: A4; margin: 0; }
+    @page { size: A4 landscape; margin: 0; }
     html, body {
       background:
         radial-gradient(120% 100% at 100% 0%, rgba(86,194,255,0.10), rgba(0,0,0,0) 55%),
@@ -229,13 +229,43 @@
       color: var(--snow) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
+      width: 297mm; height: 210mm;
+      margin: 0;
+      overflow: hidden;
     }
     *, *::before, *::after {
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
     .cv__top-actions { display: none !important; }
-    .cv { padding: 18mm 16mm; max-width: none; }
+    .cv__grid-bg { background-size: 32px 32px; }
+
+    /* Compact the CV so it fits on one A4 landscape page while keeping the web layout */
+    .cv {
+      padding: 12mm 14mm;
+      max-width: none;
+      height: 210mm;
+      box-sizing: border-box;
+    }
+    .cv__top { padding: 0 0 10px; margin-bottom: 14px; }
+    .cv__hero { margin-bottom: 18px; gap: 24px; align-items: start; }
+    .cv__name { font-size: 38px; margin-bottom: 6px; line-height: 0.96; }
+    .cv__meta { font-size: 10px; margin-bottom: 10px; }
+    .cv__role { font-size: 14px; line-height: 1.4; }
+    .cv__contact { font-size: 11px; gap: 6px; }
+    .cv__contact-row .k { font-size: 9px; min-width: 64px; }
+    .cv__grid { gap: 28px; }
+    .cv__section { margin-bottom: 14px; break-inside: avoid; page-break-inside: avoid; }
+    .cv__h { font-size: 9px; letter-spacing: 0.16em; margin-bottom: 8px; }
+    .cv__lead { font-size: 12px; line-height: 1.45; margin-bottom: 6px; }
+    .cv__exp { padding: 6px 0; grid-template-columns: 170px 1fr; gap: 14px; break-inside: avoid; }
+    .cv__exp-date { font-size: 9.5px; }
+    .cv__exp-role { font-size: 12px; }
+    .cv__pill { font-size: 10px; padding: 3px 8px; }
+    .cv__pill-group { margin-bottom: 8px; }
+    .cv__pill-group .label { font-size: 9px; margin-bottom: 4px; }
+    .cv__method { font-size: 11px; padding-top: 8px; margin-top: 10px; line-height: 1.45; }
+    .cv__method .label { font-size: 9px; margin-bottom: 4px; }
   }
 </style>
 </head>

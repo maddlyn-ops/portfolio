@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Couverture LinkedIn — Maddlyn Fuzier</title>
+<link rel="icon" type="image/png" href="./assets/fav.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body {
+    background-image: linear-gradient(180deg, #02060f 0%, #04132e 100%);
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 32px 16px 64px;
+    gap: 24px;
+  }
+  .lc__top {
+    width: 100%; max-width: 1584px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate-200);
+  }
+  .lc__top a { color: var(--slate-200); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 200ms ease, color 200ms ease; }
+  .lc__top a:hover { color: var(--snow); border-bottom-color: var(--ember-red); }
+  .lc__top-mark { display: inline-flex; gap: 10px; align-items: center; color: var(--snow); }
+  .lc__top-mark img { width: 22px; height: 22px; border-radius: 5px; }
+
+  /* The exact LinkedIn cover frame: 1584 × 396 */
+  .cover {
+    position: relative;
+    width: 1584px; height: 396px;
+    border-radius: 12px;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 220% at 100% 0%, rgba(86,194,255,0.18), rgba(0,0,0,0) 55%),
+      radial-gradient(80% 180% at 10% 100%, rgba(255,99,99,0.18), rgba(0,0,0,0) 60%),
+      linear-gradient(135deg, #07080a 0%, #04132e 100%);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
+    color: var(--snow);
+    font-family: var(--font-inter);
+  }
+
+  /* Safe-zone marker (visual guide only, not exported) */
+  .cover__safezone {
+    position: absolute; left: 24px; bottom: 24px;
+    width: 280px; height: 220px;
+    border: 1px dashed rgba(255,255,255,0.08);
+    border-radius: 50% 50% 14px 14px / 70% 70% 14px 14px;
+    pointer-events: none;
+  }
+  .cover__safezone::after {
+    content: "Profile bubble area";
+    position: absolute; left: 50%; bottom: -22px;
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    white-space: nowrap;
+  }
+
+  /* Faint grid for atmospherics, similar to portfolio */
+  .cover__grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+  }
+
+  .cover__brand {
+    position: absolute;
+    top: 28px; left: 36px;
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--slate-200);
+  }
+  .cover__brand img { width: 24px; height: 24px; border-radius: 5px; }
+  .cover__brand .pip {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ember-red);
+    box-shadow: 0 0 0 4px rgba(255,99,99,0.18);
+    margin-right: 4px;
+  }
+
+  .cover__meta {
+    position: absolute;
+    top: 28px; right: 36px;
+    display: flex; gap: 20px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--slate-200);
+  }
+  .cover__meta span + span { padding-left: 20px; border-left: 1px solid var(--graphite-500); }
+  .cover__meta strong { color: var(--snow); font-weight: 500; }
+
+  .cover__main {
+    position: absolute;
+    top: 50%;
+    right: 56px;
+    transform: translateY(-50%);
+    text-align: right;
+    max-width: 900px;
+  }
+  .cover__title {
+    font-size: 56px;
+    line-height: 1.0;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    margin: 0 0 18px;
+  }
+  .cover__title .sticker {
+    display: inline-block;
+    padding: 0.04em 0.22em 0.08em;
+    border: 2px solid var(--ember-red);
+    border-radius: 10px;
+    transform: rotate(-2.2deg);
+    background: rgba(255, 99, 99, 0.05);
+    box-shadow: 0 8px 22px rgba(255, 99, 99, 0.22);
+  }
+  .cover__sub {
+    font-size: 16px;
+    color: var(--slate-100);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 64ch;
+    margin-left: auto;
+  }
+
+  .cover__strip {
+    position: absolute;
+    left: 340px;
+    bottom: 28px;
+    display: flex; align-items: center; gap: 28px;
+    color: var(--slate-200);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .cover__strip-label { white-space: nowrap; }
+  .cover__strip-logos {
+    display: flex; align-items: center; gap: 22px;
+    height: 26px;
+  }
+  .cover__strip-logos img {
+    height: 18px; width: auto; max-width: 110px;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+  }
+
+  .lc__notes {
+    width: 100%; max-width: 1584px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    margin-top: 24px;
+  }
+  .lc__note {
+    border: 1px solid var(--graphite-500);
+    border-radius: var(--r-card);
+    padding: 14px 18px;
+    background: rgba(17,18,20,0.5);
+  }
+  .lc__note h3 {
+    font-family: var(--font-mono);
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ember-red);
+    margin: 0 0 6px;
+  }
+  .lc__note p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--slate-100);
+    line-height: 1.5;
+  }
+
+  /* Responsive scaling — keep the 1584×396 ratio intact via transform */
+  .cover-wrap {
+    width: 100%; max-width: 1584px;
+    display: flex; justify-content: center;
+    overflow: hidden;
+  }
+  @media (max-width: 1640px) {
+    .cover-wrap { aspect-ratio: 1584 / 396; max-height: 396px; height: auto; }
+    .cover {
+      transform-origin: top left;
+    }
+  }
+</style>
+</head>
+<body>
+  <header class="lc__top">
+    <a class="lc__top-mark" href="./index.html">
+      <img src="./assets/fav-200.png" alt="" />
+      <span>Maddlyn Fuzier</span>
+    </a>
+    <span>LinkedIn cover · 1584 × 396</span>
+    <a href="./index.html">← Portfolio</a>
+  </header>
+
+  <div class="cover-wrap" id="cover-wrap">
+    <div class="cover" id="cover">
+      <div class="cover__grid"></div>
+
+      <div class="cover__brand">
+        <span class="pip"></span>
+        <img src="./assets/fav-200.png" alt="" />
+        <span>Maddlyn Fuzier · Paris</span>
+      </div>
+
+      <div class="cover__meta">
+        <span><strong>Product Designer</strong></span>
+        <span>Craft &nbsp;<strong style="color:var(--ember-red)">→</strong>&nbsp; System</span>
+        <span>2026</span>
+      </div>
+
+      <div class="cover__main">
+        <h1 class="cover__title">
+          De <span class="sticker">l'écran au système</span><br />qui le produit.
+        </h1>
+        <p class="cover__sub">
+          6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC) — 17M visiteurs/mois, design system multi-marques, framework produit du groupe.
+        </p>
+      </div>
+
+      <div class="cover__strip">
+        <span class="cover__strip-label">Brands :</span>
+        <div class="cover__strip-logos">
+          <img src="./assets/logos/frame-8.svg" alt="BFM" />
+          <img src="./assets/logos/air-france.svg" alt="Air France" />
+          <img src="./assets/logos/cdiscount.svg" alt="Cdiscount" />
+          <img src="./assets/logos/doctissimo.svg" alt="Doctissimo" />
+          <img src="./assets/logos/geberit.svg" alt="Geberit" />
+          <img src="./assets/logos/verisure.svg" alt="Verisure" />
+        </div>
+      </div>
+
+      <div class="cover__safezone" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <section class="lc__notes">
+    <div class="lc__note">
+      <h3>Format</h3>
+      <p>1584 × 396 px — dimensions officielles d'une couverture LinkedIn desktop.</p>
+    </div>
+    <div class="lc__note">
+      <h3>Safe-zone</h3>
+      <p>La bulle de profil masque le coin bas-gauche (~280 × 220 px). Aucun élément important n'y est placé.</p>
+    </div>
+    <div class="lc__note">
+      <h3>Export</h3>
+      <p>Capturer la zone de la cover en 1584 × 396 (Cmd+Shift+4 macOS, ou outil dev → screenshot du nœud <code>#cover</code>).</p>
+    </div>
+  </section>
+
+<script>
+  // Scale the 1584-wide cover to fit narrower viewports while keeping the export ratio.
+  function scaleCover() {
+    const wrap = document.getElementById("cover-wrap");
+    const cover = document.getElementById("cover");
+    if (!wrap || !cover) return;
+    const w = wrap.clientWidth;
+    const scale = Math.min(1, w / 1584);
+    cover.style.transform = `scale(${scale})`;
+    wrap.style.height = `${396 * scale}px`;
+  }
+  window.addEventListener("resize", scaleCover);
+  window.addEventListener("load", scaleCover);
+  scaleCover();
+</script>
+</body>
+</html>

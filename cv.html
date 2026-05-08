@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CV — Maddlyn Fuzier · Product Designer</title>
+<link rel="icon" type="image/png" href="./assets/fav.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background-image: linear-gradient(180deg, var(--void-black) 0%, #04132e 100%); }
+  .cv {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 64px) clamp(20px, 4vw, 56px) 96px;
+  }
+  .cv__top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 0 32px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--slate-200);
+    border-bottom: 1px solid var(--graphite-500);
+    margin-bottom: clamp(36px, 6vw, 72px);
+  }
+  .cv__top a {
+    color: var(--slate-200);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  .cv__top a:hover { color: var(--snow); border-bottom-color: var(--ember-red); }
+  .cv__top-mark { display: inline-flex; align-items: center; gap: 10px; color: var(--snow); }
+  .cv__top-mark img { width: 22px; height: 22px; border-radius: 5px; }
+
+  .cv__hero {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: end;
+    margin-bottom: clamp(48px, 8vw, 96px);
+  }
+  .cv__name {
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+    margin: 0 0 16px;
+    color: var(--snow);
+  }
+  .cv__role {
+    font-size: clamp(18px, 1.6vw, 22px);
+    color: var(--slate-200);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 56ch;
+  }
+  .cv__role .sticker {
+    display: inline-block;
+    padding: 0.04em 0.32em 0.08em;
+    border: 2px solid var(--ember-red);
+    border-radius: 8px;
+    color: var(--snow);
+    transform: rotate(-2.2deg);
+    background: rgba(255, 99, 99, 0.04);
+    box-shadow: 0 6px 18px rgba(255, 99, 99, 0.18);
+  }
+  .cv__contact {
+    display: flex; flex-direction: column; gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--slate-200);
+  }
+  .cv__contact a { color: var(--snow); text-decoration: none; border-bottom: 1px solid var(--graphite-500); }
+  .cv__contact a:hover { border-bottom-color: var(--ember-red); }
+  .cv__contact-row { display: flex; gap: 8px; }
+  .cv__contact-row .k { color: var(--slate-300); min-width: 78px; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; padding-top: 1px; }
+
+  .cv__grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(40px, 5vw, 80px);
+  }
+
+  .cv__section { margin-bottom: clamp(36px, 5vw, 56px); }
+  .cv__h {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ember-red);
+    margin: 0 0 16px;
+  }
+  .cv__h::before { content: "— "; color: var(--ember-red); }
+  .cv__lead {
+    font-size: 17px;
+    color: var(--ash-50);
+    line-height: 1.55;
+    margin: 0 0 12px;
+  }
+  .cv__lead + .cv__lead { margin-top: 12px; }
+
+  .cv__exp {
+    border-top: 1px solid var(--graphite-500);
+    padding: 18px 0;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+  }
+  .cv__exp:last-child { border-bottom: 1px solid var(--graphite-500); }
+  .cv__exp-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate-200);
+    padding-top: 4px;
+  }
+  .cv__exp h3 {
+    font-size: 18px; font-weight: 600; margin: 0 0 6px;
+    letter-spacing: -0.01em; color: var(--snow);
+  }
+  .cv__exp .role { font-size: 13px; color: var(--slate-200); margin: 0 0 10px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+  .cv__exp p { margin: 0 0 6px; color: var(--slate-100); font-size: 14px; line-height: 1.55; }
+  .cv__exp ul { margin: 8px 0 0; padding: 0; list-style: none; }
+  .cv__exp ul li { position: relative; padding-left: 14px; font-size: 14px; color: var(--slate-100); margin-bottom: 4px; line-height: 1.5; }
+  .cv__exp ul li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 4px; height: 4px; background: var(--ember-red); border-radius: 50%;
+  }
+
+  .cv__projects { display: grid; gap: 14px; }
+  .cv__proj {
+    border: 1px solid var(--graphite-500);
+    border-radius: var(--r-card);
+    padding: 16px 18px;
+    background: rgba(17,18,20,0.5);
+  }
+  .cv__proj h4 { margin: 0 0 4px; font-size: 15px; font-weight: 600; color: var(--snow); }
+  .cv__proj .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); margin-bottom: 8px; }
+  .cv__proj p { margin: 0; font-size: 13px; color: var(--slate-100); line-height: 1.5; }
+  .cv__proj .metric { display: inline-block; margin-top: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ember-red); }
+
+  .cv__pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cv__pill {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid var(--graphite-500);
+    border-radius: var(--r-pill);
+    background: rgba(255,255,255,0.02);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--slate-100);
+  }
+  .cv__pill-group { margin-bottom: 14px; }
+  .cv__pill-group .label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--slate-300); margin-bottom: 6px; }
+
+  .cv__edu p { margin: 0; }
+  .cv__edu .row { padding: 12px 0; border-top: 1px solid var(--graphite-500); }
+  .cv__edu .row:last-child { border-bottom: 1px solid var(--graphite-500); }
+  .cv__edu strong { color: var(--snow); font-weight: 600; font-size: 14px; }
+  .cv__edu span.year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-300); display: block; margin-bottom: 2px; }
+  .cv__edu span.detail { color: var(--slate-200); font-size: 13px; }
+
+  .cv__foot {
+    margin-top: clamp(48px, 6vw, 96px);
+    padding-top: 24px;
+    border-top: 1px solid var(--graphite-500);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 12px; color: var(--slate-300);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 880px) {
+    .cv__hero, .cv__grid { grid-template-columns: 1fr; gap: 32px; }
+    .cv__exp { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  @media print {
+    html, body { background: #fff !important; color: #111 !important; }
+    .cv { padding: 24px; }
+    .cv__top, .cv__foot { color: #555; border-color: #ddd; }
+    .cv__name, .cv__exp h3, .cv__proj h4, .cv__edu strong, .cv__contact a { color: #111 !important; }
+    .cv__lead, .cv__exp p, .cv__exp ul li, .cv__proj p, .cv__edu span.detail { color: #333 !important; }
+    .cv__role .sticker { color: #111 !important; box-shadow: none; }
+    .cv__h, .cv__proj .metric, .cv__exp ul li::before { color: var(--ember-red) !important; }
+    .cv__exp, .cv__edu .row, .cv__top { border-color: #ddd !important; }
+    .cv__pill { border-color: #ccc; color: #333; }
+    .cv__proj { border-color: #ddd; background: #fafafa; }
+  }
+</style>
+</head>
+<body>
+  <main class="cv">
+    <header class="cv__top">
+      <a class="cv__top-mark" href="./index.html">
+        <img src="./assets/fav-200.png" alt="" />
+        <span>Maddlyn Fuzier</span>
+      </a>
+      <span>CV · 2026</span>
+      <a href="./index.html">← Portfolio</a>
+    </header>
+
+    <section class="cv__hero">
+      <div>
+        <h1 class="cv__name">Maddlyn Fuzier</h1>
+        <p class="cv__role">
+          Product Designer — 6 ans, du <span class="sticker">craft à grande échelle</span> au système qui le rend possible.
+        </p>
+      </div>
+      <div class="cv__contact">
+        <div class="cv__contact-row"><span class="k">Email</span><a href="mailto:fuzier.maddlyn@gmail.com">fuzier.maddlyn@gmail.com</a></div>
+        <div class="cv__contact-row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/maddlynfuzier" target="_blank" rel="noopener">/in/maddlynfuzier</a></div>
+        <div class="cv__contact-row"><span class="k">Portfolio</span><a href="./index.html">maddlyn-ops.github.io/portfolio</a></div>
+        <div class="cv__contact-row"><span class="k">Freelance</span><a href="https://maddlynfuzier.com" target="_blank" rel="noopener">maddlynfuzier.com</a></div>
+        <div class="cv__contact-row"><span class="k">Basée à</span><span style="color:var(--slate-100)">Paris · Île-de-France · International remote</span></div>
+      </div>
+    </section>
+
+    <div class="cv__grid">
+      <div>
+        <section class="cv__section">
+          <h2 class="cv__h">Profil</h2>
+          <p class="cv__lead">
+            Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
+          </p>
+          <p class="cv__lead">
+            Mon obsession : que le design soit utile. Qu'il vive en prod plutôt que mourir en présentation. Du craft à grande échelle au système qui le rend possible — les deux casquettes en parallèle.
+          </p>
+        </section>
+
+        <section class="cv__section">
+          <h2 class="cv__h">Expérience</h2>
+
+          <div class="cv__exp">
+            <div class="cv__exp-date">Mars 2024 → aujourd'hui</div>
+            <div>
+              <h3>Product Designer · CMA Média (BFM RMC)</h3>
+              <p class="role">Lead designer — 4 marques, web · iOS · Android · TV</p>
+              <ul>
+                <li>Refonte de l'app BFM (17M visiteurs/mois) : +5% audiences (objectif +1%), +42s temps de visite, +5pts shorts vidéo.</li>
+                <li>Réinternalisation de l'app RMC Sport en 4 jours, alignée sur les contraintes du socle technique partagé.</li>
+                <li>Login multi-marques (SSO) — compte unique pour 5 marques média + 1 streaming, sur 4 plateformes.</li>
+                <li>Design System multi-marques : audit chiffré (109→14 couleurs, 83→18 éléments typographiques, 18→6 espacements), architecture à 3 niveaux de tokens.</li>
+                <li>Framework Product : redéfinition de la place du Product Design, instruite par 6 entretiens cross-équipes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv__exp">
+            <div class="cv__exp-date">Déc. 2021 → fév. 2024</div>
+            <div>
+              <h3>Product Designer · Reworld Media</h3>
+              <p class="role">80+ marques média + une vingtaine de plateformes clients</p>
+              <ul>
+                <li>Point d'entrée unique design : flux tendu permanent, qualité tenue sur le volume.</li>
+                <li>Refonte du système de ticketing sur Notion (premier projet d'ops design).</li>
+                <li>Catalogue de templates pour les commerciaux — produit packagé avant de connaître le terme.</li>
+                <li>Maintenance seule d'un DS hérité ; accompagnement de deux alternantes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv__exp">
+            <div class="cv__exp-date">2019 → aujourd'hui</div>
+            <div>
+              <h3>Freelance · Madd</h3>
+              <p class="role">En parallèle continu — marques premium, restauration, retail, packaging</p>
+              <p>Activité distincte du poste salarié, propre identité, propres clients : Maison Albar, Chalet Boréal, TechSpark, Hysope.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section class="cv__section">
+          <h2 class="cv__h">Projets phares</h2>
+          <div class="cv__projects">
+            <article class="cv__proj">
+              <div class="meta">CMA Média · 2024–2025</div>
+              <h4>Refonte App BFM</h4>
+              <p>17M visiteurs/mois. Quatre projets en un sous le regard du nouvel actionnaire CMA CGM.</p>
+              <span class="metric">+5% · +42s · +5pts shorts</span>
+            </article>
+            <article class="cv__proj">
+              <div class="meta">CMA Média · 2024–en cours</div>
+              <h4>Login multi-marques (SSO)</h4>
+              <p>Compte universel + fonctionnalités contextuelles. 4 plateformes, RGPD, migration des comptes existants.</p>
+            </article>
+            <article class="cv__proj">
+              <div class="meta">CMA Média · 2024–en cours</div>
+              <h4>Design System multi-marques</h4>
+              <p>Architecture à 3 niveaux de tokens. Identités de marque affirmées, pas uniformisées.</p>
+              <span class="metric">109 → 14 · 83 → 18 · 18 → 6</span>
+            </article>
+            <article class="cv__proj">
+              <div class="meta">CMA Média · 2025–en cours</div>
+              <h4>Framework Product</h4>
+              <p>Redéfinir la place du Product Design dans le framework de l'entreprise, en partant du réel.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="cv__section">
+          <h2 class="cv__h">Stack & outils</h2>
+          <div class="cv__pill-group">
+            <div class="label">Penser & structurer</div>
+            <div class="cv__pills">
+              <span class="cv__pill">Claude</span>
+              <span class="cv__pill">ChatGPT</span>
+              <span class="cv__pill">Gemini</span>
+              <span class="cv__pill">Notion</span>
+            </div>
+          </div>
+          <div class="cv__pill-group">
+            <div class="label">Concevoir & prototyper</div>
+            <div class="cv__pills">
+              <span class="cv__pill">Figma</span>
+              <span class="cv__pill">FigJam</span>
+              <span class="cv__pill">Figma Make</span>
+              <span class="cv__pill">Framer</span>
+              <span class="cv__pill">Claude Design</span>
+            </div>
+          </div>
+          <div class="cv__pill-group">
+            <div class="label">Livrer & automatiser</div>
+            <div class="cv__pills">
+              <span class="cv__pill">Jira</span>
+              <span class="cv__pill">GitHub</span>
+              <span class="cv__pill">Claude Code</span>
+              <span class="cv__pill">n8n</span>
+            </div>
+          </div>
+          <div class="cv__pill-group">
+            <div class="label">Méthode</div>
+            <div class="cv__pills">
+              <span class="cv__pill">Thiga DS (formation)</span>
+              <span class="cv__pill">Discovery Discipline</span>
+              <span class="cv__pill">Kitted & Pip Decks</span>
+              <span class="cv__pill">F.O.C.U.S.E.D.</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="cv__section cv__edu">
+          <h2 class="cv__h">Formation</h2>
+          <div class="row">
+            <span class="year">2019 → 2020</span>
+            <strong>Sup de Pub</strong>
+            <span class="detail"> · Bachelor Création & Design</span>
+          </div>
+          <div class="row">
+            <span class="year">2017 → 2019</span>
+            <strong>IUT d'Angoulême</strong>
+            <span class="detail"> · DUT MMI</span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="cv__foot">
+      <span>© 2026 Maddlyn Fuzier · Product Designer</span>
+      <span>Paris, FR · fuzier.maddlyn@gmail.com</span>
+    </footer>
+  </main>
+</body>
+</html>

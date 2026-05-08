@@ -146,7 +146,7 @@ window.CASES = [
       {
         h: "Le contexte",
         body: [
-          "Cinq marques média plus une marque streaming. Jusqu'ici, chacune fonctionnait avec ses propres logiques d'identification, sans pont entre publishing et streaming, et sans vue unifiée de l'utilisateur.",
+          "Cinq marques média plus une marque streaming. Jusqu'ici, chacune fonctionnait avec ses propres logiques d'identification, aucune côté publishing et une historique non exploitée côté streaming.",
           "L'enjeu est double. Côté produit, mieux connaître l'utilisateur cross-marques pour personnaliser et préparer des features de fidélisation (incluant IA). Côté régie, et c'est un signal fort dans un groupe média, mutualiser et qualifier la base utilisateurs pour densifier la valeur publicitaire.",
           "Le projet couvre web, iOS, tablette et TV, et touche tous les produits du groupe.",
         ],
@@ -154,7 +154,7 @@ window.CASES = [
       {
         h: "Le problème",
         body: [
-          "Concevoir un compte unique perçu comme cohérent sans nier les identités fortes de chaque marque ; tenir les exigences RGPD ; gérer la migration des comptes existants sans casser leur usage ; poser une fondation suffisamment robuste pour porter les futures features de personnalisation et d'IA.",
+          "Concevoir un compte unique perçu comme cohérent sans nier les identités fortes de chaque marque, tenir les exigences RGPD, gérer la migration des comptes existants sans casser leur usage, poser une fondation suffisamment robuste pour porter les futures features de personnalisation et d'IA.",
           "Avec en plus une vraie tension de marque : certaines marques de l'écosystème n'aiment pas être associées entre elles. Le compte unifié ne pouvait donc pas devenir un message d'unification visible.",
         ],
       },
@@ -170,7 +170,7 @@ window.CASES = [
           "La gestion du compte est identique quel que soit le point d'entrée. Mêmes écrans, même logique.",
           "Ce qui se différencie, ce sont les fonctionnalités contextuelles à la marque : contenus enregistrés, préférences éditoriales, historiques de visionnage.",
         ],
-        after: "Cette position résout deux choses à la fois : elle respecte les sensibilités de marque, et elle simplifie radicalement la gestion compte en éliminant la complexité d'une gestion multi-versions.",
+        after: "Cette position résout deux choses à la fois : elle respecte les sensibilités de marque, et elle simplifie radicalement la gestion compte en éliminant la complexité d'une gestion multi-versions. Tout en donnant bien sûr, un horizon de connaissance de l'utilisateur bien plus large.",
       },
       {
         h: "Quatre sujets de design qui ont structuré le projet",
@@ -188,9 +188,9 @@ window.CASES = [
         imageWidth: "medium",
         list: [
           "Parcours inscription, connexion et gestion de compte validés.",
-          "Maquettes finalisées à 95%.",
+          "Maquettes finalisées à 95%, systemisées (en l'attente d'un DS).",
           "Live côté streaming. Le déploiement publishing suivra.",
-          "Travail en cours sur les features de personnalisation et IA qui s'appuieront sur la fondation compte unique.",
+          "Travail en cours sur les features de personnalisation (bookmark, reprise de lecture…) et IA qui s'appuieront sur la fondation compte unique.",
         ],
       },
     ],

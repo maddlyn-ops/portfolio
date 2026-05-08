@@ -592,7 +592,7 @@ function CaseModal({ caseId, onClose, onNav }) {
           <section key={i} className="modal__section">
                 <h3>{s.h}</h3>
                 {s.image &&
-            <figure className="modal__figure">
+            <figure className={`modal__figure ${s.imageWidth ? `modal__figure--${s.imageWidth}` : ""}`}>
                     <img src={s.image} alt={s.imageAlt || s.h} />
                   </figure>
             }
@@ -605,6 +605,11 @@ function CaseModal({ caseId, onClose, onNav }) {
             <div key={j} className="modal__sub">
                     <h4>{sb.t}</h4>
                     <p>{sb.b}</p>
+                    {sb.image &&
+              <figure className={`modal__figure ${sb.imageWidth ? `modal__figure--${sb.imageWidth}` : ""}`}>
+                        <img src={sb.image} alt={sb.imageAlt || sb.t} />
+                      </figure>
+              }
                   </div>
             )}
                 {s.table &&
@@ -630,6 +635,11 @@ function CaseModal({ caseId, onClose, onNav }) {
                       <ul>{s.balance.right.items.map((it, j) => <li key={j}>{it}</li>)}</ul>
                     </div>
                   </div>
+            }
+                {s.imageEnd &&
+            <figure className={`modal__figure ${s.imageEndWidth ? `modal__figure--${s.imageEndWidth}` : ""}`}>
+                    <img src={s.imageEnd} alt={s.imageEndAlt || s.h} />
+                  </figure>
             }
               </section>
           )}

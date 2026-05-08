@@ -343,13 +343,13 @@ window.CASES = [
     title: "80+ marques en flux tendu",
     hero: "./assets/cases/reworld.png",
     heroAlt: "Hero du cas Reworld Media",
-    teaser: "Deux ans à designer pour 80+ marques média, plus une douzaine de plateformes clients, en flux tendu permanent.",
-    quote: "Deux ans et quelques mois à designer pour 80+ marques média, plus une douzaine de plateformes clients, en flux tendu permanent. C'est sur cette période que se sont formés mes réflexes de système, de pragmatisme et de scale.",
+    teaser: "Deux ans à designer pour 80+ marques média, plus une vingtaine de plateformes clients, en flux tendu permanent.",
+    quote: "Deux ans et quelques mois à designer pour 80+ marques média, plus une vingtaine de plateformes clients, en flux tendu permanent. C'est sur cette période que se sont formés mes réflexes de système, de pragmatisme et de scale.",
     sections: [
       {
         h: "Le contexte",
         body: [
-          "Reworld Media, c'est un groupe média qui possède plus de 80 marques propres, à quoi s'ajoutent les plateformes médias bâties pour des clients. Côté design, j'étais le point d'entrée de tous les besoins design dès qu'il y avait un site, une feature, un bloc.",
+          "Reworld Media, c'est un groupe média qui possède plus de 80 marques propres, à quoi s'ajoutent les plateformes médias bâties pour des clients. Côté design, j'étais le point d'entrée (et le seul) de tous les besoins design dès qu'il y avait un site, une feature, un bloc à créer.",
           "Pas un fonctionnement par sprint, pas de roadmap claire : flux tendu permanent, tickets qui arrivaient au fil de l'eau, et la nécessité de tenir la qualité sur un volume que personne n'aurait dimensionné rationnellement.",
         ],
       },
@@ -357,7 +357,7 @@ window.CASES = [
         h: "Ce qui m'a façonnée",
         sub: [
           { t: "1. La rigueur d'organisation comme survie", b: "J'ai refondu le système de ticketing sur Notion : bases de données par équipe, formules pour calculer les charges, boards personnalisés selon les rôles. Probablement le premier projet d'ops design que j'ai porté sans savoir que ça portait ce nom." },
-          { t: "2. Le réflexe système, avant le DS officiel", b: "J'ai construit un catalogue de templates présentables aux clients pressés ou à budget contraint, qui permettaient de livrer vite tout en garantissant un standard. Une logique de produit packagé avant de connaître le terme. Et plus tard, la maintenance seule d'un DS hérité d'une équipe partie." },
+          { t: "2. Le réflexe système, avant le DS officiel", b: "J'ai construit un catalogue de templates, à destination des commerciaux, présentables aux clients pressés ou à budget contraint, qui permettaient de livrer vite tout en garantissant un standard. Une logique de produit packagé avant de connaître le terme. Et plus tard, la maintenance seule d'un DS hérité d'une équipe partie." },
           { t: "3. Une responsabilité élargie, vite", b: "Je me suis rapidement retrouvée seule en responsabilité sur un large périmètre, en front avec la plupart des clients. J'ai aussi accompagné deux alternantes : briefs, reviews, onboarding, et soutien sur la légitimité de leurs avis." },
         ],
       },

@@ -278,11 +278,6 @@ window.CASES = [
         ],
       },
       {
-        h: "Phase 0 : instruire le réel",
-        image: "./assets/cases/interviews-framework.png",
-        imageAlt: "Tableau de synthèse cross-interviews du framework produit",
-      },
-      {
         h: "L'insight central : Product Designer vs Designer",
         image: "./assets/cases/prd-vs-design.png",
         imageAlt: "Comparaison Product Designer vs Designer",
@@ -293,6 +288,8 @@ window.CASES = [
       },
       {
         h: "Pain points adressés dans le framework",
+        image: "./assets/cases/interviews-framework.png",
+        imageAlt: "Tableau de synthèse cross-interviews du framework produit",
         table: [
           { k: "Design entre trop tard", v: "Entrée du PrD à l'étape 2 (vs étape 4 historiquement)" },
           { k: "Livrables incomplets", v: "Définition of done par étape avec checklist" },

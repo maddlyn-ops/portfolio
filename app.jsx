@@ -678,17 +678,17 @@ function CaseModal({ caseId, onClose, onNav }) {
               </button>
             </div>
           </div>
-          {zoom &&
-          <div className="lightbox" onClick={() => setZoom(null)}>
-              <button className="lightbox__close" type="button" aria-label="Fermer" onClick={(e) => { e.stopPropagation(); setZoom(null); }}>
-                <Icon.close style={{ width: 22, height: 22 }} />
-              </button>
-              <img src={zoom.src} alt={zoom.alt} onClick={(e) => e.stopPropagation()} />
-            </div>
-          }
         </>
       }
     </div>
+    {zoom &&
+    <div className="lightbox" onClick={() => setZoom(null)}>
+        <button className="lightbox__close" type="button" aria-label="Fermer" onClick={(e) => { e.stopPropagation(); setZoom(null); }}>
+          <Icon.close style={{ width: 22, height: 22 }} />
+        </button>
+        <img src={zoom.src} alt={zoom.alt} onClick={(e) => e.stopPropagation()} />
+      </div>
+    }
     </>);
 
 }

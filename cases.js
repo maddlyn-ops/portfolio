@@ -275,13 +275,13 @@ window.CASES = [
     hero: "./assets/cases/workflow.png",
     heroAlt: "Workflow du Framework Product",
     teaser: "Redéfinir la place du Product Design dans le framework de l'entreprise, en partant du réel — pas des bonnes pratiques génériques.",
-    quote: "Comment fait-on entrer une organisation produit dans une nouvelle façon de travailler ? En écoutant d'abord ce qu'elle vit, puis en structurant à partir de là.",
+    quote: "Comment fait-on entrer une organisation produit dans une nouvelle ère ? En écoutant d'abord ce qu'elle vit, puis en structurant à partir de là.",
     sections: [
       {
         h: "Le contexte",
         body: [
-          "Mon recrutement portait notamment une mission claire : fluidifier les échanges entre produit et design. Le contexte a changé quand j'ai été rattachée à l'équipe produit, et qu'un poste de Product Ops a été créé pour porter la transformation des process.",
-          "Périmètre : refondre les frameworks produits (Full Track et Fast Track) pour clarifier les étapes, les rôles, les livrables. Ma proposition complémentaire : redéfinir la place du Product Design dans ce framework, instruite par les pain points réels.",
+          "Mon recrutement chez RMC BFM / CMA Média portait notamment une mission claire : fluidifier les échanges entre produit et design. Le contexte a changé quand j'ai été rattachée à l'équipe produit, et qu'un poste de Product Ops a été créé pour porter la transformation des process avec moi.",
+          "Périmètre : refondre les frameworks produits (Full Track et Fast Track) pour clarifier les étapes, les rôles, les livrables. Ma proposition complémentaire : redéfinir la place du Product Design dans ce framework, instruite par des pain points réels.",
         ],
       },
       {

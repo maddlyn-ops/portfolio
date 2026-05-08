@@ -1701,6 +1701,11 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
   height: auto;
   display: block;
 }
+.modal__figure--medium {
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .modal__hero {
   margin: 24px 0 40px;
   border-radius: var(--r-card);

@@ -58,6 +58,8 @@ window.CASES = [
       },
       {
         h: "Quatre décisions structurantes",
+        image: "./assets/cases/bfm-decisions.png",
+        imageAlt: "Quatre décisions structurantes de la refonte App BFM",
         sub: [
           { t: "1. L'ordre des blocs sur la home", b: "Personne ne voulait supprimer son bloc, alors que les données montraient que personne ne descendait jusqu'au bas. Ma position : si personne n'allait au bout, l'ordre des derniers blocs était secondaire. Ce qui comptait, c'était les 3 ou 4 premiers blocs et leur capacité à raconter l'identité éditoriale en une seule scroll. Le débat s'est déplacé : de \"où est mon bloc\" vers \"comment maximiser la valeur des premiers écrans\"." },
           { t: "2. Le menu burger : accepter de bouger les repères", b: "L'agrégation multi-chaînes changeait fondamentalement la nature du menu. Le conserver à l'identique aurait été incohérent avec la nouvelle promesse. J'ai porté une refonte complète, structurée par logique d'usage et non par historique d'organisation interne." },
@@ -79,6 +81,8 @@ window.CASES = [
             "Le contexte politique est une donnée de design, pas un parasite",
           ]},
         },
+        imageEnd: "./assets/cases/3-phones-bfm.png",
+        imageEndAlt: "Trois rendus mobiles de la refonte App BFM",
       },
     ],
   },
@@ -92,6 +96,8 @@ window.CASES = [
     status: "Livré",
     title: "Réinternalisation App Sport",
     teaser: "4 jours pour reprendre une app entière, l'aligner sur les contraintes du socle technique, et la livrer dans un état exploitable par la tech.",
+    hero: "./assets/cases/rmc-sport.png",
+    heroAlt: "Hero du cas Réinternalisation App Sport",
     quote: "4 jours pour reprendre une app entière, en l'alignant sur les contraintes du socle. Pas le projet le plus glamour de mon parcours. Mais celui qui a posé ma crédibilité auprès des leads tech.",
     sections: [
       {
@@ -111,6 +117,8 @@ window.CASES = [
           "Responsivité des maquettes : déclinaison sur mobile et tablette, gestion des breakpoints, adaptation des grilles et des hiérarchies.",
           "Reformatage des livrables pour les devs internes : maquettes utilisables directement, specs claires, gestion des états et des cas à la marge.",
         ],
+        imageEnd: "./assets/cases/rmc-sport-figma.png",
+        imageEndAlt: "Maquettes Figma de la réinternalisation de l'app RMC Sport",
       },
       {
         h: "Ce que ça raconte de moi",
@@ -131,6 +139,8 @@ window.CASES = [
     status: "WIP",
     title: "Login multi-marques (SSO)",
     teaser: "Compte unique pour 5 marques média + 1 marque streaming, sur 4 plateformes, avec une promesse cross-produits et un enjeu data côté régie.",
+    hero: "./assets/cases/login-rbp-desktop.png",
+    heroAlt: "Hero du cas Login multi-marques",
     quote: "Concevoir un compte unique pour 5 marques média et 1 marque streaming, sur 4 plateformes, avec une promesse cross-produits côté utilisateur et un enjeu data côté régie. Et le faire en tenant la rigueur RGPD.",
     sections: [
       {
@@ -173,6 +183,9 @@ window.CASES = [
       },
       {
         h: "État d'avancement",
+        image: "./assets/cases/rbp-login.png",
+        imageAlt: "Écran de login multi-marques",
+        imageWidth: "medium",
         list: [
           "Parcours inscription, connexion et gestion de compte validés.",
           "Maquettes finalisées à 95%.",
@@ -191,6 +204,8 @@ window.CASES = [
     role: "Lead designer, seule sur le sujet",
     status: "WIP",
     title: "Design System multi-marques",
+    hero: "./assets/cases/audit-ds-notion.png",
+    heroAlt: "Audit du Design System dans Notion",
     teaser: "Construire un DS pour 4 marques média, sur web, iOS et Android, dans un environnement où la complexité technique freinait les identités.",
     quote: "Construire un design system pour 4 marques média, sur web, iOS et Android, dans un environnement où la complexité technique freine les identités de marque. Un projet que personne n'avait commencé, et que j'ai porté parce que j'avais envie qu'il existe.",
     metrics: [
@@ -230,7 +245,7 @@ window.CASES = [
         imageAlt: "Architecture à trois niveaux de tokens : globaux, marque, composants",
         sub: [
           { t: "1. Trois niveaux de tokens, en débat assumé", b: "Tokens globaux (valeurs brutes), tokens marque (theming par marque), composants à variants. Cette architecture absorbe en parallèle theming par marque, dark/light, plateformes web vs app, breakpoints, et distinction valeur brute vs sémantique." },
-          { t: "2. La librairie Figma sert déjà les équipes tech", b: "Mon premier livrable concret n'est pas un DS abouti. C'est une librairie Figma à variantes qui couvre les axes ci-dessus. Pas une fin, un début. Et pourtant, les devs app l'ont remarquée et reproduisent la même logique dans leurs styles." },
+          { t: "2. La librairie Figma sert déjà les équipes tech", b: "Mon premier livrable concret n'est pas un DS abouti. C'est une librairie Figma à variantes qui couvre les axes ci-dessus. Pas une fin, un début. Et pourtant, les devs app l'ont remarquée et reproduisent la même logique dans leurs styles.", image: "./assets/cases/components-ds.png", imageAlt: "Composants de la librairie Figma du Design System" },
           { t: "3. Affirmer les identités de marque, pas les uniformiser", b: "Le piège classique d'un DS multi-marques, c'est l'uniformisation. Le DS doit être l'outil qui permet aux marques d'affirmer leur identité, pas celui qui la dissout." },
         ],
       },
@@ -257,6 +272,8 @@ window.CASES = [
     role: "Lead designer sur la dimension design",
     status: "WIP",
     title: "Framework Product",
+    hero: "./assets/cases/workflow.png",
+    heroAlt: "Workflow du Framework Product",
     teaser: "Redéfinir la place du Product Design dans le framework de l'entreprise, en partant du réel — pas des bonnes pratiques génériques.",
     quote: "Comment fait-on entrer une organisation produit dans une nouvelle façon de travailler ? En écoutant d'abord ce qu'elle vit, puis en structurant à partir de là.",
     sections: [
@@ -324,6 +341,8 @@ window.CASES = [
     role: "Product Designer",
     status: "Background",
     title: "80+ marques en flux tendu",
+    hero: "./assets/cases/reworld.png",
+    heroAlt: "Hero du cas Reworld Media",
     teaser: "Deux ans à designer pour 80+ marques média, plus une douzaine de plateformes clients, en flux tendu permanent.",
     quote: "Deux ans et quelques mois à designer pour 80+ marques média, plus une douzaine de plateformes clients, en flux tendu permanent. C'est sur cette période que se sont formés mes réflexes de système, de pragmatisme et de scale.",
     sections: [

@@ -13,7 +13,7 @@ window.CASES = [
     teaser: "Une app utilisée par 17M de personnes par mois, refondue sous le regard du nouvel actionnaire. Quatre projets en un.",
     hero: "./assets/cases/bfm-hero.jpg",
     heroAlt: "Hero du cas Refonte App BFM",
-    quote: "En 2024, on m'a confié la refonte de l'app BFM. Sur le papier, c'était un projet produit. En réalité, c'était quatre projets en un, sous le regard du nouvel actionnaire, et sans le droit de se louper.",
+    quote: "En 2024, on m'a confié la refonte de l'app BFM. Sur le papier, c'était un seul projet produit. En réalité, c'était quatre projets en un, sous le regard d'un nouvel actionnaire et la pression de ne pas se louper sur son premier projet d'envergure.",
     metrics: [
       { value: "+5%", label: "visites moyennes (objectif initial : +1%)" },
       { value: "+42s", label: "temps de visite moyen" },
@@ -23,22 +23,22 @@ window.CASES = [
       {
         h: "Le contexte",
         body: [
-          "Une refonte produit avec trois exigences chiffrées : +1% d'audiences sur l'année (objectif business), une mise en avant claire de l'actu chaude et des shorts vidéo (objectif produit), un confort de lecture aligné sur les standards du marché.",
-          "Au-dessus, une bascule de marque. L'app devait passer d'une chaîne unique à une plateforme d'info agrégée qui rassemblait pour la première fois plusieurs chaînes du groupe dans une seule expérience.",
-          "Et au-dessus encore, un enjeu politique. Premier projet à sortir sous la bannière du nouveau groupe, après le rachat. Tout changeait de manière visible : nom, logo, DA, promesse. On n'avait pas le droit de rater l'atterrissage.",
+          "Une refonte produit avec trois exigences chiffrées : +1% d'audiences sur l'année (objectif business), une mise en avant claire de l'actu chaude et des shorts vidéo (objectif produit), un confort de lecture aligné sur les standards du marché (objectif UX).",
+          "Au-dessus, une bascule de marque. L'app devait passer d'une chaîne unique à une plateforme d'info agrégée qui rassemblait pour la première fois plusieurs rédactions du groupe en une seule expérience.",
+          "Et au-dessus encore, un enjeu politique majeur. Premier projet à sortir sous la bannière du nouveau groupe CMA CGM, après le rachat. Tout changeait de manière visible : nom, logo, DA, tout en gardant la même promesse. Rendre accessible l'information, partout, tout le temps.",
         ],
       },
       {
         h: "Le problème",
         body: [
-          "Comment refondre une app utilisée par 17M de personnes par mois, en faisant tenir ensemble trois exigences qui se contredisent : densifier l'offre éditoriale sans sacrifier la lisibilité, mettre en avant l'actu chaude et la vidéo courte sans masquer la profondeur du catalogue, imposer une nouvelle DA sans perdre les utilisateurs dans leurs repères.",
-          "Le tout sur une home dont le moindre déplacement de bloc devient un sujet politique en interne.",
+          "Comment refondre une app utilisée par 17M de personnes par mois, en faisant tenir ensemble trois exigences qui se confrontent : densifier l'offre éditoriale sans sacrifier la lisibilité, mettre en avant l'actu chaude et la vidéo courte sans masquer la profondeur du catalogue, imposer une nouvelle DA sans perdre les utilisateurs dans leurs repères.",
+          "Le tout sur une home dont le moindre déplacement de bloc devient un sujet délicat en interne et a de nombreuses conséquences pour chacun.",
         ],
       },
       {
         h: "Mon rôle",
         body: [
-          "Lead designer, en binôme avec la PM senior de l'app. Discovery menée à deux, scope owné conjointement. J'ai porté l'ensemble des livrables côté app (refonte structurelle complète : home, articles, navigation, vidéo, shorts), et j'ai été responsable des impacts collatéraux côté web : bascule typo, palette couleur, et portage des adaptations vers le web.",
+          "Lead designer, en binôme avec la PM senior de la marque BFM. Discovery menée à deux, scope owné conjointement. J'ai porté l'ensemble des livrables côté app (refonte structurelle complète : home, articles, navigation, vidéo, shorts), et j'ai été responsable des impacts collatéraux côté web : bascule typo, palette couleur, et portage des adaptations vers le web.",
           "Le projet a duré un an au total, avec 5 à 6 mois de discovery et 6 à 7 mois de delivery parallélisé avec la fin de la discovery (la réalité terrain plutôt que le manuel agile).",
         ],
       },
@@ -47,7 +47,7 @@ window.CASES = [
         image: "./assets/cases/discovery-bfm.png",
         imageAlt: "Trois plans de discovery menés en parallèle sur le projet BFM",
         body: [
-          "5 à 6 mois de structuration progressive de la pensée produit. Trois plans en parallèle :",
+          "5 à 6 mois de structuration progressive de la pensée produit, en s'appuyant sur la méthode F.O.C.U.S.E.D.. Trois plans en parallèle :",
         ],
         list: [
           "Cadrage des problématiques. Identifier les sujets structurants (fidélisation faible, vidéo courte sous-exploitée, agrégation pas lisible, confort de lecture en deçà du marché) et les hiérarchiser.",
@@ -62,8 +62,8 @@ window.CASES = [
         imageAlt: "Quatre décisions structurantes de la refonte App BFM",
         sub: [
           { t: "1. L'ordre des blocs sur la home", b: "Personne ne voulait supprimer son bloc, alors que les données montraient que personne ne descendait jusqu'au bas. Ma position : si personne n'allait au bout, l'ordre des derniers blocs était secondaire. Ce qui comptait, c'était les 3 ou 4 premiers blocs et leur capacité à raconter l'identité éditoriale en une seule scroll. Le débat s'est déplacé : de \"où est mon bloc\" vers \"comment maximiser la valeur des premiers écrans\"." },
-          { t: "2. Le menu burger : accepter de bouger les repères", b: "L'agrégation multi-chaînes changeait fondamentalement la nature du menu. Le conserver à l'identique aurait été incohérent avec la nouvelle promesse. J'ai porté une refonte complète, structurée par logique d'usage et non par historique d'organisation interne." },
-          { t: "3. La couleur : tenir la subtilité face à la pression", b: "Pression interne forte pour aller dans la direction colorée d'un concurrent. Ma position : la couleur joue deux rôles, et seulement deux. Branding (couleur de marque, présente mais subtile, dispersée sans saturer) et sémantique (rouge pour l'alerte, l'actu chaude, la notification ; bleu pour les actualités classiques). Un usage utilitaire, pas décoratif." },
+          { t: "2. Le menu burger : accepter de bouger les repères", b: "L'agrégation multi-chaînes changeait fondamentalement la nature du menu. Le conserver à l'identique aurait été incohérent avec la nouvelle plateforme. J'ai porté une refonte complète, structurée par logique d'usage et non par historique d'organisation interne." },
+          { t: "3. La couleur : tenir la subtilité face à la pression", b: "Pression interne forte pour aller dans la direction colorée d'un concurrent qui a opéré une refonte de son application au même moment. Ma position : la couleur joue deux rôles, et seulement deux. Branding (couleur de marque, présente mais subtile, dispersée sans saturer) et sémantique (rouge pour l'alerte, l'actu chaude, la notification ; bleu pour les actualités classiques). Un usage utilitaire, pas décoratif." },
           { t: "4. Mettre en avant l'actu chaude sans noyer la profondeur", b: "Hiérarchiser par moment de consultation, pas par importance éditoriale absolue. L'actu chaude prend la priorité visuelle dans les premiers écrans, mais les formats analyse et profondeur ont leur entrée propre, leur rythme, leur place légitime dans le scroll." },
         ],
       },

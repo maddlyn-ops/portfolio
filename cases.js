@@ -207,7 +207,7 @@ window.CASES = [
     hero: "./assets/cases/audit-ds-notion.png",
     heroAlt: "Audit du Design System dans Notion",
     teaser: "Construire un DS pour 4 marques média, sur web, iOS et Android, dans un environnement où la complexité technique freinait les identités.",
-    quote: "Construire un design system pour 4 marques média, sur web, iOS et Android, dans un environnement où la complexité technique freine les identités de marque. Un projet que personne n'avait commencé, et que j'ai porté parce que j'avais envie qu'il existe.",
+    quote: "Construire un design system pour 4 marques média, sur web, iOS et Android, dans un environnement où la complexité technique freine les identités de marque. Un projet que personne n'avait commencé, que j'ai porté parce que j'avais envie qu'il existe et qui est sous pression aujourd'hui pour implémenter l'IA dans le workflow de création.",
     metrics: [
       { value: "109 → 14", label: "couleurs RMC web" },
       { value: "83 → 18", label: "éléments typographiques" },
@@ -217,8 +217,8 @@ window.CASES = [
       {
         h: "Le contexte",
         body: [
-          "Quand je suis arrivée, le sujet design system existait à l'état d'idée mais pas de projet. Côté design, une librairie Figma sans composants. Côté tech, beaucoup de complexité héritée et une contrainte de socle technique partagé qui cannibalisait les projets des marques au moment précis où le groupe cherchait à réaffirmer leurs identités uniques.",
-          "Sur le terrain, j'étais seule sur le fond : seule à creuser l'audit, seule à arbitrer les décisions d'architecture, seule à porter le sujet face à la tech. Je l'ai porté parce que j'avais envie qu'il existe, et parce qu'aucun projet de DS multi-marques tenable ne pouvait sortir d'une dynamique où personne n'osait prendre la barre.",
+          "Quand je suis arrivée, le sujet design system existait à l'état d'idée mais pas de projet. Côté design, une librairie assez faible sur Figma sans composants, qu'on venait copier/coller sans aucune maintenance. Côté tech, beaucoup de complexité héritée et une contrainte de socle technique partagé qui cannibalisait les projets des marques au moment précis où le groupe cherchait à réaffirmer leurs identités uniques.",
+          "J'étais accompagnée par deux lead devs qui partageaient la même vision. Mais la réalité terrain a fait que leur planning ne pouvait accueillir ce projet : j'étais donc seule à creuser l'audit, seule à arbitrer les décisions d'architecture, seule à porter le sujet. Je l'ai porté parce que j'avais envie qu'il existe, et parce qu'aucun projet de DS multi-marques tenable ne pouvait sortir d'une dynamique où personne n'osait prendre la barre.",
         ],
       },
       {
@@ -230,12 +230,12 @@ window.CASES = [
           "respecte la bande passante des équipes tech déjà à flux tendu,",
           "affirme les identités de marque plutôt que de les uniformiser au nom de la mutualisation technique.",
         ],
-        after: "Le tout en partant d'un existant fait de 109 couleurs sur une seule marque, 83 éléments typographiques, 18 espacements, dont la moitié n'avait pas de raison d'être autre que l'historique.",
+        after: "Le tout en partant d'un existant fait de 109 couleurs sur une seule marque, 83 éléments typographiques, 18 espacements, dont la moitié n'avait pas de raison d'être autre que de l'inattention et de l'absence de rigueur.",
       },
       {
         h: "Phase 1 : un audit chiffré comme fondation",
         body: [
-          "Je n'ai pas voulu poser un DS sans mesurer précisément l'existant. Pas de pifomètre, pas de \"y'a trop de couleurs\", mais des chiffres qui rendent le projet défendable.",
+          "Je n'ai pas voulu poser un DS sans mesurer précisément l'existant. Pas de pifomètre, pas de \"y'a trop de couleurs\", mais des chiffres qui rendent le projet défendable, et indispensable.",
           "Méthode : Claude analyse l'intégralité du site web d'une marque et extrait toutes les valeurs avec leur contexte d'usage. Tout est agrégé dans une base Notion, en faisant un pré-arbitrage. Je tranche. Le pré-arbitrage me fait gagner 80% du temps de tri.",
         ],
       },
@@ -245,7 +245,7 @@ window.CASES = [
         imageAlt: "Architecture à trois niveaux de tokens : globaux, marque, composants",
         sub: [
           { t: "1. Trois niveaux de tokens, en débat assumé", b: "Tokens globaux (valeurs brutes), tokens marque (theming par marque), composants à variants. Cette architecture absorbe en parallèle theming par marque, dark/light, plateformes web vs app, breakpoints, et distinction valeur brute vs sémantique." },
-          { t: "2. La librairie Figma sert déjà les équipes tech", b: "Mon premier livrable concret n'est pas un DS abouti. C'est une librairie Figma à variantes qui couvre les axes ci-dessus. Pas une fin, un début. Et pourtant, les devs app l'ont remarquée et reproduisent la même logique dans leurs styles.", image: "./assets/cases/components-ds.png", imageAlt: "Composants de la librairie Figma du Design System" },
+          { t: "2. La librairie Figma sert déjà les équipes tech", b: "Mon premier livrable concret n'est pas un DS abouti. C'est une librairie de variables Figma à variantes qui couvre les axes ci-dessus. Pas une fin, un début. Pour éteindre le feu. Les devs app l'ont remarquée et reproduisent la même logique dans leurs styles.", image: "./assets/cases/components-ds.png", imageAlt: "Composants de la librairie Figma du Design System" },
           { t: "3. Affirmer les identités de marque, pas les uniformiser", b: "Le piège classique d'un DS multi-marques, c'est l'uniformisation. Le DS doit être l'outil qui permet aux marques d'affirmer leur identité, pas celui qui la dissout." },
         ],
       },
@@ -258,7 +258,7 @@ window.CASES = [
           { k: "Phase 2. Tokens (W3-5)", v: "À venir." },
           { k: "Phase 3. Components v1 (W6-8)", v: "À venir." },
           { k: "Phase 4. Documentation et industrialisation", v: "À venir." },
-          { k: "Phase 5. Launch et adoption (W10+)", v: "Cible : fin Q2 2026." },
+          { k: "Phase 5. Launch et adoption (W10+)", v: "Cible : fin Q3 2026." },
         ],
       },
     ],

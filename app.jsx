@@ -329,7 +329,10 @@ function CaseCard({ data, onOpen }) {
         <span className="case__status" data-status={data.status}>
           <span className="dot" /> {data.status}
         </span>
-        <CaseViz id={data.id} />
+        {data.cover ?
+          <img className="case__cover" src={data.cover} alt={data.coverAlt || data.title} /> :
+          <CaseViz id={data.id} />
+        }
       </div>
       <div className="case__body">
         <div className="case__meta">

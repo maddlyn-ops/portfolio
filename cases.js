@@ -98,14 +98,14 @@ window.CASES = [
     teaser: "4 jours pour reprendre une app entière, l'aligner sur les contraintes du socle technique, et la livrer dans un état exploitable par la tech.",
     hero: "./assets/cases/rmc-sport.png",
     heroAlt: "Hero du cas Réinternalisation App Sport",
-    quote: "4 jours pour reprendre une app entière, en l'alignant sur les contraintes du socle. Pas le projet le plus glamour de mon parcours. Mais celui qui a posé ma crédibilité auprès des leads tech.",
+    quote: "4 jours pour reprendre une app entière, en l'alignant sur les contraintes techniques d'un socle partagé cross-marques. Pas le projet le plus glamour de mon parcours. Mais celui qui a posé ma crédibilité auprès des leads dev.",
     sections: [
       {
         h: "Le contexte",
         body: [
           "L'app Sport était jusque-là développée par un prestataire externe. La décision a été prise de la réinternaliser pour reprendre la main sur le produit, l'aligner avec le reste de l'écosystème et faciliter la maintenance long terme.",
-          "Quand j'ai pris le sujet, l'équipe design avait déjà commencé à poser une direction artistique générale. Mais le travail n'était pas exploitable côté tech : contraintes du socle non intégrées, incohérences entre écrans, livrables non formatés pour les devs internes.",
-          "Le problème : on avait des délais courts. Si on ne reprenait pas tout, on partait en prod avec un produit qui allait casser à l'implémentation.",
+          "Quand j'ai pris le sujet, l'équipe design avait déjà commencé à poser une direction artistique générale. Mais le travail n'était pas exploitable côté tech : contraintes du socle non intégrées, incohérences entre écrans, livrables non formatés pour les devs internes, pas de responsivité des éléments et des écrans, pas de système couleurs « variabilités », aucune accessibilité…",
+          "Le problème : on avait des délais courts. Si on ne reprenait pas tout, on partait en prod avec un produit qui allait casser à l'implémentation au pire, dépasser les délais de livraison au mieux.",
         ],
       },
       {
@@ -124,7 +124,7 @@ window.CASES = [
         h: "Ce que ça raconte de moi",
         body: [
           "Ce n'est pas le projet sur lequel j'ai inventé quelque chose. C'est le projet où j'ai prouvé que je sais reprendre une app en feu, vite, et la livrer dans un état exploitable par la tech.",
-          "Et c'est aussi le projet qui a posé ma crédibilité auprès des leads tech sur la suite. Quand la refonte BFM est arrivée six mois plus tard, je n'avais plus à démontrer que je savais penser en intégrant les contraintes du socle. C'était acquis.",
+          "Et c'est aussi le projet qui a posé ma crédibilité auprès des leads tech sur la suite. Quand la refonte BFM est arrivée six mois plus tard, je n'avais plus à démontrer que je savais penser en intégrant les contraintes du socle et que je parlais un langage interprétable par les devs. C'était acquis.",
         ],
       },
     ],

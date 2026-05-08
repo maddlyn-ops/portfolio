@@ -929,6 +929,9 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
 }
 .hero__title .line:nth-child(2) > span { animation-delay: 120ms; }
 .hero__title .line:nth-child(3) > span { animation-delay: 240ms; }
+.hero__accent {
+  color: var(--ember-red);
+}
 
 @keyframes line-rise {
   to { transform: none; }

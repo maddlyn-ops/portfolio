@@ -146,7 +146,7 @@ window.CASES = [
       },
       {
         h: "L'approche : compte universel, fonctionnalités contextuelles",
-        image: "./assets/cases/sso-architecture.png",
+        image: "./assets/cases/login-sso-features.png",
         imageAlt: "Architecture du compte universel et des fonctionnalités contextuelles par marque",
         body: [
           "L'arbitrage de fond : l'expérience du compte est la même partout, et ce sont uniquement les fonctionnalités contextuelles qui se déclinent par marque.",

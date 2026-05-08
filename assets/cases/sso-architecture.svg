@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <radialGradient id="nebula" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#043f96" stop-opacity="0.32"></stop>
+      <stop offset="60%" stop-color="#061225" stop-opacity="0.08"></stop>
+      <stop offset="100%" stop-color="#040506" stop-opacity="0"></stop>
+    </radialGradient>
+
+    <radialGradient id="violet" cx="80%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#523091" stop-opacity="0.18"></stop>
+      <stop offset="100%" stop-color="#040506" stop-opacity="0"></stop>
+    </radialGradient>
+
+    <radialGradient id="brandSurface" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#1b1c1e"></stop>
+      <stop offset="100%" stop-color="#07080a"></stop>
+    </radialGradient>
+
+    <radialGradient id="hubSurface" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"></stop>
+      <stop offset="60%" stop-color="#e6e6e6"></stop>
+      <stop offset="100%" stop-color="#9c9c9d"></stop>
+    </radialGradient>
+
+    <linearGradient id="topHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"></stop>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0"></stop>
+    </linearGradient>
+
+    
+    <filter id="skyGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#56c2ff" flood-opacity="0.35"></feDropShadow>
+    </filter>
+
+    
+    <filter id="emberGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#ff6363" flood-opacity="0.4"></feDropShadow>
+    </filter>
+
+    
+    <filter id="steelGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#3a7ab8" flood-opacity="0.45"></feDropShadow>
+    </filter>
+
+    
+    <filter id="salmonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.55"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="14" flood-color="#ff9b7d" flood-opacity="0.4"></feDropShadow>
+    </filter>
+
+    <filter id="hubShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="20" flood-color="#000000" flood-opacity="0.7"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="30" flood-color="#56c2ff" flood-opacity="0.15"></feDropShadow>
+    </filter>
+
+    
+  </defs>
+
+  <rect width="1400" height="900" class="canvas"></rect>
+
+  <ellipse cx="700" cy="470" rx="540" ry="400" fill="url(#nebula)"></ellipse>
+  <rect x="0" y="0" width="1400" height="900" fill="url(#violet)"></rect>
+
+  <text x="60" y="64" class="badge-label">SCHEMA 01 / 08</text>
+  <text x="60" y="100" class="heading">Architecture du compte unique</text>
+  <text x="60" y="124" class="subheading">Compte universel au centre · fonctionnalités contextuelles par marque</text>
+
+  
+  <g>
+    <rect x="160" y="280" width="240" height="380" rx="20" fill="#56c2ff" opacity="0.04"></rect>
+    <rect x="160" y="280" width="240" height="380" rx="20" fill="none" stroke="#56c2ff" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"></rect>
+    <text x="280" y="270" text-anchor="middle" class="universe-label-sky">UNIVERS BFM</text>
+  </g>
+
+  
+  <g stroke="#56c2ff" stroke-width="1" fill="none" stroke-dasharray="3 4" opacity="0.35">
+    <line x1="700" y1="470" x2="280" y2="470"></line>
+  </g>
+  <g stroke="#ff6363" stroke-width="1" fill="none" stroke-dasharray="3 4" opacity="0.35">
+    <line x1="700" y1="470" x2="1140" y2="270"></line>
+  </g>
+  <g stroke="#3a7ab8" stroke-width="1" fill="none" stroke-dasharray="3 4" opacity="0.4">
+    <line x1="700" y1="470" x2="1140" y2="470"></line>
+  </g>
+  <g stroke="#ff9b7d" stroke-width="1" fill="none" stroke-dasharray="3 4" opacity="0.4">
+    <line x1="700" y1="470" x2="1140" y2="600"></line>
+  </g>
+
+  
+  
+  <g filter="url(#skyGlow)">
+    <circle cx="280" cy="370" r="42" fill="url(#brandSurface)"></circle>
+    <circle cx="280" cy="370" r="42" fill="none" stroke="#56c2ff" stroke-width="1.5"></circle>
+    <circle cx="280" cy="370" r="41" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="280" y="376" text-anchor="middle" class="brand-label label-sky">BFM</text>
+
+  
+  <g filter="url(#skyGlow)">
+    <circle cx="280" cy="470" r="42" fill="url(#brandSurface)"></circle>
+    <circle cx="280" cy="470" r="42" fill="none" stroke="#56c2ff" stroke-width="1.5"></circle>
+    <circle cx="280" cy="470" r="41" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="280" y="467" text-anchor="middle" class="brand-label label-sky">BFM</text>
+  <text x="280" y="482" text-anchor="middle" class="brand-sublabel">Business</text>
+
+  
+  <g filter="url(#skyGlow)">
+    <circle cx="280" cy="570" r="42" fill="url(#brandSurface)"></circle>
+    <circle cx="280" cy="570" r="42" fill="none" stroke="#56c2ff" stroke-width="1.5"></circle>
+    <circle cx="280" cy="570" r="41" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="280" y="567" text-anchor="middle" class="brand-label label-sky">Locales</text>
+  <text x="280" y="582" text-anchor="middle" class="brand-sublabel">BFM</text>
+
+  
+  <g transform="translate(420, 446)">
+    
+    <g stroke="#56c2ff" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M0 -7 L0 7 L5 4 L10 7 L10 -7 Z"></path>
+    </g>
+    <text x="20" y="4" class="feature-text feature-sky">Bookmark</text>
+  </g>
+  <g transform="translate(420, 478)">
+    
+    <g stroke="#56c2ff" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M0 -2 L0 -7 L5 -7 L11 -1 L6 4 Z"></path>
+      <circle cx="2.5" cy="-4.5" r="1" fill="#56c2ff"></circle>
+    </g>
+    <text x="20" y="4" class="feature-text feature-sky">Thématiques personnalisées</text>
+  </g>
+
+  
+  <g filter="url(#emberGlow)">
+    <circle cx="1140" cy="270" r="48" fill="url(#brandSurface)"></circle>
+    <circle cx="1140" cy="270" r="48" fill="none" stroke="#ff6363" stroke-width="1.5"></circle>
+    <circle cx="1140" cy="270" r="47" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="1140" y="276" text-anchor="middle" class="brand-label label-ember">RMC</text>
+  <g transform="translate(1070, 246)">
+    <g stroke="#ff6363" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <rect x="3" y="-7" width="6" height="9" rx="3"></rect>
+      <path d="M0 -1 Q0 5 6 5 Q12 5 12 -1"></path>
+      <line x1="6" y1="5" x2="6" y2="8"></line>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-ember" text-anchor="end">Actualités émissions</text>
+  </g>
+  <g transform="translate(1070, 274)">
+    <g stroke="#ff6363" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M6 6 L1 1 Q-1 -2 1 -4 Q3 -6 6 -3 Q9 -6 11 -4 Q13 -2 11 1 Z"></path>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-ember" text-anchor="end">Podcasts préférés</text>
+  </g>
+
+  
+  <g filter="url(#steelGlow)">
+    <circle cx="1140" cy="470" r="48" fill="url(#brandSurface)"></circle>
+    <circle cx="1140" cy="470" r="48" fill="none" stroke="#3a7ab8" stroke-width="1.5"></circle>
+    <circle cx="1140" cy="470" r="47" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="1140" y="467" text-anchor="middle" class="brand-label label-steel">RMC</text>
+  <text x="1140" y="482" text-anchor="middle" class="brand-sublabel">Sport</text>
+  <g transform="translate(1070, 446)">
+    <g stroke="#6fa8dc" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M6 -7 L0 -4 L0 2 Q0 5 6 8 Q12 5 12 2 L12 -4 Z"></path>
+      <circle cx="6" cy="0" r="2"></circle>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-steel" text-anchor="end">Suivi équipes personnalisées</text>
+  </g>
+  <g transform="translate(1070, 474)">
+    <g stroke="#6fa8dc" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <path d="M2 -7 L10 -7 L10 -2 Q10 3 6 3 Q2 3 2 -2 Z"></path>
+      <path d="M2 -5 L0 -5 Q-2 -5 -1 -2 Q0 0 2 0"></path>
+      <path d="M10 -5 L12 -5 Q14 -5 13 -2 Q12 0 10 0"></path>
+      <line x1="6" y1="3" x2="6" y2="6"></line>
+      <line x1="3" y1="7" x2="9" y2="7"></line>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-steel" text-anchor="end">Compétitions</text>
+  </g>
+
+  
+  <g filter="url(#salmonGlow)">
+    <circle cx="1140" cy="600" r="48" fill="url(#brandSurface)"></circle>
+    <circle cx="1140" cy="600" r="48" fill="none" stroke="#ff9b7d" stroke-width="1.5"></circle>
+    <circle cx="1140" cy="600" r="47" fill="none" stroke="url(#topHighlight)" stroke-width="1"></circle>
+  </g>
+  <text x="1140" y="597" text-anchor="middle" class="brand-label label-salmon">RMC+</text>
+  <text x="1140" y="616" text-anchor="middle" class="brand-sublabel" style="fill:#ff9b7d;opacity:0.7">streaming</text>
+  <g transform="translate(1070, 576)">
+    <g stroke="#ff9b7d" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <line x1="0" y1="-5" x2="12" y2="-5"></line>
+      <circle cx="4" cy="-5" r="2" fill="#ff9b7d"></circle>
+      <line x1="0" y1="0" x2="12" y2="0"></line>
+      <circle cx="8" cy="0" r="2" fill="#ff9b7d"></circle>
+      <line x1="0" y1="5" x2="12" y2="5"></line>
+      <circle cx="3" cy="5" r="2" fill="#ff9b7d"></circle>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-salmon" text-anchor="end">Préférences de visionnage</text>
+  </g>
+  <g transform="translate(1070, 604)">
+    <g stroke="#ff9b7d" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+      <circle cx="6" cy="0" r="6"></circle>
+      <path d="M4 -3 L9 0 L4 3 Z" fill="#ff9b7d"></path>
+    </g>
+    <text x="-10" y="4" class="feature-text feature-salmon" text-anchor="end">Reprise de lecture</text>
+  </g>
+
+  
+  <g filter="url(#hubShadow)">
+    <circle cx="700" cy="470" r="100" fill="url(#hubSurface)"></circle>
+    <circle cx="700" cy="470" r="100" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"></circle>
+  </g>
+  <text x="700" y="455" text-anchor="middle" class="hub-label">COMPTE</text>
+  <text x="700" y="473" text-anchor="middle" class="hub-label">UNIQUE</text>
+  <text x="700" y="497" text-anchor="middle" class="hub-meta">email · password</text>
+  <text x="700" y="511" text-anchor="middle" class="hub-meta">data · consent</text>
+
+  
+  <g transform="translate(60, 770)">
+    <rect width="540" height="90" rx="11" fill="#07080a" stroke="#1b1c1e" stroke-width="1"></rect>
+    <rect width="540" height="90" rx="11" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.05"></rect>
+
+    <text x="20" y="28" class="legend-label">EXPÉRIENCE COMPTE</text>
+    <text x="20" y="48" class="feature-text" fill="#e6e6e6" style="font-size:13px">Universelle pour les 6 marques.</text>
+    <text x="20" y="66" class="feature-text" fill="#9c9c9d">Email, mot de passe, gestion compte, consentements.</text>
+  </g>
+
+  <g transform="translate(620, 770)">
+    <rect width="540" height="90" rx="11" fill="#07080a" stroke="#1b1c1e" stroke-width="1"></rect>
+    <rect width="540" height="90" rx="11" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.05"></rect>
+
+    <text x="20" y="28" class="legend-label">FONCTIONNALITÉS CONTEXTUELLES</text>
+    <text x="20" y="48" class="feature-text" fill="#e6e6e6" style="font-size:13px">Spécifiques à chaque marque.</text>
+    <text x="20" y="66" class="feature-text" fill="#9c9c9d">Bookmark, podcasts, équipes, préférences de visionnage.</text>
+  </g>
+
+  
+  <g transform="translate(1180, 64)">
+    <text x="0" y="0" class="legend-label">PLATEFORMES</text>
+    <text x="0" y="20" class="legend-value" style="font-size:13px">Web · iOS · Tablet · TV</text>
+  </g>
+</svg>

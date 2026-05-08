@@ -1757,6 +1757,9 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
   background: rgba(15,16,18,0.95);
   border-color: rgba(255,255,255,0.32);
 }
+@media (hover: none), (pointer: coarse) {
+  .figure__zoom { opacity: 1; transform: none; }
+}
 .lightbox {
   position: fixed;
   inset: 0;

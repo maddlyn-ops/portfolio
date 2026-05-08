@@ -285,7 +285,7 @@ function Hero({ onContact }) {
           <span className="line"><span>De <span className="hero__sticker">l'écran au système</span> qui le produit.</span></span>
         </h1>
         <p className="hero__sub">
-          6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
+          6 ans en product design. Aujourd'hui chez CMA Média (RMC BFM), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
         </p>
         <div className="hero__cta-row">
           <a
@@ -431,7 +431,7 @@ function Approche() {
    À propos
 ------------------------------------------------------------------ */
 const TIMELINE = [
-{ d: "Mars 2024 → aujourd'hui", r: "Product Designer · CMA Média / BFM RMC" },
+{ d: "Mars 2024 → aujourd'hui", r: "Product Designer · CMA Média / RMC BFM" },
 { d: "Décembre 2021 → février 2024", r: "Product Designer · Reworld Media" },
 { d: "2019 → aujourd'hui", r: "Freelance · Madd (en parallèle continu)" },
 { d: "2019 → 2020", r: "Création & Design · Sup de Pub (Bachelor)" },
@@ -720,7 +720,7 @@ const SECTION_TEXT = {
   top: {
     label: "Hero",
     section: "Accueil",
-    text: "Product Designer. De l'écran au système qui le produit. 6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe. Paris, Île de France, International remote. BFM, Air France, Cdiscount, Doctissimo, Geberit, Verisure."
+    text: "Product Designer. De l'écran au système qui le produit. 6 ans en product design. Aujourd'hui chez CMA Média (RMC BFM), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe. Paris, Île de France, International remote. BFM, Air France, Cdiscount, Doctissimo, Geberit, Verisure."
   },
   work: {
     label: "Selected work",
@@ -735,7 +735,7 @@ const SECTION_TEXT = {
   about: {
     label: "À propos",
     section: "À propos",
-    text: "Le métier comme outil, pas comme signature. J'ai commencé par le graphisme, la publicité, le webdesign à l'époque où il existait encore comme métier propre, avant de glisser vers le product design. Mon obsession depuis cette bascule, c'est que le design soit utile. Qu'il réponde à un enjeu business identifié, à une frustration utilisateur réelle, à une contrainte technique respectée. Cette logique m'a portée du craft pur vers le système qui les rend possibles : design system, framework, gouvernance. Mon parcours : Product Designer chez CMA Média / BFM RMC depuis mars 2024. Product Designer chez Reworld Media de décembre 2021 à février 2024. Freelance Madd depuis 2019. Sup de Pub Bachelor 2019-2020. MMI IUT d'Angoulême DUT 2017-2019. Madd, en parallèle : depuis 2019, je porte mon activité freelance pour adresser des marques premium, restauration, retail, packaging — Maison Albar, Chalet Boréal, TechSpark, Hysope."
+    text: "Le métier comme outil, pas comme signature. J'ai commencé par le graphisme, la publicité, le webdesign à l'époque où il existait encore comme métier propre, avant de glisser vers le product design. Mon obsession depuis cette bascule, c'est que le design soit utile. Qu'il réponde à un enjeu business identifié, à une frustration utilisateur réelle, à une contrainte technique respectée. Cette logique m'a portée du craft pur vers le système qui les rend possibles : design system, framework, gouvernance. Mon parcours : Product Designer chez CMA Média / RMC BFM depuis mars 2024. Product Designer chez Reworld Media de décembre 2021 à février 2024. Freelance Madd depuis 2019. Sup de Pub Bachelor 2019-2020. MMI IUT d'Angoulême DUT 2017-2019. Madd, en parallèle : depuis 2019, je porte mon activité freelance pour adresser des marques premium, restauration, retail, packaging — Maison Albar, Chalet Boréal, TechSpark, Hysope."
   },
   stack: {
     label: "Stack",

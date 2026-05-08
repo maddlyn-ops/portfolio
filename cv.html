@@ -42,6 +42,23 @@
     border-bottom: 1px solid var(--graphite-500);
     gap: 16px;
   }
+  .cv__top--bare {
+    border-bottom: 0;
+    padding: 8px 0 0;
+    margin-bottom: clamp(24px, 3vw, 40px);
+    justify-content: flex-end;
+  }
+  .cv__name {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .cv__name-fav {
+    width: clamp(40px, 5vw, 64px);
+    height: clamp(40px, 5vw, 64px);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
   .cv__top-mark {
     display: inline-flex; align-items: center; gap: 10px;
     color: var(--snow);
@@ -247,9 +264,10 @@
       height: 210mm;
       box-sizing: border-box;
     }
-    .cv__top { padding: 0 0 10px; margin-bottom: 14px; }
+    .cv__top { padding: 0; margin-bottom: 8px; }
     .cv__hero { margin-bottom: 18px; gap: 24px; align-items: start; }
-    .cv__name { font-size: 38px; margin-bottom: 6px; line-height: 0.96; }
+    .cv__name { font-size: 38px; margin-bottom: 6px; line-height: 0.96; gap: 12px; }
+    .cv__name-fav { width: 36px; height: 36px; border-radius: 8px; }
     .cv__meta { font-size: 10px; margin-bottom: 10px; }
     .cv__role { font-size: 14px; line-height: 1.4; }
     .cv__contact { font-size: 11px; gap: 6px; }
@@ -273,11 +291,7 @@
   <div class="cv__grid-bg" aria-hidden="true"></div>
 
   <main class="cv">
-    <header class="cv__top">
-      <a class="cv__top-mark" href="./index.html">
-        <img src="./assets/fav-200.png" alt="" />
-        <span>Maddlyn Fuzier</span>
-      </a>
+    <header class="cv__top cv__top--bare">
       <div class="cv__top-actions">
         <button class="cv__btn cv__btn--primary" type="button" onclick="window.print()" aria-label="Télécharger au format PDF">
           Télécharger au format PDF
@@ -288,7 +302,10 @@
 
     <section class="cv__hero">
       <div>
-        <h1 class="cv__name">Maddlyn Fuzier</h1>
+        <h1 class="cv__name">
+          <img class="cv__name-fav" src="./assets/fav-200.png" alt="" />
+          <span>Maddlyn Fuzier</span>
+        </h1>
         <p class="cv__meta">
           <span>Paris</span><span class="sep">·</span>
           <span>Île de France</span><span class="sep">·</span>

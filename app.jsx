@@ -283,7 +283,14 @@ function Hero({ onContact }) {
           6 ans en product design. Aujourd'hui chez CMA Média (BFM RMC), je conçois pour 17M de visiteurs mensuels, je porte un design system multi-marques, et je structure la place du design dans le framework produit du groupe.
         </p>
         <div className="hero__cta-row">
-          <a href="#work" className="btn btn--primary">
+          <a
+            href="#work"
+            className="btn btn--primary"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("work");
+              if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+            }}>
             Craft to System
             <Icon.arrowDown className="icon" />
           </a>

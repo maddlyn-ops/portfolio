@@ -548,6 +548,12 @@ function CaseModal({ caseId, onClose, onNav }) {
   const [zoom, setZoom] = useState(null);
   useEffect(() => {
     if (caseId) {
+      const modalEl = document.querySelector(".modal");
+      if (modalEl) modalEl.scrollTop = 0;
+    }
+  }, [caseId]);
+  useEffect(() => {
+    if (caseId) {
       document.body.style.overflow = "hidden";
       const onKey = (e) => {
         if (e.key === "Escape") {

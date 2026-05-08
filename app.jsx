@@ -1168,6 +1168,25 @@ function App() {
   const handleOpen = useCallback((id) => setOpenCase(id), []);
   const handleClose = useCallback(() => setOpenCase(null), []);
 
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      const tag = e.target?.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || e.target?.isContentEditable) return;
+      const modalEl = openCase ? document.querySelector(".modal") : null;
+      e.preventDefault();
+      if (modalEl) {
+        const top = e.key === "ArrowDown" ? modalEl.scrollHeight : 0;
+        modalEl.scrollTo({ top, behavior: "smooth" });
+      } else {
+        const top = e.key === "ArrowDown" ? document.documentElement.scrollHeight : 0;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openCase]);
+
   // Device preview mode — render an iframe of ourselves at the chosen viewport
   if (!isEmbedded && t.device && t.device !== "desktop") {
     const sizes = {

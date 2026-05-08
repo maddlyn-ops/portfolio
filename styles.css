@@ -921,7 +921,7 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
   letter-spacing: -0.032em;
   font-weight: 600;
 }
-.hero__title .line { display: block; overflow: hidden; }
+.hero__title .line { display: block; overflow: visible; }
 .hero__title .line > span {
   display: inline-block;
   transform: translateY(110%);

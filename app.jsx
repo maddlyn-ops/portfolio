@@ -582,12 +582,15 @@ function CaseModal({ caseId, onClose, onNav }) {
     </figure>;
 
   return (
+    <>
+    {data &&
+      <button className="modal__close" onClick={onClose} aria-label="Fermer">
+        <Icon.close style={{ width: 20, height: 20 }} />
+      </button>
+    }
     <div className={`modal ${caseId ? "is-open" : ""}`} onClick={(e) => {if (e.target.classList.contains("modal")) onClose();}}>
       {data &&
       <>
-          <button className="modal__close" onClick={onClose} aria-label="Fermer">
-            <Icon.close style={{ width: 20, height: 20 }} />
-          </button>
           <div className="modal__inner" key={caseId}>
             <div className="modal__meta">
               <span>{data.company}</span>
@@ -685,7 +688,8 @@ function CaseModal({ caseId, onClose, onNav }) {
           }
         </>
       }
-    </div>);
+    </div>
+    </>);
 
 }
 

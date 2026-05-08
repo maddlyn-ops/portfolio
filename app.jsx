@@ -33,6 +33,11 @@ const Icon = {
   close: (p) =>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+    </svg>,
+
+  zoom: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /><path d="M11 8v6" /><path d="M8 11h6" />
     </svg>
 
 };
@@ -540,11 +545,16 @@ function Contact() {
 function CaseModal({ caseId, onClose, onNav }) {
   const data = window.CASES.find((c) => c.id === caseId);
   const idx = window.CASES.findIndex((c) => c.id === caseId);
+  const [zoom, setZoom] = useState(null);
   useEffect(() => {
     if (caseId) {
       document.body.style.overflow = "hidden";
       const onKey = (e) => {
-        if (e.key === "Escape") onClose();
+        if (e.key === "Escape") {
+          if (zoom) setZoom(null); else onClose();
+          return;
+        }
+        if (zoom) return;
         if (e.key === "ArrowRight" && idx < window.CASES.length - 1) onNav(window.CASES[idx + 1].id);
         if (e.key === "ArrowLeft" && idx > 0) onNav(window.CASES[idx - 1].id);
       };
@@ -555,8 +565,21 @@ function CaseModal({ caseId, onClose, onNav }) {
       };
     } else {
       document.body.style.overflow = "";
+      setZoom(null);
     }
-  }, [caseId, idx, onClose, onNav]);
+  }, [caseId, idx, onClose, onNav, zoom]);
+
+  const ZoomFigure = ({ src, alt, className }) =>
+    <figure className={className}>
+      <img src={src} alt={alt} />
+      <button
+        type="button"
+        className="figure__zoom"
+        aria-label="Agrandir l'image"
+        onClick={(e) => { e.stopPropagation(); setZoom({ src, alt }); }}>
+        <Icon.zoom style={{ width: 16, height: 16 }} />
+      </button>
+    </figure>;
 
   return (
     <div className={`modal ${caseId ? "is-open" : ""}`} onClick={(e) => {if (e.target.classList.contains("modal")) onClose();}}>
@@ -579,9 +602,7 @@ function CaseModal({ caseId, onClose, onNav }) {
             <p className="modal__quote">{data.quote}</p>
 
             {data.hero &&
-          <figure className="modal__hero">
-                <img src={data.hero} alt={data.heroAlt || data.title} />
-              </figure>
+          <ZoomFigure src={data.hero} alt={data.heroAlt || data.title} className="modal__hero" />
           }
 
             {data.metrics &&
@@ -599,9 +620,7 @@ function CaseModal({ caseId, onClose, onNav }) {
           <section key={i} className="modal__section">
                 <h3>{s.h}</h3>
                 {s.image &&
-            <figure className={`modal__figure ${s.imageWidth ? `modal__figure--${s.imageWidth}` : ""}`}>
-                    <img src={s.image} alt={s.imageAlt || s.h} />
-                  </figure>
+            <ZoomFigure src={s.image} alt={s.imageAlt || s.h} className={`modal__figure ${s.imageWidth ? `modal__figure--${s.imageWidth}` : ""}`} />
             }
                 {s.body && s.body.map((p, j) => <p key={j}>{p}</p>)}
                 {s.list &&
@@ -613,9 +632,7 @@ function CaseModal({ caseId, onClose, onNav }) {
                     <h4>{sb.t}</h4>
                     <p>{sb.b}</p>
                     {sb.image &&
-              <figure className={`modal__figure ${sb.imageWidth ? `modal__figure--${sb.imageWidth}` : ""}`}>
-                        <img src={sb.image} alt={sb.imageAlt || sb.t} />
-                      </figure>
+              <ZoomFigure src={sb.image} alt={sb.imageAlt || sb.t} className={`modal__figure ${sb.imageWidth ? `modal__figure--${sb.imageWidth}` : ""}`} />
               }
                   </div>
             )}
@@ -644,9 +661,7 @@ function CaseModal({ caseId, onClose, onNav }) {
                   </div>
             }
                 {s.imageEnd &&
-            <figure className={`modal__figure ${s.imageEndWidth ? `modal__figure--${s.imageEndWidth}` : ""}`}>
-                    <img src={s.imageEnd} alt={s.imageEndAlt || s.h} />
-                  </figure>
+            <ZoomFigure src={s.imageEnd} alt={s.imageEndAlt || s.h} className={`modal__figure ${s.imageEndWidth ? `modal__figure--${s.imageEndWidth}` : ""}`} />
             }
               </section>
           )}
@@ -660,6 +675,14 @@ function CaseModal({ caseId, onClose, onNav }) {
               </button>
             </div>
           </div>
+          {zoom &&
+          <div className="lightbox" onClick={() => setZoom(null)}>
+              <button className="lightbox__close" type="button" aria-label="Fermer" onClick={(e) => { e.stopPropagation(); setZoom(null); }}>
+                <Icon.close style={{ width: 22, height: 22 }} />
+              </button>
+              <img src={zoom.src} alt={zoom.alt} onClick={(e) => e.stopPropagation()} />
+            </div>
+          }
         </>
       }
     </div>);

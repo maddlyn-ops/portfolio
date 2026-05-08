@@ -11,6 +11,8 @@ window.CASES = [
     status: "Livré",
     title: "Refonte App BFM",
     teaser: "Une app utilisée par 17M de personnes par mois, refondue sous le regard du nouvel actionnaire. Quatre projets en un.",
+    hero: "./assets/cases/bfm-hero.jpg",
+    heroAlt: "Hero du cas Refonte App BFM",
     quote: "En 2024, on m'a confié la refonte de l'app BFM. Sur le papier, c'était un projet produit. En réalité, c'était quatre projets en un, sous le regard du nouvel actionnaire, et sans le droit de se louper.",
     metrics: [
       { value: "+5%", label: "visites moyennes (objectif initial : +1%)" },

@@ -1701,6 +1701,17 @@ em { font-style: normal; color: inherit; font-weight: inherit; }
   height: auto;
   display: block;
 }
+.modal__hero {
+  margin: 24px 0 40px;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  border: 1px solid var(--graphite-500);
+}
+.modal__hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* =========================================================
    Responsive

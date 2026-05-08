@@ -571,6 +571,12 @@ function CaseModal({ caseId, onClose, onNav }) {
             <h1 className="modal__title">{data.title}</h1>
             <p className="modal__quote">{data.quote}</p>
 
+            {data.hero &&
+          <figure className="modal__hero">
+                <img src={data.hero} alt={data.heroAlt || data.title} />
+              </figure>
+          }
+
             {data.metrics &&
           <div className="metrics">
                 {data.metrics.map((m, i) =>

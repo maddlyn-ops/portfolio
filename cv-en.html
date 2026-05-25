@@ -54,11 +54,12 @@
     gap: 18px;
   }
   .cv__name-fav {
-    width: clamp(48px, 5.5vw, 72px);
-    height: clamp(48px, 5.5vw, 72px);
+    width: clamp(56px, 6vw, 80px);
+    height: clamp(56px, 6vw, 80px);
     border-radius: 50%;
     flex-shrink: 0;
     object-fit: cover;
+    object-position: 50% 15%;
     border: 1px solid var(--graphite-500);
   }
   .cv__top-actions { display: flex; align-items: center; gap: 12px; }
@@ -223,7 +224,7 @@
     .cv__exp { grid-template-columns: 1fr; gap: 4px; }
   }
 
-  /* Print → A4 portrait, exact desktop layout scaled to one page */
+  /* Print → A4 portrait, exact desktop layout, vertically centered, one page */
   @media print {
     @page { size: A4 portrait; margin: 0; }
     html, body {
@@ -238,6 +239,8 @@
       color: var(--snow) !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
+      display: grid;
+      place-content: center;
     }
     *, *::before, *::after {
       -webkit-print-color-adjust: exact !important;
@@ -245,11 +248,10 @@
     }
     .cv__top { display: none !important; }
     .cv {
+      zoom: 0.7349;
       width: 1080px;
       max-width: none;
-      padding: 36px 44px;
-      transform: scale(0.7349);
-      transform-origin: top left;
+      padding: 24px 44px;
     }
     .cv__hero { grid-template-columns: 1.4fr 1fr !important; gap: 56px !important; }
     .cv__grid { grid-template-columns: 1.35fr 1fr !important; gap: 56px !important; }

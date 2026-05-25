@@ -54,10 +54,12 @@
     gap: 18px;
   }
   .cv__name-fav {
-    width: clamp(40px, 5vw, 64px);
-    height: clamp(40px, 5vw, 64px);
-    border-radius: 12px;
+    width: clamp(48px, 5.5vw, 72px);
+    height: clamp(48px, 5.5vw, 72px);
+    border-radius: 50%;
     flex-shrink: 0;
+    object-fit: cover;
+    border: 1px solid var(--graphite-500);
   }
   .cv__top-mark {
     display: inline-flex; align-items: center; gap: 10px;
@@ -263,6 +265,11 @@
       transform: scale(0.7349); /* 210mm @ 96dpi (794px) / 1080px */
       transform-origin: top left;
     }
+    /* The print viewport is narrower than 880px, which would normally
+       collapse the layout to one column — force the desktop grid back */
+    .cv__hero { grid-template-columns: 1.4fr 1fr !important; gap: 56px !important; }
+    .cv__grid { grid-template-columns: 1.35fr 1fr !important; gap: 56px !important; }
+    .cv__exp { grid-template-columns: 220px 1fr !important; gap: 24px !important; }
   }
 </style>
 </head>
@@ -283,7 +290,7 @@
     <section class="cv__hero">
       <div>
         <h1 class="cv__name">
-          <img class="cv__name-fav" src="./assets/fav-200.png" alt="" />
+          <img class="cv__name-fav" src="./assets/portrait.png" alt="Maddlyn Fuzier" />
           <span>Maddlyn Fuzier</span>
         </h1>
         <p class="cv__meta">
